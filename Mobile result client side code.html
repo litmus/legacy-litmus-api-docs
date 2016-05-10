@@ -1,0 +1,69 @@
+<!-- page=Mobile result client side code -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1254776142 -->
+<!-- ip=93.97.172.119 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<p>For each mobile client, we've included the client side code (HTML, Javascript and CSS) required to render it within your own application.&nbsp;</p>
+<p>&nbsp;</p>
+<h3>Windows Mobile 6.0</h3>
+<p>&nbsp;</p>
+<pre style="word-wrap: break-word; white-space: pre-wrap;">
+ 
+</pre>
+<pre style="word-wrap: break-word; white-space: pre-wrap;">
+
+&lt;script type="text/javascript"&gt;
+var imageTop = 0;
+
+function scrollUp() {
+        if (imageTop &lt; 0)
+        {
+                imageTop += heightInc;
+                $("screenimg").style.top = imageTop + "px";
+        }
+}
+
+function scrollDown() {
+        if((imageTop-100)&gt;($("screenimg").height*-1) + heightInc)
+        {
+                imageTop -= heightInc;
+                $("screenimg").style.top = imageTop + "px";
+        }
+}
+
+function onKeyDown(e)
+{
+        var keycode;
+        if (window.event) keycode = window.event.keyCode;
+        else if (e) keycode = e.which;
+        switch (keycode)
+        {
+                // UP
+                case 38:
+                                scrollUp();
+                                return false;
+                        break;
+                // DOWN
+                case 40:
+                                scrollDown();
+                                return false;
+                        break;
+        }
+        return true;
+}
+document.onkeydown = onKeyDown;
+&lt;/script&gt;
+</pre>
+<pre>
+
+&lt;div id="mobile_screen" style="background: url('http://media.emailtests.com/winmobile6portrait.png') no-repeat 31px -4px; width: 300px; height: 500px; padding-top: 36px;"&gt;
+&lt;div id="mobile_container" style="height: 220px; width: 176px;"&gt;
+&lt;div id="screen"&gt;
+          &lt;img src="{capture}" id="screenimg" onclick="toggleResultImageZoom(event)"&gt;
+&lt;/div&gt; &lt;!-- screen --&gt;
+</pre>
+<div>&nbsp;</div>
+
+<!-- pbraw=eJy1VW1v2zYQ/q5fcROGxN6qN9uxYzkOhjUo1m3ZhrVFgX0ZaPEscZFIjqLsGIX/+46SYzt2NhQYqk/k6bm7516pWY7pvVqIEsFg3ZQWslKgtFALjpApjl4jeBoPRpPp9fjqOl6O6DS4SthwNLmOF+PJYsQGyXSByzEfDTwrKkyTwdVoMhkndBc6nQ7D6SRMJoMwSaZepqQl+4HdaEwtPtqosFXpSUZ698zaAtfwvRGSl7jxsGKiTKtO/F0pbNXUTOswU5Xn1IKVMLmQqVReEARwxyyDN6os1boGEng3+vaNMoAsK6DqouzCewVrvFwhCJmVDUcO5OAscuj98P7+51fwI1uxOjNCW2CSw+t37/qUrL8bYZyiorPkaEBYWAtbCAkb1RhQawnEtRQZs0LJ8EIuaj27ifSto3V8K4a3HylgR3pXinEY30QkPkVqg1DbTYlzf60MD9aG6RQWBtlD4AQzWBfCYlBrlmEKBG8hM//WA49MGPx/RryL0s52qXAFnPttBf/aJ8i/yO3MWzHKRkWt9V5pmEM887xlIzOXBiAcFeiD7vXhkwe7Tyyht1dwPiDu738eYHv4E/TbORQo8sK+ldnsDPZ1zydviFJUud8P25hD21I6WABfP/oH3a23PSN7R6U8odvb0w2SOO67qHsn7jpi3wRJn5zsWX5WWMEXDkvJn3DTRoV978DDle0BN671Z89Ks267M8QVjUf/CULujuUhiV8/08SyxlYdj3UwpO7KigOspqGh8eztIP+VoCiCD7+dSTNGfobX6dmP0+/QeudJPf0M2sZIWDIK4t/R7dCc/yaed79+/OVlpqP4c5l2ffeFuG73p526NQ1pbz2usqZyBVWSSsLdGpsfOmbWroCom/Z22I/Wym5BcLECwed+t3H/7JrVf9o5C5Y95EY1kqfQmLJ3WVir0yiqkAsWthvfYm1rt+Qj6rDOylgrYw0TNtQyv+yDVIFBjczCMNGPEIz0I+0twW2RwjCO3a0boRSuuqtmnAuZBzQpBBmTqFtWLzB2bxQTEs2e9JOtwSA+cpRMXjazi7iVHwrgEDSyUJts7n/KmKa049Y/0nADTammdyh7oNWq8rzE39tX+a0b7D+UqnrdEB58RuTUXVrzX9Ej2Jmi5+9ZdQi1f0nc2fsHpZFMzg== -->

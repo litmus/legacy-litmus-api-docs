@@ -1,0 +1,43 @@
+<!-- page=Customer API documentation: emails clients -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1321739468 -->
+<!-- ip=209.6.232.21 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;"><a style="font-weight:inherit;font-style:inherit;font-size:20px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-documentation">Back to Customer API documentation</a></h1>
+<p>&nbsp;</p>
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;">Customer REST API Method: emails/clients</h1>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;">Returns a list of email clients available for testing.</p>
+<div style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#434343;padding:0px;margin:0px;border:0px;">&nbsp;</div>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>URL:</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">https://#{company}.litmus.com/emails/clients.xml</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>HTTP Method(s):</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:'Courier New';vertical-align:baseline;line-height:1.2em;padding:0px;margin:0px;border:0px;">GET</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Parameters:</strong></p>
+<ul style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:3em;font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;border:0px;"><li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">n/a</li>
+</ul><p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Response</strong>:&nbsp;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>&nbsp;(truncated):&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;testing_applications type="array"&gt;
+  &lt;testing_application&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#average_time_to_process">average_time_to_process</a> type="integer"&gt;213&lt;/average_time_to_process&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#business">business</a>&gt;false&lt;/business&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#result_type">result_type</a>&gt;email&lt;/result_type&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#supports_content_blocking">supports_content_blocking&gt;false</a>&lt;/supports_content_blocking&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#desktop_client">desktop_client</a>&gt;false&lt;/desktop_client&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#status">status</a>&gt;0&lt;/status&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#default">default</a>&gt;false&lt;/default&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#platform_name">platform_name</a>&gt;Web-based&lt;/platform_name&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#platform_long_name">platform_long_name</a>&gt;Web-based&lt;/platform_long_name&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#application_code">application_code</a>&gt;hotmail&lt;/application_code&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#application_long_name">application_long_name</a>&gt;Live Hotmail&lt;/application_long_name&gt;
+  &lt;/testing_application&gt;
+  ...
+&lt;/testing_applications&gt;
+</pre>
+<!-- pbraw=eJzlmG1v2zYQgL/rV3AKlrRAJVm2kziyoy7t+gYkQ5A62L4ZlHSyiVCkQFJJvGH/fac318riLk2xAolhwCaPR/Lu4fHlnNM5BG8LbWQGipycfyKJjIsMhKGGSREQyCjjmsScoUxbBUuCXn94eDQ62B/10iGW+vs+HQwPR73o4DAa0r5/FEF6kAz7lmEZBP6g7x8OjoYHI4vlQb935B64/UHf7ftWLIXBUR2zzCEwcGu8hcm4JSh2O6PGLOCGvFFMJByWVmVIkNXiXzgzWaFpnruxzKyym3PN1JyJQEjLcRzyKzWUvJecyxtNUGBNFj7RZsnh2E5xXucG2HxhgkjyZFwJqsaAiQUoZhoR+xPQ5Py2rqY0Y3wZ7H2GuQRy+WnvFdk7LWKWUPJBUZEACk4Uo/wV0VRoR+NI6fgalGEx5Q7lbC6CiGrgTMC4/HIWtRW+29+HbBxLLlWwMxyUn3FOk4SJeVDOn9HKubIYSZWAqop2OKH3OdV14qF+tSqbDG6s8/3hcDR6iHVkoSA9tr02vhyML6cTX3b4hsZXxEiyOQYnHg0n3sIPrUke7opI5+OJl4fPdEFXHC7efZ5WMM7ALGTS7kSv2YktkUcvvz/4xuXvuvc47y7AFEpoQgln2hCZ1l61xwuh11ijEQeSSkUMaIMjuvVyJ+z6xzn77a61kYlmPr11mWijpJiHlxenwcRrKjX2J+dJTkXH5HaTx7JQDDeWgBvc1pkUElVjwD4LY3IdeN7OX3iZYPfl3259v5SXi9fdd+5txpEQarV8OmfSk6NVL/XH6fS8OWhe6JfPLgS+y+S9t03g/IaB89DDHw1/iKkf3k2fXzCdU4UvOANK3w2kgrce1WM4RuZrQzqqmn9NEEmDt+G6hENqggHa9/8zWfe56yhnP25lHkJeeHTicYaEvYKHzyOKLkDnUmhYhVDQcapxsf4mX/npnAZlkuEkEEtVpzcFvvFUZfqXif84OyVwS7Ocw1r4Vpu0HvGFUYWIqYHk5b02NTUF4S4349d4YRAEpnG+Y9t3ezYBEcuSw7F9OX3vjOzXu3Mztkrl5sUzw8SGI+DSRk3K9OjYpkrRpV1pErJBt2mt278jNXjsc6lODchPLMulMlSYR2cJZfrmXEAKCmHBz4MTZ1q765x8cXeHoj2YwM7KRHNm5CxXMgat7XBDQ5lKNDgZpp5zUBXQvj8ogXkbem0b1ajQOHuJsS2V3EoKKeUaKlRty7axUaALbmZlDNnhWqUlVD0WK0JrjdsGSRd5OZGeNX/wzCIu4yvUssONTavwqkiWAL+quk04E9BX+FCa1RmIHXbr/96b3fZto6UNNQWeXfVvS6dXh1Ql2zYiCaQUj6IycKrCfRFTNWwbmJxTk0qVzcp/nO2wU20h/Q6RU9qZVKA6KluLi+OT+C6zlew/wK30to3e2jMdb7QE2d2VtOQW0qxeEXd1tpnaWtjdK275nbJrIB83QLwbf5XC5lTKdV1rk0p9kWC2h5nePzmUxM8= -->

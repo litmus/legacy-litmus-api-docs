@@ -1,0 +1,204 @@
+<!-- page=Api Callbacks - Callback Xml Format -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- time=1336667819 -->
+<!-- ip=66.134.198.26 -->
+<!-- content-type=text/html -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<h2>Mail Test Callback Format</h2>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;TestResult type="mail"&gt;
+&nbsp; &lt;Id&gt;553&lt;/Id&gt;
+&nbsp; &lt;ApiId&gt;MOBILEME&lt;/ApiId&gt;
+&nbsp; &lt;SupportsContentBlocking&gt;False&lt;/SupportsContentBlocking&gt;
+&nbsp; &lt;ResultImageSet&gt;
+&nbsp; &nbsp; &lt;ImagesOnUrls&gt;
+&nbsp; &nbsp; &nbsp; &lt;WindowUrls&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ImageUrl&gt;http://s3.amazonaws.com/resultcaptures/a31f4e2e-ae3a-4973-94e6-90ed459967b5.windowon.png&lt;/ImageUrl&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ThuimbUrl&gt;http://s3.amazonaws.com/resultcaptures/63c24c07-d10c-447e-8dcd-dd917d77960c.windowonthumb.png&lt;/ThuimbUrl&gt;
+&nbsp; &nbsp; &nbsp; &lt;/WindowUrls&gt;
+&nbsp; &nbsp; &nbsp; &lt;FullPageUrls&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ImageUrl&gt;http://s3.amazonaws.com/resultcaptures/61f690d9-2ad4-4140-bff9-faded01cf8a0.fullpageon.png&lt;/ImageUrl&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ThuimbUrl&gt;http://s3.amazonaws.com/resultcaptures/190ded03-9b32-4aa8-b95f-ecc7137a5700.fullpageonthumb.png&lt;/ThuimbUrl&gt;
+&nbsp; &nbsp; &nbsp; &lt;/FullPageUrls&gt;
+&nbsp; &nbsp; &lt;/ImagesOnUrls&gt;
+&nbsp; &nbsp; &lt;ImagesOffUrls&gt;
+&nbsp; &nbsp; &nbsp; &lt;WindowUrls&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ImageUrl&gt;http://s3.amazonaws.com/resultcaptures/a31f4e2e-ae3a-4973-94e6-90ed459967b5.windowon.png&lt;/ImageUrl&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ThuimbUrl&gt;http://s3.amazonaws.com/resultcaptures/63c24c07-d10c-447e-8dcd-dd917d77960c.windowonthumb.png&lt;/ThuimbUrl&gt;
+&nbsp; &nbsp; &nbsp; &lt;/WindowUrls&gt;
+&nbsp; &nbsp; &nbsp; &lt;FullPageUrls&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ImageUrl&gt;http://s3.amazonaws.com/resultcaptures/61f690d9-2ad4-4140-bff9-faded01cf8a0.fullpageon.png&lt;/ImageUrl&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ThuimbUrl&gt;http://s3.amazonaws.com/resultcaptures/190ded03-9b32-4aa8-b95f-ecc7137a5700.fullpageonthumb.png&lt;/ThuimbUrl&gt;
+&nbsp; &nbsp; &nbsp; &lt;/FullPageUrls&gt;
+&nbsp; &nbsp; &lt;/ImagesOffUrls&gt;
+&nbsp; &lt;/ResultImageSet&gt;
+  &lt;SpamResult /&gt;
+&nbsp; &lt;State&gt;Completed&lt;/State&gt;
+&nbsp; &lt;CallbackUrl&gt;http://brendan-pc/demo/Callback.aspx&lt;/CallbackUrl&gt;
+&lt;/TestResult&gt;</pre>
+<p>&nbsp;</p>
+<h3><strong>Id</strong></h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;<em>(treat  as an integer, this is to be corrected in future versions of our WSDL)</em></p>
+<p>Capacity:&nbsp;&nbsp; &nbsp; 10  characters&nbsp;<em>(theoretical maximum value is "2,147,483,647", it is safe  to store this value as a 32-bit integer if you wish to)</em></p>
+<p>Value:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;226238</p>
+<p>&nbsp;</p>
+<p>This is the most  important property, it's the unique identifer for your result.</p>
+<p>&nbsp;</p>
+<h3>ApiId</h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p>Capacity:&nbsp;&nbsp; &nbsp; 255  characters</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OL2007 / GMAILNEW / IPHONE3</p>
+<p>&nbsp;</p>
+<p>This code references the platform for the specific test result.&nbsp; It will match the <strong>ApplicationName </strong>property of the results collection.</p>
+<p>&nbsp;</p>
+<h3>SupportsContentBlocking</h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; boolean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true / false</p>
+<p>&nbsp;</p>
+<p>This value indicates true if the requested client supports content blocking and false if it does not.&nbsp; Content blocking clients, sometimes referred to as image blocking, will return different result images for <em>ImagesOn </em>and <em>ImagesOff</em>.</p>
+<p>&nbsp;</p>
+<h3>ResultImageSet</h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; complex/collection</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Two blocks of images - ImagesOnUrls and ImagesOffUrls</p>
+<p>&nbsp;</p>
+<p>The ResultImageSet, as the name would suggest is the collection of images that makes up your completed test.&nbsp; It consists of two main blocks ImagesOnUrls and ImagesOffUrls.&nbsp; Each main block contains two sub blocks for WindowUrls and FullPageUrls.&nbsp; Further, each capture block contains an ImageUrl and ThumbUrl.&nbsp; For clients that do not support content blocking the outerblocks (ImagesOnUrls and ImagesOffUrls) will be identical.&nbsp; For clients who do support content blocking (SupportsContentBlocking == true) the ImagesOffUrl will show the blocked versions and ImagesOnUrl will show the non-blocked versions.&nbsp;</p>
+<p>&nbsp;</p>
+<h3>SpamResult</h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; complex/collection</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This block will always be empty for mail results.</p>
+<p>&nbsp;</p>
+<h3>State</h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string</p>
+<p>Capacity:&nbsp;&nbsp; &nbsp; 255  characters</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pending / Deferred / Failed / Completed / Canceled</p>
+<p>&nbsp;</p>
+<p>Indicates the current status of your test.&nbsp; By the time you receive a callback the most likely value is Completed.</p>
+<p>&nbsp;</p>
+<p><strong>CallbackUrl</strong></p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p>Capacity:&nbsp;&nbsp; &nbsp; 255  characters</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://yoursite.com/yourcallbackpage/">http://yoursite.com/yourcallbackpage/</a></p>
+<p>&nbsp;</p>
+<p>This is the Url Litmus will post test results to.</p>
+<h2>&nbsp;</h2>
+<h2>Spam Test Callback Format</h2>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;TestResult type="spam"&gt;</pre>
+<pre>&nbsp; &lt;Id&gt;554&lt;/Id&gt;
+&nbsp; &lt;ApiId&gt;SPAMASSASSIN3&lt;/ApiId&gt;
+&nbsp; &lt;SupportsContentBlocking&gt;false&lt;/SupportsContentBlocking&gt;
+&nbsp; &lt;ResultImageSet /&gt;
+&nbsp; &lt;SpamResult&gt;
+&nbsp;&nbsp;&nbsp; &lt;SpamScore&gt;9.4&lt;/SpamScore&gt;
+&nbsp;&nbsp;&nbsp; &lt;IsSpam&gt;True&lt;/IsSpam&gt;
+&nbsp;&nbsp;&nbsp; &lt;SpamHeaders&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;HTML_FONT_FACE_BAD&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;The font face used in your email is not valid.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try validating the HTML of your email using the W3C
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; validator to make sure you are using standard
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HTML.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;4&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;HTML_MESSAGE&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;Your email contains HTML content. This won't
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; usually cause you to fail any spam filters.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;2&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;URIBL_AB_SURBL&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;Your email contains a URL blacklisted by &amp;lt;a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; href="http://www.abusebutler.com/"&amp;gt;Abuse
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Butler&amp;lt;/a&amp;gt;.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;3&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;URIBL_JP_SURBL&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;Your email contains a URL blacklisted by &amp;lt;a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; href="http://www.joewein.de/sw/blacklist.htm"&amp;gt;jwSpamSpy&amp;lt;/a&amp;gt;.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;3&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;URIBL_OB_SURBL&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;Your email contains a URL blacklisted by &amp;lt;a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; href="http://www.outblaze.com/"&amp;gt;Outblaze&amp;lt;/a&amp;gt;.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;3&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;URIBL_SC_SURBL&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;Your email contains a URL blacklisted by &amp;lt;a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; href="http://www.spamcop.net/"&amp;gt;SpamCop&amp;lt;/a&amp;gt;.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;3&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp; &lt;/SpamHeaders&gt;
+&nbsp; &lt;/SpamResult&gt;
+</pre>
+<pre>&nbsp;&lt;CallbackUrl&gt;http://mysite.com/callback/&lt;/CallbackUrl&gt;</pre>
+<pre>&lt;/TestResult&gt;
+</pre>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3><strong>Id</strong></h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;<em>(treat  as an integer, this is to be  corrected in future versions of our WSDL)</em></p>
+<p>Capacity:&nbsp;&nbsp; &nbsp; 10  characters&nbsp;<em>(theoretical maximum value is  "2,147,483,647", it is safe  to store this value as a 32-bit integer if  you wish to)</em></p>
+<p>Value:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 225255</p>
+<p>&nbsp;</p>
+<p>This is the most  important property, it's the unique identifer for  your test.</p>
+<p>&nbsp;</p>
+<h3>ApiId</h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p>Capacity:&nbsp;&nbsp; &nbsp; 255  characters</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SPAMASSASSIN3 / BARRACUDA / POSTINI</p>
+<p>&nbsp;</p>
+<p>This code references the platform for the specific test result.&nbsp; It  will match the <strong>ApplicationName </strong>property of the results  collection.</p>
+<p>&nbsp;</p>
+<h3>SupportsContentBlocking</h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; boolean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; true / false</p>
+<p>&nbsp;</p>
+<p>This value will always be false for a spam test.</p>
+<p>&nbsp;</p>
+<h3>ResultImageSet</h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; complex/collection</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This block will always be empty for spam tests.</p>
+<p>&nbsp;</p>
+<h3>SpamResult</h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; complext/collection</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This object consists of 3 properties:&nbsp;</p>
+<p>&nbsp;</p>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp; Spam Score</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp;&nbsp;&nbsp;&nbsp; Double</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Value:&nbsp;&nbsp;&nbsp; 9.4</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Numerical spam indicator returned by the filter.</p>
+<p>&nbsp;</p>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp; IsSpam</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp;&nbsp;&nbsp;&nbsp; boolean</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Value:&nbsp;&nbsp;&nbsp; true/false</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Boolean indicating if this particular filter deems the message to be spam or not.</p>
+<p>&nbsp;</p>
+<h4>&nbsp;&nbsp;&nbsp;&nbsp; SpamHeaders</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Type:&nbsp;&nbsp;&nbsp;&nbsp; complex/collection</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Value:&nbsp;&nbsp;&nbsp; Collection of spam headers and their meanings.</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; Each header consists of a key, description and rating indicating it's severity. (<a href="/f/spam-in-litmus.png">spam headers explained</a>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<h3>State</h3>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; string</p>
+<p>Capacity:&nbsp;&nbsp; &nbsp; 255  characters</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pending / Deferred / Failed / Completed / Canceled</p>
+<p>&nbsp;</p>
+<p>Indicates the current status of your test.&nbsp; By the time you receive a  callback the most likely value is Completed.</p>
+<p>&nbsp;</p>
+<p><strong>CallbackUrl</strong></p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p>Capacity:&nbsp;&nbsp; &nbsp; 255  characters</p>
+<p>Value:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://yoursite.com/yourcallbackpage/">http://yoursite.com/yourcallbackpage/</a></p>
+<p>&nbsp;</p>
+<p>This is the Url Litmus will post test results to.</p>
+<!-- pbraw=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 -->

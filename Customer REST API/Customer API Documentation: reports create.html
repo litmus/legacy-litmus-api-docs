@@ -1,0 +1,46 @@
+<!-- page=Customer API Documentation: reports create -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- time=1324570718 -->
+<!-- ip=204.9.220.36 -->
+<!-- content-type=text/html -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;"><a style="font-weight:inherit;font-style:inherit;font-size:20px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-documentation">Back to Customer API documentation</a></h1>
+<p>&nbsp;</p>
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;">Customer REST API Method: reports/create</h1>
+<p>&nbsp;</p>
+<p class="explanation" style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Creates a new report if you have available credits.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>URL:</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">https://#{company}.litmus.com/reports.xml</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>HTTP Method(s):</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:'Courier New';vertical-align:baseline;line-height:1.2em;padding:0px;margin:0px;border:0px;">POST</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Parameters:</strong></p>
+<ul style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:3em;font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;border:0px;"><li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">n/a&nbsp;</li>
+</ul><p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Request</strong>:&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>:&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;report&gt;
+  &lt;name&gt;Test name&lt;/name&gt;
+&lt;/report&gt;   
+
+  
+</pre>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Response</strong>:&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>:&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;report&gt;
+  &lt;bug_html&gt;&amp;lt;style&amp;gt;@media print{#_t { background-image: url('https://a6.emltrk.com/3CDC7925?p');}} div.OutlookMessageHeader, table.moz-email-headers-table, blockquote #_t {background-image:url('https://a6.emltrk.com/3CDC7925?f')}&amp;lt;/style&amp;gt;&amp;lt;div id=&amp;quot;_t&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;img src=&amp;quot;https://a6.emltrk.com/3CDC7925&amp;quot; width=&amp;quot;1&amp;quot; height=&amp;quot;1&amp;quot; border=&amp;quot;0&amp;quot; /&amp;gt;&lt;/bug_html&gt;
+  &lt;created_at type="datetime"&gt;2010-06-16T13:31:14Z&lt;/created_at&gt;
+  &lt;id type="integer"&gt;25&lt;/id&gt;
+  &lt;report_name&gt;Test name&lt;/report_name&gt;
+&lt;/report&gt;
+
+
+</pre>
+<!-- pbraw=eJzdWP9P2zgU/z1/hVUkOiSSNG1T2vQL28p2mwQ3BEU63S/ISV5SC8fObAfoEP/72UkLaQ+mbqe7GwipxM/v2Z/P88cvdnKcQjAtpOIZCPTu9DM64lGRAVNYEc4CJCDnQkkUCcAKrILEQZK0B94A/M6Bj9u+3/OwF7Y6rUG33+31B0k/jCIf+/6BpUgGgddpd/2D1oHXt0getFtdZ+C02y2n07MizpSeyVaLHAIFt8qdq4xaDOuw9wJYjBma4iQRsLAgw4QGYWV9S4nKConz3Il4Zpko+5qIlLCAccu2bXSEFUYfOaX8RiJtsEZzD0m1oDBuJHpa+wZIOldByGk8LA1lZ0DYHARRSxP5Bhpxfls1E5wRugia55ByQBefm/uoeVxEJMboN4FZDNrwThBM95HETNpSj5QMr0EoEmFqY0pSFoRYAiUMhubHnlcoPKftQzaMOOUi2Ol2zN8wx3FMWBqY+TNckjOPIRcxiPKxMRnhp0itk9iW18rlOcBLdJ7X7fb726BDcwHJuOGu5GVredlxXV6NyXscXSHF0ZoE13xGLp6M3Lk3sUb5ZJeFMh+O3HzyShf0IQ9nH85nZTJOQM15/LAR3WojPpmRHEUUSzluwG1OMatS/NMC8To/KJD1BBj+WzEu+UiEEYObJUtEErTgBZrja0D4Wu98HFIwNSgmSjpLthvc/0eeP7FxpRKcpZOLs+Ng5C4bL5RJrst0HfJqW0W8EERLWa+r3kgZZ1y7RqBj5krlMnDdnTtdvnX44t6pKrop5+5S6c5tRnVqdPfkFS34p9nsdLmn38i9V7f2/whyc7pUzO9aMdvW2S3LzOmX89nrU9MpFvqwpEDITSUVdMWoGsNWPK8NaYty/poh5Eq/eeoWCokKOhrfv5+TOud1opT8dyuzTeaZi1e6oUTn2S3o5HVo6Qy+FiDVg46CX4bTNiwqsNUv+s6/tZJl7hx2DBEX1W2n0Gc+UYJ4TMsfJ8cIbnGWU6htsbKQrGdoXQMCJrtUDQ/1SwxpplIPP254TquBgEXc0Bk3LmYf7X7jcDdVQ8s4Vy++somQMZibkGnO9LqgsqGN7spaxriPQQghSwdqTZrZX7AOZc6ZhF9QiD9O6nlZvkA5hkV6ae7axrSrIQy1rYReNrTxbaYP6BjlgjB1t3Op0B0K9QUvFVxTsUlmPjagQtA3zdUJEPccyKgSV+XJrzM9mh4M2v5h3twb3t+jmFw7XwpFOb86ASl1+CfAOif7SJkLgZPxb3b5YUAvk7FLu7Tvo5Dy6OprwRWgEsbfUGwDImnu3a9oums8V1aND5F4XDbNbMNL9fi86exq700byVIkRVQb4fuYHv3QDYnVvBbo1foq0T7TWemz1tmqdboPCA3i+oIvNVBdP+NLrJD5bDNuxLppPvQ0jFO75bXsVs/2ejOvE3S8wOv+WY70GFYbi8TLMbRcIAVRDeGXASSuOVZKvHy6HG50blZFy1oWxL8A5wCr5g== -->

@@ -1,0 +1,43 @@
+<!-- page=SOAP Web Service -  Polling for updates -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- time=1347893010 -->
+<!-- ip=66.134.198.26 -->
+<!-- content-type=text/html -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Now that we've sent the email, Litmus has received it and our test has started (as shown by emailTest.State changing to "processing"), we can begin polling for updates.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">You should poll for updates once every 60 seconds. Please do not exceed this and poll more frequntly or your results may update less often as frequent updates trigger more agressive caching on our web servers. If you do need to poll more often, please&nbsp;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="mailto:resellers@litmusapp.com?subject=We%20may%20need%20to%20poll%20more%20frequently">contact us</a>.</p>
+<p>&nbsp;</p>
+<p>Here is how your application should function when polling, starting with the initial test creation for clarity:</p>
+<p>&nbsp;</p>
+<ol><li>CreateEmailTest</li>
+<li>Send your email</li>
+<li>Wait for 60 seconds</li>
+<li>GetEmailTest</li>
+<li>Wait for 60 seconds</li>
+<li>GetResult for each pending result (explained below)</li>
+<li>Wait 60 seconds</li>
+<li>Repeat steps 6 and 7 until all results are returned</li>
+</ol><p>&nbsp;</p>
+<h2>Using GetResult to retreive a single result</h2>
+<p>The Litmus Web Service supports an optimisation that allows you to request just one result at a time, instead of the entire EmailTest. In the example code below, we'll iterate through each of the results in emailTest, only checking for updates if they have not yet completed.</p>
+<p>&nbsp;</p>
+<pre>var allFinished = false
+while (allFinished = false)
+{
+     for (var i = 0; i &lt; emailTest.Results.Count; i++)
+     {
+          var result = emailTest.Results[i]
+          if (result.Completed = false)
+          {
+               emailTest.Results[i] = LitmusApi.GetResult(result.Id)
+          }     
+     }
+     Sleep(60000)     // You must not check more often than once every 60 seconds
+}
+</pre>
+<p>&nbsp;</p>
+<p>What we're doing above is iterating through each result, replacing it with the return value of GetResult. But we're only doing that if the result is not yet completed.&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=eJzNVttu20YQfedXTF00sRFdbUuWZVttkjZtgKIN4hRGUfRhRQ7FTVZcdrmUzBb5957ZlSwlFtA+FeUDqb3N5Zwzs6rUgqe3Pz9/Q3c8p1t2K50ydYneWGN0uaDcOmqqTHmuk0Zn0zw/vRxe8ujsYqROR6PxUA3ng7PB5fnkfDy5zCfzNB2p0egi8XrJ0+HZ+cXk8mwwHCS6mo7HPUz0hpeT3uk4SW3pufRd31Y89Xzv+4VfmqRUOPfCcZmpkl6qPHfcJrxU2kzncfYbo/2yqVVV9VK7TORUd6XdQpfT0ibdbpe+VV7RK2Rg1zVhIrmuqPat4ZujHF67a9aLwk91WbDT/irMhfXPpvSfkkJ1H4e5WmrTPmxZsfM6VaarjF6U07mqGYjxlby6RfQw7I14eVWpLAOW0wEsLVUIVH7OrcvYhZ9Hs5/smnyhPK356YqpBjIYM4XMO/RjSJkKVZPjlPWKM9KeVJmRbRyBHR8Wa6+cx9qx/C7suqR5G228w5berQeRlBaqXAi53tJR5WzKdY3h0UkH3ikF7nPGOlWPNdC77lczwDl7Us7r6moz+r+D+6ttBI3GZCGn/YTIlhA8w19L4wFwhyyzukdvDMMnZZZK64nvUwaqvtB1wDxYWVrHBHn+0ZTetASbrXDhuG6Mr2mp2o0TMgCYbA65E3gJR4TfbQje6cWCXTSoFk7oWAkRaSHw2zJwvEaB1ihQdgjvdS7OQnghMLsXUnDUoSpksOFJ/XcUpdZYN/1yODw/n0zoC72srPOq9P+GKSoc5zdHoldvpwCCjUG+n1b813Uzf8+pv7njr04HgBlvQQEfb/ESJGQBWOCzRdu0RzNpOSoF8PV1X80Oa3n2AwND8IzqiYTCrUGiXoOIjYrypkzDeF3wQ510YvUJZWvti1C+utReKxMLNHUcrYj+UqOAYjs9FIQ1s2ujZy9lP3+3rd7rPuYSWbhFH4yxhdLeLdwpNAWxvpPybvF79gds/dORt0HOYQdDkFTBt6QYZU7HfF8ZBd4zNA3025PPLB+y+pYrJAa0uKppHArqglBE2pCCiLcFpMCDY984GN8c7gsyn2JVnM5+ke5Fu1hRDTjnpEsShI9Fwxur133sF7jfgZxNU92/+eqmErlKlZOtcIfpOlIWerOKN4pUXvABYYHW9w1etty6INlIcv11QD+SVOjReWzmyBFJPbCAOi7jwr1aol4ptRlHHKUVPwUY2rOTFuILZ5tFETnYmNsChVb90OI7iATNKC04/fBZ7yYdjrW4KACMtLWWIUornnFnHC4Hx7OVcpL5K2i5LsDzDeXK1JysC42Qjw8snSR/JSSPeD+W8xpLgyt8nhh/tXchRcbq3ksL/rH+7NlJPLkxEB4xsMH25vHZ3/Tve3uR43HcC5ubzHZh7fbt2w/PIbs4GDXyvNK9B31t7b/O9g1+DO848TF+bg1zdTwe4DkJE/0+yVW0FMEI/oGlvaYtKisP30jJR6hf2HjcsO42fxucXFfCuZrbVWhhUTzhpt+XT4y/gy9KN5VlFOpDy4olB9BNI2Ht6qpHL5qtoyCy6C1Uht5XpLh+LK9Pg96N/gZ1c5u8 -->

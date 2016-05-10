@@ -1,0 +1,32 @@
+<!-- page=Email Analytics API -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- time=1459265240 -->
+<!-- ip=50.233.29.58 -->
+<!-- content-type=text/html -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<p>Our Email Analytics tool lets you track incredibly detailed data for your email campaigns. Email Analytics is available to all Litmus customers on our Plus plan or above.</p>
+<p>&nbsp;</p>
+<p>Email Analytics works by embedding a piece of HTML tracking code at the bottom of your email template when you send it. If you send a lot of campaigns and would like to automate the generation of these tracking codes then you'll find Email Analytics API very useful.</p>
+<p>&nbsp;</p>
+<p>The Email Analytics API is part of our regular Litmus Customer API. This is enabled for every paid Litmus account. If you don't already have a Litmus account you can sign up on our website.</p>
+<p>&nbsp;</p>
+<p><strong style="font-family:inherit;font-style:inherit;line-height:1.5em;">Campaigns</strong></p>
+<p>Campaigns are known as <strong>Reports</strong> within the API (a little confusing, we know). You can perform the following actions on Reports via the API:</p>
+<p>&nbsp;</p>
+<ul><li><a href="/Customer-API-Documentation%3A-reports">Index</a>: Returns a list of all the campaigns for a particular mailing list</li>
+<li><a href="/Customer-API-Documentation%3A-reports-show">Show</a>: Returns the details of a single campaign for a particular mailing list&nbsp;</li>
+<li><a href="/Customer-API-Documentation%3A-reports-create">Create</a>: Lets you create a new campaign (and get the tracking code) for a particular mailing list&nbsp;</li>
+</ul><p>&nbsp;</p>
+<p><strong>Common use case</strong></p>
+<p>The most common use case for the Email Analytics API is to generate new tracking codes for a mailing list that's already been set up. The API call you'll use to do this is <a href="/Customer-API-Documentation%3A-reports-create">reports/create</a>. With your API request you'll need to send the ID of the mailing list you want to create a campaign for. You can find this within Litmus by looking at the URL in your browser.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Visit the Analytics tab within your Litmus account and click through to one of your campaigns. If you look at the URL you'll see something similar to:</p>
+<p><span style="font-family:'Courier New';"><a href="http://salted.litmusapp.com/analytics/">http://salted.litmusapp.com/analytics/</a><strong>100</strong>/reports/200</span></p>
+<p>&nbsp;</p>
+<p>In our example, the ID of the mailing list is <strong>100</strong>. You can then use this ID in your request, and the API will return a new tracking code for your next campaign to that mailing list.</p>
+<p>&nbsp;</p>
+<p><strong>Support</strong></p>
+<p>If you need assistance while using our API, please email <a href="mailto:hello@litmus.com" search_id="undefined">hello@litmus.com</a> and we'll be delighted to help!</p>
+<!-- pbraw=eJydVl1v4zYQfPev2BpocwfEVuLEuURxhKZOiwZI28Nd2qJPBSWtLCIUqZJUHP/77lKSFecLbV4SiCa5szuzs6zFCuMfKyEVXGqhNl5mDi4/X48amcdFMTs7PMP50ae5mM3nJ4fiMD04Ojg7Pj0+OT0rTtMsm4v5/NPIywrjw+P52exkPjs+GMk6nh9MZ0dH09nZdH46yoz2qP3Eb2qMPT74qPSVGmlBx36wqHOhYSmKwuJmhAwmTtvV75X0VeNEXU8zU4341ORe2pXUsTajyWQCV8IL+MkoZdYOaGG0qJPfGgtPc/LGKFDoHWxMA96K7A6kzizmMlUbyNHTfswh5/sKY3mbhQAGMlHVQq60mz67VjoQ97QkUoUUA4RScBMwQ9Y4byq0DowGvuyzotVaUa50vUjNPU4XUZ0w4u906urz/utpkLWxdw7SDcFJMc+lXoGAWmKGYAr4+faXmzYh/iEzOYLw4EuE1HhCwHseJeOxIgweYV2iDsVwVGqQfgrXxfAtQBnPR7fJg6DltWlUDkretdk2dD/fxdFWqNEKLznbglcc7sJyvBhC7lGVCknXvaA8uEe7gcZh0ahX6nNL0V46SWTUwgbUnK/FVaOE7flYdnzw1incljKwh5qpywPlGEJTtnl/RmSZafRQmtzoPU8kWxT5BkpxT7V+sjfsy4hkR0WDpu7ZX2PqpH+N8oXz1lCdnN8ovBgX1DCTQlRSbWKpS7TSn4e18Pt2SUmNkxLlqvTx4XSO1fk4WfZ8LaL2zqSPsRyYtAh32qw1CAdd6OQL1sb64RispS+lDtxydT+QJKT3pHNq56JxROs+ZRUu+jiFv7q0a7RUyyocK0JfBr1mLIzQCl0cuJeivzt+qSiNShZKJgsBpcXiYhz1BE7oxOTKZE1FnhIE9+3R5cS2146Ta53jwyISSUyhfGM5X0Lugi64PznooGomXgTdyCzIhYXFkPnIIiIEo3fAmLjSrMfJV/q7C4WDt2bjAh7gOqoB0Nt4+vq8FxX5HbUriST8b5Hd9KbY/kjBNa4HPB+47VfYOspOP3/8H1gjZvMV0SdLU1UkDOp5CuvwmXC53ytDBGa7G0N8/7oZkEN1poQhpydu1KJ/DJkuE37PbRs8RfIrR7k3NTtG2wcZa6gzMUZCUXJDJ1s/eS8j3XeUbZmZwp/UgK11c1yL/zTofB9aI7kWxQ5uzUW4vup8dzclZnYtyJdo75bhx2obWjdYckika/3O2WjyKGNC5brJ8vuXG5qeLbbU0uhF+4qx7X79IckD264fJrNI+3jhvid2yvLLlKRx7UtrmlXJiRiN27H2aDp3Ls1gHyPtKuYQwREjHIqcVpK7kmS9iQc91uzbzy14b0mBJI2OX3G9Rx67Jbn0vo6jyAnlMZ/uPFYi0WcYjZP/to9Z73vi8OBg2wdRL45ZWCSQycvlvW5HDT5QSRTuvyULORj/41CDGMKsDvpmQdAtPT+dDvcDM/1wWEsqsA0e1xnI7otk+6LS9Pob5OdNaLkdaG9PyORrU3MxnplEx31oC+EcXSR0xq8cetZBmFbQddI+PcKQ7aN9EG3J5C9SQ4k0tLqHJxM0JuEIm5V/y/xi3NBwoTbBnDh9so/Za99IyGpL2ecVj+a2T2l7/Q2D/Rf/U/ok -->

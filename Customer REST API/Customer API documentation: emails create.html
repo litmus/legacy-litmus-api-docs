@@ -1,0 +1,150 @@
+<!-- page=Customer API documentation: emails create -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1321739192 -->
+<!-- ip=209.6.232.21 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;"><a style="font-weight:inherit;font-style:inherit;font-size:20px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-documentation">Back to Customer API documentation</a></h1>
+<p>&nbsp;</p>
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;">Customer REST API Method: emails/create</h1>
+<p>&nbsp;</p>
+<p class="explanation" style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Creates a new email test in your account.</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">This will create a new email test, there are a two ways to create a new email test.</p>
+<p>&nbsp;</p>
+<h4>1. Send your email to Litmus</h4>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Using this method, there are a few steps to the process of creating an email test and displaying it to the end user, the advantage is that it is that your email will arrive at Litmus in the same way that it will arrive in your customers inbox, via SMTP.</p>
+<ol style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:3em;font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;border:0px;"><li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">Create the new email test, specifying the email clients you wish to test it on.</li>
+<li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">Record the new test's ID, and its GUID.&nbsp;</li>
+<li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">Send the email that is to be tested, to the address specified in the GUID field.</li>
+<li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">Poll Litmus on the test's progress. The&nbsp;<code style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:'courier new', monospace !important;vertical-align:baseline;padding:0px;margin:0px;border:0px;">received</code>&nbsp;field will be set to&nbsp;<code style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:'courier new', monospace !important;vertical-align:baseline;padding:0px;margin:0px;border:0px;">true</code>&nbsp;when the email has been received by our system.&nbsp;</li>
+<li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">Once the test is complete, record the URLs to the result screenshots, and present these to your user.&nbsp;</li>
+</ol><div style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#434343;padding:0px;margin:0px;border:0px;">&nbsp;</div>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>URL:</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">https://#{company}.litmus.com/emails.xml</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>HTTP Method(s):</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:'Courier New';vertical-align:baseline;line-height:1.2em;padding:0px;margin:0px;border:0px;">POST</span></p>
+<p>&nbsp;</p>
+<p><strong>Curl example:</strong></p>
+<p><span style="font-family:'Courier New';">curl -i -X POST -u user:password -H 'Accept: application/xml' -H 'Content-Type: application/xml' https://#{company}.litmus.com/emails.xml -d @data.xml</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Parameters:</strong></p>
+<ul style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:3em;font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;border:0px;"><li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">n/a</li>
+</ul><p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>Request</strong>:</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>:&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;test_set&gt;
+  &lt;applications type="array"&gt;
+    &lt;application&gt;
+      &lt;code&gt;hotmail&lt;/code&gt;
+    &lt;/application&gt;
+    &lt;application&gt;
+      &lt;code&gt;gmail&lt;/code&gt;
+    &lt;/application&gt;
+    &lt;application&gt;
+      &lt;code&gt;notes8&lt;/code&gt;
+    &lt;/application&gt;
+  &lt;/applications&gt;
+  &lt;save_defaults&gt;false&lt;/save_defaults&gt;
+  &lt;use_defaults&gt;false&lt;/use_defaults&gt;
+&lt;/test_set&gt;
+</pre>
+<div>&nbsp;</div>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Response</strong>:&nbsp;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>&nbsp;(truncated):&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;test_set&gt;
+  &lt;created_at type="datetime"&gt;2009-10-05T10:49:52Z&lt;/created_at&gt;
+  &lt;id type="integer"&gt;76425&lt;/id&gt;
+  &lt;updated_at type="datetime"&gt;2009-10-05T10:49:53Z&lt;/updated_at&gt;
+  &lt;name&gt;No subject&lt;/name&gt;
+  &lt;service&gt;email&lt;/service&gt;
+  &lt;state&gt;waiting&lt;/state&gt;
+  &lt;public_sharing&gt;false&lt;/public_sharing&gt;
+  &lt;test_set_versions type="array"&gt;
+    &lt;test_set_version&gt;
+      &lt;version type="integer"&gt;1&lt;/version&gt;
+      &lt;url_or_guid&gt;40b1b5f@emailtests.com&lt;/url_or_guid&gt;
+      &lt;received&gt;false&lt;/received&gt;
+      &lt;source_url&gt;s3.amazonaws.com/sitevista/missing_source&lt;/source_url&gt;
+      &lt;inline_css&gt;&lt;/inline_css&gt;
+      &lt;results type="array"&gt;
+        &lt;result&gt;
+          &lt;check_state nil="true"&gt;&lt;/check_state&gt;
+          &lt;error_at type="datetime" nil="true"&gt;&lt;/error_at&gt;
+          &lt;finished_at type="datetime" nil="true"&gt;&lt;/finished_at&gt;
+          &lt;id type="integer"&gt;1284887&lt;/id&gt;
+          &lt;started_at type="datetime" nil="true"&gt;&lt;/started_at&gt;
+          &lt;test_code&gt;hotmail&lt;/test_code&gt;
+          &lt;state&gt;pending&lt;/state&gt;
+          &lt;result_type&gt;email&lt;/result_type&gt;
+          &lt;rendered_html_url&gt;&lt;/rendered_html_url&gt;
+          &lt;testing_application&gt;
+            &lt;average_time_to_process type="integer"&gt;213&lt;/average_time_to_process&gt;
+            &lt;business&gt;false&lt;/business&gt;
+            &lt;result_type&gt;email&lt;/result_type&gt;
+            &lt;supports_content_blocking&gt;false&lt;/supports_content_blocking&gt;
+            &lt;desktop_client&gt;false&lt;/desktop_client&gt;
+            &lt;status&gt;0&lt;/status&gt;
+            &lt;platform_name&gt;Web-based&lt;/platform_name&gt;
+            &lt;platform_long_name&gt;Web-based&lt;/platform_long_name&gt;
+            &lt;application_code&gt;hotmail&lt;/application_code&gt;
+            &lt;application_long_name&gt;Live Hotmail&lt;/application_long_name&gt;
+          &lt;/testing_application&gt;
+          &lt;result_images type="array"&gt;
+            &lt;result_image&gt;
+              &lt;image_type&gt;window_on&lt;/image_type&gt;
+            &lt;/result_image&gt;
+            &lt;result_image&gt;
+              &lt;image_type&gt;full_on&lt;/image_type&gt;
+            &lt;/result_image&gt;
+            &lt;result_image&gt;
+              &lt;image_type&gt;window_off&lt;/image_type&gt;
+            &lt;/result_image&gt;
+            &lt;result_image&gt;
+              &lt;image_type&gt;full_off&lt;/image_type&gt;
+            &lt;/result_image&gt;
+          &lt;/result_images&gt;
+        &lt;/result&gt;
+        ...
+      &lt;/results&gt;
+    &lt;/test_set_version&gt;
+    ...
+  &lt;/test_set_versions&gt;
+&lt;/test_set&gt;
+
+</pre>
+<h4>2. Upload your HTML to Litmus</h4>
+<p>For this method, you simply supply your email body and subject as part of the XML request to the API. Simply change your request to look like this, everything else remains the same as the example above.</p>
+<p>&nbsp;</p>
+<p><strong>Request</strong>:</p>
+<p><span style="text-decoration:underline;"><strong>XML example</strong></span>:</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;test_set&gt;
+  &lt;applications type="array"&gt;
+    &lt;application&gt;
+      &lt;code&gt;hotmail&lt;/code&gt;
+    &lt;/application&gt;
+    &lt;application&gt;
+      &lt;code&gt;gmail&lt;/code&gt;
+    &lt;/application&gt;
+    &lt;application&gt;
+      &lt;code&gt;notes8&lt;/code&gt;
+    &lt;/application&gt;
+  &lt;/applications&gt;
+  &lt;save_defaults&gt;false&lt;/save_defaults&gt;
+  &lt;use_defaults&gt;false&lt;/use_defaults&gt;
+  &lt;email_source&gt;
+     &lt;body&gt;&lt;![CDATA[your-email-html-goes-here]]&gt;&lt;/body&gt;
+     &lt;subject&gt;My test email to Litmus&lt;/subject&gt;
+  &lt;/email_source&gt;
+&lt;/test_set&gt;
+</pre>
+<!-- pbraw=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 -->

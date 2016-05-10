@@ -1,0 +1,104 @@
+<!-- page=Subject line checker tests -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1318616890 -->
+<!-- ip=204.9.220.42 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<h2>Introduction</h2>
+<p>The subject line checker is very simple to use within your own application. First add a reference to our javascript, then simply call the method&nbsp;generateSubjectLineUrl for each type of result you want.</p>
+<p>&nbsp;</p>
+<h2>Adding the Litmus javascript</h2>
+<p>First, add the following to the HEAD of each page you'd like to use the subject line checker in:</p>
+<p>&nbsp;</p>
+<pre>&lt;script src="http://media.emailtests.com/litmus-subject.js"&gt;&lt;/script&gt;&nbsp;</pre>
+<p>&nbsp;</p>
+<p>If you prefer to use SSL:</p>
+<p>&nbsp;</p>
+<pre>&lt;script src="https://s3.amazonaws.com/media.emailtests.com/litmus-subject.js"&gt;&lt;/script&gt;</pre>
+<p>&nbsp;</p>
+<h2>Using the Litmus javascript</h2>
+<p>Next, simple call the javascript function generateSubjectLineUrl:</p>
+<p>&nbsp;</p>
+<pre>function generateSubjectLineUrl(client, previewType, subject, plainBody, htmlBody, fromName)</pre>
+<p>&nbsp;</p>
+<table style="width:100%;" border="0"><tbody><tr><td><strong>Parameter name</strong>&nbsp;</td>
+<td><strong>Description</strong>&nbsp;</td>
+<td><strong>Example value&nbsp;</strong></td>
+</tr><tr><td>client&nbsp;</td>
+<td>One of a set number of clients available to test on. See the clients and types table below.&nbsp;</td>
+<td>"ol2003"&nbsp;</td>
+</tr><tr><td>previewType&nbsp;</td>
+<td>Either "subject" or "toast". "subject" is the subject line preview, "toast" is the little preview window that appears when a new email arrives in some email clients.&nbsp;</td>
+<td>"subject"&nbsp;</td>
+</tr><tr><td>subject&nbsp;</td>
+<td>The subject of the email to be tested.&nbsp;</td>
+<td>"October 2011 Newsletter"&nbsp;</td>
+</tr><tr><td>plainBody&nbsp;</td>
+<td>The plain text version of the email's body.</td>
+<td>
+<p>"======</p>
+<p>Welcome to ..."&nbsp;</p>
+</td>
+</tr><tr><td>htmlBody&nbsp;</td>
+<td>The HTML version of the email's body.&nbsp;</td>
+<td>"&lt;h1&gt;Welcome to...&lt;/h1&gt;"&nbsp;</td>
+</tr><tr><td>fromName&nbsp;</td>
+<td>The sender's name, not email address. For example: "Paul Farnell", not "paul@litmus.com" or "Paul Farnell &lt;paul@litmus.com&gt;".&nbsp;</td>
+<td>"Paul Farnell"&nbsp;</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p>The following clients and types are available to use. This list may change/expand in the future.</p>
+<p>&nbsp;</p>
+<table style="width:100%;" border="0"><tbody><tr><td>Description&nbsp;</td>
+<td>client</td>
+<td>previewTypes available</td>
+</tr><tr><td>Outlook 2003</td>
+<td>ol2003&nbsp;</td>
+<td>toast, subject&nbsp;</td>
+</tr><tr><td>Outlook 2007&nbsp;</td>
+<td>ol2007&nbsp;</td>
+<td>toast, subject&nbsp;</td>
+</tr><tr><td>Outlook 2010&nbsp;</td>
+<td>ol2010&nbsp;</td>
+<td>toast, subject&nbsp;</td>
+</tr><tr><td>Hotmail&nbsp;</td>
+<td>hotmail&nbsp;</td>
+<td>subject&nbsp;</td>
+</tr><tr><td>Gmail&nbsp;</td>
+<td>gmail&nbsp;</td>
+<td>subject&nbsp;</td>
+</tr><tr><td>Yahoo&nbsp;</td>
+<td>yahoo&nbsp;</td>
+<td>subject&nbsp;</td>
+</tr><tr><td>BlackBerry&nbsp;</td>
+<td>blackberry&nbsp;</td>
+<td>subject&nbsp;</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p>To use the function, create an IMG element in HTML and then assign its src attribute the result of the call to generateSubjectLineUrl:</p>
+<p>&nbsp;</p>
+<pre>document.getElementById('preview').src = generateSubjectLineUrl('ol2003', 'toast', 'This is the subject', 'This is the plain body', '&lt;h1&gt;This is the html body&lt;/h1&gt;', 'Matthew Brindley');</pre>
+<p>&nbsp;</p>
+<p>This assumes we have an IMG with an id of "preview".</p>
+<p>&nbsp;</p>
+<h2>Sample code</h2>
+<p>Below is a sample HTML page that will, on body load, set the src of its only image element to the generated url.</p>
+<p>&nbsp;</p>
+<pre>&lt;html&gt;</pre>
+<pre>&nbsp; &lt;head&gt;</pre>
+<pre>&nbsp; &nbsp; &lt;script src="http://media.emailtests.com/litmus-subject.js"&gt;&lt;/script&gt;&nbsp;</pre>
+<pre>&nbsp; &nbsp; &nbsp;&lt;script type="text/javascript"&gt;</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; function bodyOnLoad(){</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById('preview').src = generateSubjectLineUrl('ol2003', 'toast', 'This is the subject', 'This is the plain body', '&lt;h1&gt;This is the html body&lt;/h1&gt;', 'Matthew Brindley');</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; }</pre>
+<pre>&nbsp; &nbsp; &nbsp;&lt;/script&gt;</pre>
+<pre>&nbsp; &lt;/head&gt;</pre>
+<pre>&nbsp; &lt;body onLoad="bodyOnLoad();"&gt;</pre>
+<pre>&nbsp; &nbsp; &lt;img id="preview"/&gt;</pre>
+<pre>&nbsp; &lt;/body&gt;</pre>
+<pre>&lt;/html&gt;</pre>
+<p>&nbsp;</p>
+<p>You can also <a href="http://media.emailtests.com/subject-sample-download.html">download this file</a> or <a href="http://media.emailtests.com/subject-sample.html">see a demo here</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

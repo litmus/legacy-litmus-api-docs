@@ -1,0 +1,42 @@
+<!-- page=REST Understanding email results -->
+<!-- uid=8f58ab064efb2adbc1b126f0da2c1109fa7bd6b1 -->
+<!-- time=1443529437 -->
+<!-- ip=50.233.29.58 -->
+<!-- content-type=text/html -->
+<!-- name=Justin Unton -->
+<!-- email=junton@litmus.com -->
+<h2><span style="color:#ff0000;">This documentation is no longer kept up-to-date. &nbsp;As of 2015 the new Reseller API documentation can be found here:&nbsp;</span><span style="color:#ff0000;"><a href="https://litmus.com/partners/api/documentation">link</a></span></h2>
+<p>&nbsp;</p>
+<p>Each of the results contained within emailTest.Results can be used to display capture images to your users. There are a few things to check before attempting to us the *Image properties of a result:</p>
+<p>&nbsp;</p>
+<h3>Has the result completed?&nbsp;</h3>
+<p>If your result's Completed property is true, it is safe to use the result to find its images (covered below).</p>
+<p>&nbsp;</p>
+<h3>Is the result a type with captures?</h3>
+<p>If&nbsp;result's ResultType property is "email", it will have capture images. If it's "spam", it won't.</p>
+<p>&nbsp;</p>
+<p>If the answer to the above questions is "yes", then you can move onto deciding which properties contain the capture images you want.</p>
+<p>&nbsp;</p>
+<h3>Choosing the right images</h3>
+<p>If your result's SupportsContentBlocking property is true, you should use the following properties:</p>
+<p>&nbsp;</p>
+<p>WindowImageNoContentBlocking</p>
+<p>WindowImageContentBlocking</p>
+<p>FullpageImageNoContentBlocking</p>
+<p>FullpageImageContentBlocking</p>
+<p>&nbsp;</p>
+<p>WindowImageNoContentBlockingThumb</p>
+<p>WindowImageContentBlockingThumb</p>
+<p>FullpageImageNoContentBlockingThumb</p>
+<p>FullpageImageContentBlockingThumb</p>
+<p>&nbsp;</p>
+<p>If SupportsContentBlocking is false, you should use the following properties:</p>
+<p>&nbsp;</p>
+<p>WindowImage</p>
+<p>FullpageImage</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>WindowImageThumb</p>
+<p>FullpageImageThumb</p>
+<p>&nbsp;</p>
+<!-- pbraw=eJytVF2P2zYQfNevWLhA0xa15I/z5U5xnCbXBLk8FMXFRZ8paWWyR5GsuDzX/75L2k59F+vahxowYJGzuzM7YzmxwfLu/ec1/GYa7D0J0yizAeyE0tCjD5p8FlRTXrWLK1FNLi+wrWaiqeppNZ1dtpNGzOrpdHLdipdVc1lNM1IdltOLi/lidn0xf5kpVy4m+Ww+z2fX+eIqq60hNDSmncOS8C8qJHU6M4LLPgVPyjAXsiZLHMo/Qnz4SSvqgs9r22URPn5Q/UaZ0thsPB7Dz4IEfLBa260HPsiWcrZaeicMeNppfD2qrbZ9+U3bTvjzarRaS+WhsXXomIsgZQ3wgbGgrdlgD/foCIIbkx03gjCHb03l3au3HmwLs8l0ASQRDG7hDj1qzSVvf7190rHm+RVCa4NpQGKP5b7LsojUnie4FCB7bF+PJJHzZVH8s4HCiZ4Mu1UIp4pHI0crrcz9shCr44yCN5Et3eo42aWn96KWUUkUcXAZojFCGWxgq0iyDcmANXrK746QvaDgGUQWGuWdFjs+dhR6BNVxnHy82dnQR1jvc1hH5SDiF1peWOy9SahaYn3PDVsbL4mwcxTTx1fBJ24/3MaW4HrrsCeFaf3iQLk8qjnVJuerj8KfCGNdndNI2Lw54hgTy27bPc897oWHmyPyOHAXQ0F9wB9BUfztRYt7eng6gk9axR4r3tFhCd/V9oF1NyyPU/l9PsD19hFVAfFfkfZ/XKp/c8J3X/yF796WdSw5JTxKxo0S563SGqR4wCcm5cDqVWwy4px0B7A1L+gs07SsSFQYv+Wss+D0VLFI+DNwRjh8Pg3foedufGvidlNkuojidHFisFbpBbOVihN44ushfantkzzFNlthzjPj3dxIa33KTdyk2kg6VA47/Tk4Z3vyN/uX0Ttt6/vY4Wvf43AvbdDNF9Pb9KI5gTP/s1l0q985FXabQvyLfTLsDGYA8SFo7fj6+T6PUAOY/85uLUNX/TvFR7DneQ5DnwN+lcIh69ixVmj/f1p2luz5qsEew6oHZP4NmX2gyA== -->

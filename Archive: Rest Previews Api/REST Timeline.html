@@ -1,0 +1,69 @@
+<!-- page=REST Timeline -->
+<!-- uid=8f58ab064efb2adbc1b126f0da2c1109fa7bd6b1 -->
+<!-- time=1443529352 -->
+<!-- ip=50.233.29.58 -->
+<!-- content-type=text/html -->
+<!-- name=Justin Unton -->
+<!-- email=junton@litmus.com -->
+<h2><span style="color:#ff0000;">This documentation is no longer kept up-to-date. &nbsp;As of 2015 the new Reseller API documentation can be found here:&nbsp;</span><a href="https://litmus.com/partners/api/documentation"><span style="color:#ff0000;">link</span></a></h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>Introduction</h2>
+<h2>&nbsp;</h2>
+<p>&nbsp;For Timeline the work flow is:</p>
+<p>&nbsp;</p>
+<ul><li>Create an EmailTest with Litmus</li>
+<li>Request the Timeline data</li>
+</ul><p>&nbsp;</p>
+<h2>Details&nbsp;</h2>
+<p>&nbsp;</p>
+<p><strong>Step 1</strong>&nbsp;:: Start a Litmus email test</p>
+<p>&nbsp;</p>
+<p>See <a href="/w/page/83277184/REST%20Email%20Previews">REST Email Previews</a>&nbsp;for details.</p>
+<p>&nbsp;</p>
+<p><strong>Step 2</strong>&nbsp;:: Getting your timeline results</p>
+<p>&nbsp;</p>
+<p>You can get the timeline results for your email test by making a GET request to <a href="https://previews-api.litmus.com/api/v1/EmailTests/%7Bid%7D/Timeline">https://previews-api.litmus.com/api/v1/EmailTests/{id}/Timeline</a></p>
+<p>&nbsp;</p>
+<h2>&nbsp;</h2>
+<h2>Understanding your Timeline Result</h2>
+<p>&nbsp;</p>
+<p>A timeline result contains three objects all with the same set of properties. &nbsp;Each object simulates the performance you should expect on that platform based on response times from your servers.</p>
+<p>&nbsp;</p>
+<p><strong>Desktop/Mobile3G/MobileLTE Object</strong></p>
+<p>&nbsp;</p>
+<table style="width:100%;" border="0"><tbody><tr><td style="width:20%;">MaxConnections</td>
+<td>Constant number of concurrent connections for the platform</td>
+</tr><tr><td style="width:20%;">DataRate</td>
+<td>Constant estimated maximum rate of data transmission for the platform in bits per second</td>
+</tr><tr><td style="width:20%;">Started&nbsp;</td>
+<td>The time the first timeline event started</td>
+</tr><tr><td style="width:20%;">Completed&nbsp;</td>
+<td>The time the last timeline event completed</td>
+</tr><tr><td style="width:20%;">TotalDuration</td>
+<td>The duration between Started and Completed</td>
+</tr><tr><td style="width:20%;">Events</td>
+<td>
+<p>Event specific details&nbsp;</p>
+</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p><strong>Events Object</strong></p>
+<p>&nbsp;</p>
+<table style="width:100%;" border="0"><tbody><tr><td style="width:20%;">Resource</td>
+<td>The name of the resource (typically an image url)&nbsp;</td>
+</tr><tr><td style="width:20%;">Size&nbsp;</td>
+<td>The size of the resource in bytes</td>
+</tr><tr><td style="width:20%;">Started&nbsp;</td>
+<td>The time the event started&nbsp;</td>
+</tr><tr><td style="width:20%;">Completed&nbsp;</td>
+<td>The time the event completed&nbsp;</td>
+</tr><tr><td style="width:20%;">TimedOut&nbsp;</td>
+<td>A boolean indicating the event timedout&nbsp;</td>
+</tr><tr><td style="width:20%;">Error&nbsp;</td>
+<td>A boolean indicating the event could not be completed due to error&nbsp;</td>
+</tr><tr><td style="width:20%;">ErrorMessage&nbsp;</td>
+<td>A description of the error&nbsp;</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=eJy9Vttu4zYQffdXDFykaB9s2cpdcYymiTfYxQa7SLwPfaTEkcUNRaokFcct+u871MXxtUmAogEcW/RwzsyZMzMu2Ayj+8nDFKYiRykUdkrBo7P0+IzFg5MjTOOQ8TgZxsPwJB1wFibD4eA8ZacxP4mHHUe3ouHR0eFxeE6vjiii40E/PDzsh+f947NOopVD5XpuUWDk8NkFmctlRzG69qm0Tij4ppxWHcyZkNH30j/8JoXLS9tPdN7x5r0nYWZCRUp3er0e3DDH4IOWUs8t0EFnlIXjkS2YAusWEi+7iZbaRD+l6YD+LrrjaSYscJ2UOcXCnNAK6EBpkFrN0MAjFg7Koud0jzOHffhZxba4uLKgUwgHw2NwGYLCOdyjRSnpytXXjxseE8KPEVJdKg4ZGoxqL6PAhzYeMcgMppfdzLnCRkHwkmRQMOMUGhuwQgRrXrv/nhgV7LH1HzB6ERMVHS30vuePyhnNy8Rj7LEqmscP2izFUfEw1+YRUmKfSIxGQbFiWz+VcjySYnxtkMgEin7iiztF62AuXAafq8xHxAAZ0797/LP0X3rnSyQqBGtMAu9wHYIivEFHXu3OmNuoRpbSVLPxg8MChsRU/VgbRRE8OGIeWBMRVCIER7HsSqsYPyDCso7BnOo2w+DsMDw9HZ4dBb6NDsJBlSy9fzX4JHBuu+Oqv6pjaA99tWrfKdHL61T6u1HXkgi3k7hFR300g4UuDbiWP4O2lM7udvmHLiu9zrBmffMW+Kgqfy+UQLyAnD16JAa3kynZNmXTsCXuosmzR4ruryjdC/xpGCwFYYOD098FPzi9CdrKd8fvd/K34P8sHdSdsJ32jjb4pji1nWOKLwlcCvC+omKPsK42KQM/6ZhQlvg0JBMdf8eEiGRS1qL3NFsae2CJcxorhdEFGifQtuNmwpKsuQdW5KWk7rHVPTKkguRMJeiDBJvpUnLA58Lb0uxxGXNQ0AVvBjGzyP0xhVZoZev6UlGNzuskLZonSvwVwd2gfXS6CO50LCQe3jYfPk8n8KUKc6nFXX4ciyW2g2suuMui4WBwcNGFWBui/bI7oOnmYs0X9GboxdetQ288vmPP11oprEYVydlx75uP6dAXzoEq85gGMlFKJUhKY2h2+o/tlUrLFYsNP42PoMLci+u3zD1VYAciSU7k9BWnfnimQuVg/KCjCPzQAmeYsrmw1m+FTXCgjRcLEgbVlMpAcfK3xVONKuQtw21Q06Z7K5BUGN+PrTLxyVNh64tvQ7nWeSHxNRzJtmGS9ubbgKbaMXlTGlZvoFUY3pzSNnVzRAVN6rRJOFy/D2biY1tRjRfppKaFekekImmH76p0V1wHjUCDSs6ba+ilV2qg/7EvaDxRJye4zp3/YeWF6KtkGgv4hX59iYQm0cIvY5LuDKE08te1Gr8mP/EX7tKEpfMtQK/xBQ2v/07Za1J+T9xvE/SGhN8D4PcF/1K6Tf9XVE4t0RNO2yVh1Yp+wfLQXG9ce03MxmjzTpyk2hRKO//bdJkg9Rj6vY1bHt8Swh1aSxrajoSjTYwoquZtNLEH4bW22vf0Ax4jShw= -->

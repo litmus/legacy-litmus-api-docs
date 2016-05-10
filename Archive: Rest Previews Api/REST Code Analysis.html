@@ -1,0 +1,64 @@
+<!-- page=REST Code Analysis -->
+<!-- uid=8f58ab064efb2adbc1b126f0da2c1109fa7bd6b1 -->
+<!-- time=1443529458 -->
+<!-- ip=50.233.29.58 -->
+<!-- content-type=text/html -->
+<!-- name=Justin Unton -->
+<!-- email=junton@litmus.com -->
+<h2><span style="color:#ff0000;">This documentation is no longer kept up-to-date. &nbsp;As of 2015 the new Reseller API documentation can be found here:&nbsp;</span><span style="color:#ff0000;"><a href="https://litmus.com/partners/api/documentation">link</a></span></h2>
+<p>&nbsp;</p>
+<h2>Introduction</h2>
+<p>&nbsp;</p>
+<p>For Code Analysis Tests the work flow is:</p>
+<p>&nbsp;</p>
+<ul><li>Create an CodeAnalysis test with Litmus and get a result back from us</li>
+<li>Parse the result from the create call to see the results of your CodeAnalysis</li>
+</ul><p>&nbsp;</p>
+<h2>Details</h2>
+<p>&nbsp;</p>
+<p><strong>Step 1</strong>&nbsp;:: Create a CodeAnalysis by posting your email's HTML to our api:</p>
+<p>&nbsp;</p>
+<p>curl -u username:password -i -X POST -H "Content-type: application/json" &nbsp;<a href="https://previews-api.litmus.com/api/v1/CodeAnalaysis">https://previews-api.litmus.com/api/v1/CodeAnalaysis</a> -d '\"&lt;div&gt;&lt;a href='<a href="http://www.litmus.com?utm_source=twitter&amp;utm_term=oct'">http://www.litmus.com?utm_source=twitter&amp;utm_term=oct'&gt;Litmus&lt;/a&gt;&lt;/div&gt;\"</a>'</p>
+<p>&nbsp;</p>
+<p>You can request a CodeAnalysis test for only certain applications by making a call to CodeAnalysisByTestingApplications:</p>
+<p>&nbsp;</p>
+<p>curl -u username:password -i -X POST -H "Content-type: application/json"&nbsp;<span style="font-size:13px;line-height:1.5em;"><a href="https://previews-api.litmus.com/api/v1/CodeAnalaysisByTestingApplications">https://previews-api.litmus.com/api/v1/CodeAnalaysisByTestingApplications</a>&nbsp;</span><span style="font-size:13px;line-height:1.5em;">-d '{"Html": "&lt;h1&gt;Test&lt;/h1&gt;&lt;p&gt;&lt;a href=\"http://www.litmus.com\"&gt;Litmus&lt;/a&gt;&lt;/p&gt;","TestingApplications": [ "ol2003", "ol2010"]}'</span></p>
+<p>&nbsp;</p>
+<p>Note the quotes surrounding the html and also note that you should only paste the html portion of your email - no subject line, plain text parts etc. &nbsp;For CodeAnalysisByTestingApplications you should use the ApplicationName field you get from the GET call to&nbsp;<a href="https://previews-api.litmus.com/api/v1/TestingApplications">https://previews-api.litmus.com/api/v1/TestingApplications</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong style="font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;font-size:17px;font-style:inherit;line-height:1.25em;">Understanding Your CodeAnalysis Result</strong></p>
+<p>&nbsp;</p>
+<p>The above POST request will return a CodeAnalysis result. &nbsp;Here are some details on how to interpret those results:</p>
+<p>&nbsp;</p>
+<p><strong>CodeAnalysisTest</strong></p>
+<p>&nbsp;</p>
+<table style="width:100%;" border="0"><tbody><tr><td style="width:7%;">CompatibilityProblems&nbsp;&nbsp;</td>
+<td>A collection of compatibility problems that we found in your HTML.&nbsp;</td>
+</tr><tr><td>CompatibilityRulesCount&nbsp;&nbsp;</td>
+<td>The total number of compatibility rules we validated your HTML against.&nbsp;</td>
+</tr><tr><td>HtmlProblems&nbsp;&nbsp;</td>
+<td>A collection of HTML format and syntax problems we found in your HTML.</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>CodeAnalysisPotentialProblems&nbsp;</strong></p>
+<p><strong>&nbsp;</strong></p>
+<table style="width:100%;" border="0"><tbody><tr><td style="width:7%;">ApiIds&nbsp;</td>
+<td>The application 'ApiIds' that this rule applies to. &nbsp;These will match up with the ApplicationName field from TestingApplications -&nbsp;<a href="https://previews-api.litmus.com/api/v1/TestingApplications">https://previews-api.litmus.com/api/v1/TestingApplications</a></td>
+</tr><tr><td>LineNumber&nbsp;</td>
+<td>The line in the HTML where this problem was found.&nbsp;</td>
+</tr><tr><td>Severity&nbsp;</td>
+<td>0 or 1 where 0 is less severe an issue and 1 is more severe.&nbsp;</td>
+</tr><tr><td>Description&nbsp;</td>
+<td>A text description of the problem.&nbsp;</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p><strong style="font-family:inherit;font-style:inherit;line-height:1.5em;"><span style="font-size:13px;line-height:1.5em;">CodeAnalysisHtmlValidation&nbsp;</span></strong></p>
+<p>&nbsp;</p>
+<table style="width:100%;" border="0"><tbody><tr><td style="width:7%;">LineNumber&nbsp;</td>
+<td>The line in the HTML where this problem was found.&nbsp;&nbsp;</td>
+</tr><tr><td>Description&nbsp;</td>
+<td>A text description of the problem.&nbsp;&nbsp;</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p><strong style="font-family:inherit;font-style:inherit;line-height:1.5em;">&nbsp;</strong></p>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

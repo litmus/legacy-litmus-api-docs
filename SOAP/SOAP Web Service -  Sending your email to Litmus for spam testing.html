@@ -1,0 +1,15 @@
+<!-- page=SOAP Web Service -  Sending your email to Litmus for spam testing -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- time=1294957168 -->
+<!-- ip=204.9.220.36 -->
+<!-- content-type=text/html -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<p>So now you've created a test and sent an email to Litmus to run the test.&nbsp; If you are running a spam test, that is including spam clients in your results, then you'll want to perform one additional task.&nbsp;&nbsp; When determining if your email is spam services test two key components: the content of your email and your reputation.&nbsp; In order to test your reputation you need to send an email directly into the spam service.&nbsp; So we'll need to do just that.</p>
+<p>&nbsp;</p>
+<p>This sample code will fetch Litmus' most update list of spam seed addresses:</p>
+<p>&nbsp;</p>
+<p>var addresses =LitmusApi.GetSpamSeedAddresses("api-key", "api-pass");</p>
+<p>&nbsp;</p>
+<p>This will return an array of email addresses for you to send your email to.&nbsp; <strong>It is very important when performing a spam test to send your email to each of these addresses.</strong></p>
+<!-- pbraw=eJx9k91u2zAMhe/9FEQu1g2o3fw5jd2uWLdhQ4EBG5ABvWYsOtFqS4Ikx8vbl1Kcpu2K3dESRR5+hza4oXL18/YX3NMaVmR3siJIgUMlpNrAXncWqEXZgNfwQ/q2c1BrC85gC56c56ykk6Ks62kxKSifXeY4zfPFBCfr8WxczJfzxbKol+uqyjHPLxMvWyon02Je5JeTxTKRppyO51mRTafjbLZIKq08KZ/6vaHS019/sfVtkyjkZ58t60IFX7CuLe2TqKxcH04/NVEeGpNVuk3Cq3Qn7UaqUukkTVP4ih7hm24a3Tvgg+Ta3Kw0KN2HQc92BJUl9CQA42yASoBjMRz8Q4Ej2ynwW4q52Tu1duYK7upQC9BSuFYBIp5onXM+epAOpKqaLjKOl1UjuU84PjC35LrGu5BP8eisaaBHlsJ9DVn2oAWtCFAI6aVWyNrQPQwyBjH34bEgT7aVUYqsn1vKMmJzdzDeHYb2vYYH2gNDNNyBVZVxysEY0C9qBESDYtN5DFKeUCjQVpANkmPlV3kRlCLGzQmMWZwwC2mp8s2eeYTH3P250GMD9q6nAOZYRGj404URGHJ2fWFugsOH5OPX722YGlvThIkEQS+5QE2+2g7OnkGruUZnBK8CNNLFkYf+YTeEYHccufLtDju0pxz4eCh6a2T2nfyKq6y4yO3x/v0IjUwZ9+gcYmjQudGHq/+Ij4It+c6qAAytxX1QOPjx1Dn8poHwEe6Lf/mI8Np5q9Xm5i4u5Y4sI2fbrQ+r1of1GZbt1SK/XRUIGSNrYcccnbSwF0OfMMkjuZeM7Q== -->

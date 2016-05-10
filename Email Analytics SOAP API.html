@@ -1,0 +1,20 @@
+<!-- page=Email Analytics SOAP API -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1401993990 -->
+<!-- ip=64.119.133.122 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<p><span style="font-size:130%;"><strong>Overview</strong></span></p>
+<p>The Email Analytics SOAP API is a special API that allows partners to resell Litmus Email Analytics via their own interface. Using this Web Service you can create an unlimited number of tracking codes, and pull back all of the detailed tracking data we collect.</p>
+<p>&nbsp;</p>
+<p>The bulk of the documentation resides <a href="https://ea-api.litmus.com/apiservice.asmx" search_id="undefined">within our Web Service</a>. From here you can find the address of the WSDL and detailed information about each method, expected input and the objects returned.</p>
+<p>&nbsp;</p>
+<p><span style="font-size:130%;"><strong>The Process</strong></span></p>
+<p>First, call <a href="https://ea-api.litmus.com/apiservice.asmx?op=Create" search_id="undefined">Create</a> to create a new Email Analytics report with a unique HTML snippet for your campaign.&nbsp;Now read the contents of the <span style="font-family:'Courier New';">BugHtml</span> field within the returned object. This HTML should be included within the email campaign that's about to mailed out, directly above the <strong>closing</strong>&nbsp;body tag "<span style="font-family:'Courier New';">&lt;/body&gt;</span>". Be sure to include it at the end of the email, but within the body.</p>
+<p>&nbsp;</p>
+<p>Once your email has been sent out, you'll start to see data returning within minutes. A <a href="https://ea-api.litmus.com/apiservice.asmx" search_id="undefined">list of reports can be found here</a>. You can format this data however you wish. By way of example, see this <a href="http://salted.litmus.com/pub/a/3cb9023">sample report</a> that shows how we present this data within the Litmus interface.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=eJytVd1v2zYQf/dfcTCw5MWWP5vEjuMtaRd0QNoESIZiTwMlnS2uFMmRJyvaX7+jKLvuOgMdsBdbInmn38fd0YotLn8uhVRwq4VqSGYenh9vn+D26ZdeJfPleDq/XFxdvLkab+b8NH0zEbP55dU4vbhM52I6WaS4ucjn0x7JEpeT+XiyWMwWi3FP2uXFPJlMFslkNksm02kvM5pQ05Aai0vCVxoVVKqeFhz4QRAVWMOdkzpX2PQwgFqWcfknJamsvLA2yUzZC2HDnXRbqZfa9IbDIbwTJODeKGVqD7zQW9n1yluhwVOj8Ka/4Y8PvfyLMc7GP1z3eZec0dv14w7dTmK9GnUL/MBx/GfXIctLgXBKIZAeBHiLmRSqXaBCEIgIwwpHGp0HMuDQo1Lw0PL4Jt9OCo5E6cDUGiTL5DYiwwR+9VJveYu/8wlTeA5QM4TGVJAxt8yhIAR+qrSSpSTMQVdlipxoA+RE9jnEZyZHP+BjOdiKUaS8HkC2h5hejsR4OPYQkQc5a+RIpTCjZC/GmU69vT6WJq3U50Mek1UlOyxIGh0oS/4urAQUDjc3/YLI+uVohGIorEyip8HQEb/6SC0Rvnztg0fhsuJ3md/0K53jRmrM++tashIaTOWO1ViNxDqBe2dKKNB9EYeD8haWyHPG4vcoPz2/e2i1ONCWemNcGVGL1FQEKLICSqTC5APAVzaY2nOW90SX1qR/8LJnnlQ5xndCpO+rwiDlkzMZ4zxViPfSeRowNTbuv2v6o7E3b9tyOaVu3A1qhoLdlxZo7sp/1qtDaxxB8INPVFr+WSG8f/nwAF5La5GABQ1GOIZbWiG3OomqfDQ1R4uoYDcQDs58K9VGlFI1y/O3nEpyVX/E+pxVu6u273kGdAKx06hy6KojJNpb0nmUwEvooAiwMBUfTpHdzFSV41eB7dQ5YG67+dx3NcGilLFe+G0AuXScWjVhd4cd/mhcpkzo24ORkXpq8gZIbKH/3TzPFF2PQtzZlq47tv0E7hB8xZXOiDoSILkuKVLg8uz0bNkMuEXpmGPId6JWH3UcLq4TohCelULGyjZF2rx7zgXoiYdbAOAR47SImofh0X2rlLoi9Anc/o8jQElPgV6sQN82Onu5MXymbf84DX7bz4C2r+MAbVEWpkYe+O2QqKUvWMwGatGEnPjKvisctJzakK9wM2wvFM+BY9i2SkdiNMvSxXg66699m6FDF1spXAhcdHwf8E+YqTbcBfoY1JE53QXx5Qr4d6NOvf0NQV20RQ== -->

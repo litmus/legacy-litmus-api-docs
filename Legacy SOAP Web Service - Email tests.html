@@ -1,0 +1,42 @@
+<!-- page=SOAP Web Service - Email tests -->
+<!-- uid=8f58ab064efb2adbc1b126f0da2c1109fa7bd6b1 -->
+<!-- time=1436298250 -->
+<!-- ip=64.119.133.122 -->
+<!-- content-type=text/html -->
+<!-- name=Justin Unton -->
+<!-- email=junton@litmus.com -->
+<p><strong><span style="font-size:130%;"><span style="text-decoration:underline;">Note: As of 2015 the SOAP API is a&nbsp;</span><span style="text-decoration:underline;">deprecated API</span><span style="text-decoration:underline;">&nbsp;we recommend using the Reseller&nbsp;REST API which can be found here:&nbsp;</span></span><a href="https://litmus.com/partners/api/documentation" search_id="undefined"><span style="font-size:130%;">https://litmus.com/partners/api/documentation</span></a></strong></p>
+<p>&nbsp;</p>
+<p>Your first step is to setup your SOAP client with our WSDL. In .NET 2.0 and below, and Java, this is a case of adding a Web Reference. In .NET 3.0+ you'll need to follow <a href="/Creating-a-web-reference-with-NET-3-and-above">these instructions</a> to add a Web Reference (instead of a Service Reference) in Visual Studio. If you're using any other language and framework, please consult the documentation for the SOAP library you've chosen. In all cases, our WSDL is:</p>
+<p>&nbsp;</p>
+<p><a href="https://soapapi.litmusapp.com/2010-06-21/api.asmx?wsdl">https://soapapi.litmusapp.com/2010-06-21/api.asmx?wsdl</a></p>
+<p>&nbsp;</p>
+<p>Starting a new email test via the SOAP Web Service is a simple process of preparing an <strong>EmailTest</strong> object (which contains information about the test you're about to start) and then calling the web method <strong>CreateEmailTest</strong>.</p>
+<p>&nbsp;</p>
+<p>For a complete walkthrough of this process including generic, language agnostic example code, please follow the guide below.</p>
+<p>&nbsp;</p>
+<ol><li><a href="SOAP-Web-Service%3A-Creating-your-EmailTest-object">Creating your EmailTest object</a></li>
+<li><a href="SOAP+Web+Service+-+Customising+your+email+test">Customising your email test</a></li>
+<li><a href="SOAP+Web+Service+-+Ordering+your+test">Ordering your test</a></li>
+<li><a href="SOAP+Web+Service+-++Using+your+returned+test">Using your returned test</a></li>
+<li><a href="SOAP+Web+Service+-++Sending+your+email+to+Litmus">Sending your email to Litmus</a></li>
+<li><a href="/w/page/34879865/SOAP+Web+Service+-++Sending+your+email+to+Litmus+for+spam+testing">Sending your email to Litmus for spam testing</a> </li>
+<li><a href="SOAP+Web+Service+-++Waiting+for+your+email+to+arrive">Waiting for your email to arrive</a></li>
+<li><a href="SOAP+Web+Service+-++Understanding+your+returned+result+once+Litmus+has+received+your+email">Understanding your returned result once Litmus has received your email</a></li>
+<li><a href="SOAP+Web+Service+-++Iterating+through+the+results+collection">Iterating through the results collection</a></li>
+<li><a href="SOAP+Web+Service+-++Polling+for+updates">Polling for updates</a>&nbsp;</li>
+<li><a href="/SOAP+Web+Service+-+Understanding+spam+results">Understanding spam results</a></li>
+<li><a href="/SOAP+Web+Service+-+Understanding+email+results">Understanding email results</a></li>
+<li><a href="/SOAP+Web+Service+-+Understanding+mobile+results">Understanding mobile results</a></li>
+<li><a href="/w/page/26943686/Api%20Callbacks">Using callbacks instead of polling</a>&nbsp;</li>
+</ol><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=eJzFV11v2zYUffevuDCQrYUiy5YTN3ETb0HaAimKtqjbBXsaKOnKYkuRAknZzX79LqkP2/lYa+xhT45F6p7Dc869dCq2wvnyw9VHuMUElqjXPEUI4XXJuACLxppBzbP5WX56xpLx7ATzJGZZkk6SSTzLxxmL08lkfJ6zF0k2SyYDy0ucT06ms/j8LD4dD3g1n52MJpPz0WQ6HU3ieJAqaVHa0N5VOLf43UaFLcVAMnrxbW0sl/BFWiUH6DjMv9buy++C27I2o1SVA7c9XHO94nIu1SAMQ3jFLIM3Sgi1MUAPBhfV4sJYreSKPismwdg7gZfDnMBDw/8mjtPx0cvh/qpjE2aYKs0sV3Jeywy14BJp43tlcQ5XBlQO8XhyCrZA8MpdfbwBboD9IhNTvbyIXMWfr5thpTFlFjNX6NC3G8wNAtVQZYkyg9pwufLsPqFBIVA3mz69Xn72XDcFTwtICSBByBWVgwI1zvf5tx8MCo355bCwtjLzKNr6EFVMW4naRKziUabSmuCtpzgEg0ynxV88uxw6ujmxzYY/sOIgiJ4mc1Rbp6Nq4ZzvDtJ8+1PVGnKujSVkrJxVVhFBW1dw59a8iangVBo23BbgHt4uX70bwY2E0fvXnyEejYGRTglSwo79n2/Zmh2TzFTOmU96GnTZYFnm9Ge+oT5hTsrKFLelpqNx4HB/FQIkkutEJvfJhV7s6FojnVKuQhZuMAl1VyZ0/EIqE05DIhGyRK1xuCCzCZxL0qFOnTrG6eIqE5v7VOCZ24gs82z7nu/Xn1Mh+IObmglY2jrjisjnnrLGNl1M3oEiVA2CyVVNQ8Rrkmtq4o3S346hEugEoWY3tbA+jnv+0Zn1toUETzTTdx5kTW8VyqD0mjGSyUlrjntbSO/541Y/SKtRrKLojJpIsaryqaL2HYfjWRhPXK5GzJTff9uYTGwjeNh7TQgfI7S0FOAmDhI3gP1UhTVn2+Pvzl4fJsNLEhAqrVI0fuTQkKBmaLSHbrT5Kf2ZyvUtACr5iqmFZ22TU48xspssJb3LRnkKTd044pm0xrZPqTMc5+feT9ojSX0huolCYYQSbaGynoOPKj5kMnpckTdkOzWLcuezVJCJb7bQql4V7pS+nbpTc5mK2jfTCmkI8PR4J20rqeiqSAG/My9VqjLsU9f2k2O8otsLm759lJESiwvBt8lxfoTkR9j6cTS9CvtudOMi7I8aNloPF916M0769daLJh2EMXgAFBBQ0AIFYXBNt58queuwwJUKfF4C5xKBbBcbnG2Yfh7hg6aroy/fFO6eNVUPqxd82ZLVNFE1jfm27Jct027l0OJLus7ua6GCd74nh4t2dU8MBc3qEyDRhm6UFUbTk7MX52ez0+hQ1IC6KKCLp/SHpF3/TsMPObcd2u1+LP/k6W8Zd694yH0uTGvuxn67w6Pswzc7DvHR/aagzt85eu+nRjfCA0V3QydDwQw9TpFAsh1y5PpunXvuN3XA1en0oTrQ1dk5wgHEbyxq33xBO0boE1vKJkhpEKC/EYeLfid0A8fNh3YnbHceAP5R+dHoLaqrjOYg5bJ96F1pH7qS3dB5GMpHKu/b4QPXEr0vsU9Xu/ZU6n8I0CTrCYQmVP8VolQJF/gURrP6I5C2e+PZOf1/cTaLrip+FI+v6X5KWPrNdDMn7R7Azg+dqnHlgRORuwDuX1L/37d/ABwPpn0= -->

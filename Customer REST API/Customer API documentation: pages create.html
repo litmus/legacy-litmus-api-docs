@@ -1,0 +1,112 @@
+<!-- page=Customer API documentation: pages create -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1321739437 -->
+<!-- ip=209.6.232.21 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;"><a style="font-weight:inherit;font-style:inherit;font-size:20px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-documentation">Back to Customer API documentation</a></h1>
+<p>&nbsp;</p>
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;">Customer REST API Method: pages/create</h1>
+<p>&nbsp;</p>
+<p class="explanation" style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Creates a new web page test in your account.</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">This will create a new web page test, there are a few steps to the process of creating a test and displaying it to the end user:</p>
+<ol style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:3em;font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;border:0px;"><li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">Create the new test with the URL to the page you're testing, along with the browsers you wish to test it on.&nbsp;</li>
+<li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">Record the new test's ID.&nbsp;<strong><small>(Contained in response to previous POST)</small></strong></li>
+<li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">Poll Litmus on the test's progress.&nbsp;</li>
+<li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">Once the test is complete, record the URLs to the result screenshots, and present these to your user.</li>
+</ol><p>&nbsp;</p>
+<div style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#434343;padding:0px;margin:0px;border:0px;">&nbsp;</div>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>URL:</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">https://#{company}.litmus.com/pages.xml</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>HTTP Method(s):</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:'Courier New';vertical-align:baseline;line-height:1.2em;padding:0px;margin:0px;border:0px;">POST</span></p>
+<p>&nbsp;</p>
+<p><strong>Curl example:</strong><span style="font-family:'Courier New';line-height:15px;"><strong>&nbsp;</strong></span></p>
+<p><span style="font-family:'Courier New';line-height:15px;"><span>curl -i -X POST -u user:password -H 'Accept: application/xml' -H 'Content-Type: application/xml' https://#{company}.litmus.com/pages.xml -d @data.xml</span></span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Parameters:</strong></p>
+<ul style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:3em;font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;border:0px;"><li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">n/a</li>
+</ul><p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Request</strong>:&nbsp;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>:&nbsp;</p>
+<p>&nbsp;</p>
+<pre style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:monospace;vertical-align:baseline;padding:0px;margin:0px;border:0px;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</pre>
+<pre>&lt;test_set&gt;
+  &lt;applications type="array"&gt;
+    &lt;application&gt;
+      &lt;code&gt;saf2&lt;/code&gt;
+    &lt;/application&gt;
+    &lt;application&gt;
+      &lt;code&gt;ie7&lt;/code&gt;
+    &lt;/application&gt;
+    &lt;application&gt;
+      &lt;code&gt;ie6&lt;/code&gt;
+    &lt;/application&gt;
+  &lt;/applications&gt;
+  &lt;url&gt;http://google.com&lt;/url&gt;
+  &lt;save_defaults&gt;false&lt;/save_defaults&gt;
+  &lt;use_defaults&gt;false&lt;/use_defaults&gt;
+&lt;/test_set&gt;
+
+ 
+</pre>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Response</strong>:&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>&nbsp;(truncated):&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;test_set&gt;
+  &lt;created_at type="datetime"&gt;2009-10-05T10:32:30Z&lt;/created_at&gt;
+  &lt;id type="integer"&gt;76424&lt;/id&gt;
+  &lt;updated_at type="datetime"&gt;2009-10-05T10:32:31Z&lt;/updated_at&gt;
+  &lt;name&gt;Google&lt;/name&gt;
+  &lt;service&gt;page&lt;/service&gt;
+  &lt;state&gt;processing&lt;/state&gt;
+  &lt;public_sharing&gt;false&lt;/public_sharing&gt;
+  &lt;test_set_versions type="array"&gt;
+    &lt;test_set_version&gt;
+      &lt;version type="integer"&gt;1&lt;/version&gt;
+      &lt;url_or_guid&gt;http://google.com&lt;/url_or_guid&gt;
+      &lt;received&gt;true&lt;/received&gt;
+      &lt;results type="array"&gt;
+        &lt;result&gt;
+          &lt;check_state nil="true"&gt;&lt;/check_state&gt;
+          &lt;error_at type="datetime" nil="true"&gt;&lt;/error_at&gt;
+          &lt;finished_at type="datetime" nil="true"&gt;&lt;/finished_at&gt;
+          &lt;id type="integer"&gt;1284884&lt;/id&gt;
+          &lt;started_at type="datetime" nil="true"&gt;&lt;/started_at&gt;
+          &lt;test_code&gt;saf2&lt;/test_code&gt;
+          &lt;state&gt;pending&lt;/state&gt;
+          &lt;result_type&gt;page&lt;/result_type&gt;
+          &lt;testing_application&gt;
+            &lt;average_time_to_process type="integer"&gt;162&lt;/average_time_to_process&gt;
+            &lt;result_type&gt;page&lt;/result_type&gt;
+            &lt;popular&gt;false&lt;/popular&gt;
+            &lt;status&gt;0&lt;/status&gt;
+            &lt;platform_name&gt;Mac OS&lt;/platform_name&gt;
+            &lt;platform_long_name&gt;Mac OS X&lt;/platform_long_name&gt;
+            &lt;application_code&gt;saf2&lt;/application_code&gt;
+            &lt;application_long_name&gt;Safari 2.0 OSX&lt;/application_long_name&gt;
+          &lt;/testing_application&gt;
+          &lt;result_images type="array"&gt;
+            &lt;result_image&gt;
+              &lt;image_type&gt;window&lt;/image_type&gt;
+            &lt;/result_image&gt;
+            &lt;result_image&gt;
+              &lt;image_type&gt;full&lt;/image_type&gt;
+            &lt;/result_image&gt;
+          &lt;/result_images&gt;
+        &lt;/result&gt;
+        ...
+      &lt;/results&gt;
+    &lt;/test_set_version&gt;
+  &lt;/test_set_versions&gt;
+&lt;/test_set&gt;
+
+
+
+</pre>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

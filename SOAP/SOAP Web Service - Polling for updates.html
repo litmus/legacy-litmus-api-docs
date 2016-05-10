@@ -1,0 +1,42 @@
+<!-- page=SOAP Web Service - Polling for updates -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<!-- time=1302645989 -->
+<!-- ip=204.9.220.36 -->
+<!-- content-type=text/html -->
+<p>Now that we've created our page test and sent it to Litmus, we can begin polling for updates.</p>
+<p>&nbsp;</p>
+<p>You should poll for updates once every 60 seconds. Please do not exceed this and poll more frequntly or your results may update less often as frequent updates trigger more agressive caching on our web servers. If you do need to poll more often, please&nbsp;<a href="mailto:resellers@litmusapp.com?subject=We%20may%20need%20to%20poll%20more%20frequently">contact us</a>.</p>
+<p>&nbsp;</p>
+<p>Here is how your application should function when polling, starting with the initial test creation for clarity:</p>
+<p>&nbsp;</p>
+<ol><li>CreatePageTest</li>
+<li>Wait for 60 seconds</li>
+<li>GetPageTest</li>
+<li>Wait for 60 seconds</li>
+<li>GetResult for each pending result (explained below)</li>
+<li>Wait 60 seconds</li>
+<li>Repeat steps 5 and 6 until all results are returned</li>
+</ol><p>&nbsp;</p>
+<h2>Using GetResult to retreive a single result</h2>
+<p>The Litmus Web Service supports an optimisation that allows you to request just one result at a time, instead of the entire PageTest. In the example code below, we'll iterate through each of the results in pageTest, only checking for updates if they have not yet completed.</p>
+<p>&nbsp;</p>
+<pre>var allFinished = false
+while (allFinished = false)
+{
+     for (var i = 0; i &lt; pageTest.Results.Count; i++)
+     {
+          var result = pageTest.Results[i]
+          if (result.Completed = false)
+          {
+               pageTest.Results[i] = LitmusApi.GetResult(pageTest.Id)
+          }     
+     }
+     Sleep(60000)     // You must not check more often than once every 60 seconds
+}
+</pre>
+<p>&nbsp;</p>
+<p>What we're doing above is iterating through each result, replacing it with the return value of GetResult. But we're only doing that if the result is not yet completed.&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=eJyVVV1v2zYUfdevuCiw1kH9FSd2Y8fx1mboWmDYgqZDMAx7oOUrix0tqiRlxyjy33cuJcdO4z1MDyJE8n6dc+5VqZY8uf397Q3d8Zxu2a11ytShG2uMLpaUWUdVuVCBfVLpxSTLBuPTMQ/P3gzVYDgcnarTef+sPz6/OB9djLOLeZoO1XD4JinUiifvHBcLVdC1yjLH24RXSpvJvN79yeiwqrwqy25qV0nQMDg96w9G58PxxTjR5WTQP++Ou4NBv3s2SvKwMp21dktdTAqbpLYIXIRO2JY8CXwfenIh6XQ69LMKit6jALvxhI1kWs5+sxsKuQq04VdrptQxSlqQrRyVgIBQXyBVLMjDKelAwdKvMb82TChFEXNGaCqfA9Od9sqZBHlZzH15ufv601bkc1uZRTQ6tCBbAGVes9vSqI+YqGbhu3RjWHmmhaXCBuL7lJFjyLWPqUUvK+uYAObXqghmS/C5lSIc+8oETyu1bYKQYY9AGVAi5WsTqW2XQnB6uWRXO1RLOPBakFFpLvXZIoKzgSo8VMEO6X3MJFhMLyZmD1KKgdpUxgoaIBTljrOrF8J6sBOEYGPg6SnzP/pq/oXTcHXHPwz6KABv8Y8lWLwkhhwgCpZdHWb7YiYaUClK8tOemv0HDR8Y2QHBHAqIUCGs0akKGiU2/GRVkcbvTc6PFLfJB+WCgLHRIQcP8FPooJWp5RJFJFbCbGqU02E7OZaENbOp0bPrKLobyO0zzKc9bCWyf6egN/Gxl8L+8BcO/9/iU1RDvMHgk0o0nNRRq4RafF8apQtwOGd0ycl3no95/cQlsgckXHoaRj2OCBrUhhQ0sNOfAtiOQ+XgvDHuSflPAckHsz+8JLTPFWKCnWPRoCI5NNx4nfZwXzD9DAbqpnwyrXxVltZJcGi2xBzRvuYlNryq54AIN8aAesDdlwovW+xCkFwkGUFtcIwiFWZDFimH1jSK2pGALijq/Xu1gtoptQuuYZRJ8QpY6MBOGjDkzlbLvKag8bbDSSZJ47GNPNDJac7pP99NFtLRaku5AiwyE7YM3VkJjPF1XPGOZ2vlpO73kKvPwfIVZcp4Tja5RsatI0cnybeE5JHoLbHXOOpfYnlpwuVjst2aLt+9tiAfx69fn9SGjX18xL4B9uqZ6V/674OrqLBVX4XLpq59Uvt7h+7jc8Qt7Gp5vC1191FarcebHxeHHh/iu954qJdbw1y2Rn08J3Gj1yMZ4ytRi8AfSToYeCKx4vg0Tx4gfSHj+Ui6a35ETka9UK7mdh2HVC0d2XoinhqgNlb0bSrH6NLHoVT3G0A3laS1b6ouvat2gaLG6mixLfShHiX0c3U9TXr/9S+yFsIw -->

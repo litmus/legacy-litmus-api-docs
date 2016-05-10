@@ -1,0 +1,73 @@
+<!-- page=Email Analytics Reseller API -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1375111448 -->
+<!-- ip=66.134.198.26 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<h2><strong style="font-family:inherit;font-style:inherit;line-height:1.5em;">Getting Started</strong></h2>
+<p>If you'd like to dive right in with the WSDL, you can find the raw documentation and link to WSDL here:&nbsp;<a href="http://ea-api.litmus.com/apiservice.asmx">http://ea-api.litmus.com/apiservice.asmx</a><span style="font-size:13px;line-height:1.5em;">&nbsp;</span></p>
+<p>For a direct link to the WSDL, please use:&nbsp;<a href="http://ea-api.litmus.com/apiservice.asmx?wsdl">http://ea-api.litmus.com/apiservice.asmx?wsdl</a></p>
+<p>&nbsp;</p>
+<h2>The Setup</h2>
+<p>Before you can begin recording hits, you'll need to create a campaign using the API. Below we've explained the most common way of creating campaigns in EA, and fetching aggregate data.</p>
+<p>&nbsp;</p>
+<p><span style="font-family:'Courier New';">$ var campaign = api.CreateIndividual(user, pass)</span></p>
+<p>&nbsp;</p>
+<p><strong>CreateIndividual</strong></p>
+<p>This method creates a new Email Analytics campaign with individual-level tracking, it returns a Campaign object.&nbsp;The returned Campaign object contains a BugHtml property that you'll need to modify before embedding.&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-family:'Courier New';">$ campaign.BugHtml</span></p>
+<p><span style="font-family:'Courier New';">&lt;style&gt;@media print{#_t { background-image: url('<a href="https://rudi5xvg.emltrk.com/rudi5xvg?p&amp;d=%5BUNIQUE%5D');%7D%7D">https://rudi5xvg.emltrk.com/rudi5xvg?p&amp;d=[UNIQUE]');}}</a> div.OutlookMessageHeader {background-image:url('<a href="https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=%5BUNIQUE%5D')%7D">https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=[UNIQUE]')}</a> table.moz-email-headers-table {background-image:url('<a href="https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=%5BUNIQUE%5D')%7D">https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=[UNIQUE]')}</a> blockquote #_t {background-image:url('<a href="https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=%5BUNIQUE%5D')%7D">https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=[UNIQUE]')}</a> #MailContainerBody #_t {background-image:url('<a href="https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=%5BUNIQUE%5D')%7D">https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=[UNIQUE]')}&lt;/style&gt;&lt;div</a> id="_t"&gt;&lt;/div&gt;</span></p>
+<p><span style="font-family:'Courier New';">&lt;img src="<a href="https://rudi5xvg.emltrk.com/rudi5xvg?d=%5BUNIQUE%5D">https://rudi5xvg.emltrk.com/rudi5xvg?d=[UNIQUE]"</a> width="1" height="1" border="0" /&gt;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size:13px;line-height:1.5em;">Within the BugHtml, find every instance of [Unique] and replace it with your email address merge tag. For example, it might be %%email%% or (email_address). Whatever your merge tag is, make sure that the [Unique] placeholder has been completely removed, including the square brackets.</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size:13px;line-height:1.5em;font-family:'Courier New';">$ var campaign.BugHtml = replace(campaign.BugHtml, '[Unique]', '%%email%%')</span></p>
+<p>&nbsp;</p>
+<p>Once your BugHtml is ready, you'll need to insert it into your HTML email before it's sent. Ideally, it should be place directly above the close body tag.</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;<span style="font-family:'Courier New';">&lt;/div&gt;</span></p>
+<p><span style="font-family:'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;@media print{#_t { background-image: url('<a href="https://rudi5xvg.emltrk.com/rudi5xvg?p&amp;d=">https://rudi5xvg.emltrk.com/rudi5xvg?p&amp;d=</a><span style="font-family:'Courier New';">%%email%%</span>');}}&nbsp;div.OutlookMessageHeader {background-image:url('<a href="https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=">https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=</a><span style="font-family:'Courier New';">%%email%%</span>')}&nbsp;table.moz-email-headers-table {background-image:url('<a href="https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=">https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=</a><span style="font-family:'Courier New';">%%email%%</span>')}&nbsp;blockquote #_t {background-image:url('<a href="https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=">https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=</a><span style="font-family:'Courier New';">%%email%%</span>')}&nbsp;#MailContainerBody #_t {background-image:url('<a href="https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=">https://rudi5xvg.emltrk.com/rudi5xvg?f&amp;d=</a><span style="font-family:'Courier New';">%%email%%</span>')}&lt;/style&gt;&lt;div&nbsp;id="_t"&gt;&lt;/div&gt;</span></p>
+<p><span style="font-family:'Courier New';">&lt;img src="<a href="https://rudi5xvg.emltrk.com/rudi5xvg?d=%25%25email%25%25">https://rudi5xvg.emltrk.com/rudi5xvg?d=%%email%%"</a>&nbsp;width="1" height="1" border="0" /&gt;</span></p>
+<p><span style="font-family:'Courier New';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;</span></p>
+<p><span style="font-family:'Courier New';">&lt;/html&gt;</span></p>
+<p>&nbsp;</p>
+<p>Now you're ready to send and begin collecting data!</p>
+<p>&nbsp;</p>
+<h2>Collecting Aggregate Data</h2>
+<p>Aggregate data is the data you'll use to summarize the campaign. To make it clearer how to consume the data, we've used Litmus' implementation (which is built entirely upon this API) to explain which API method was to build each part of the report.</p>
+<p>&nbsp;</p>
+<p><img id="pbImage276022" src="EA%201.png" alt="" /></p>
+<p><img id="pbImage254481" src="http://docs.litmus.com/f/engagement-1.png" alt="" width="1200" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>BatchSetCampaignExpiration</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>ClearCampaign</p>
+<p><span style="font-size:13px;line-height:1.5em;">EmailExportLink</span></p>
+<p>GetActivityReport</p>
+<p>GetActivitySummaryReport</p>
+<p>GetAdvancedOpenCounts</p>
+<p>GetAllExpiringGuids</p>
+<p>GetCampaignMetaData</p>
+<p>GetDetailedEngagementReport</p>
+<p>GetDetailedMailClientEngagementReport</p>
+<p>GetEmailClientUsageReport</p>
+<p>GetEngagementReport</p>
+<p>GetGroupUsageReport</p>
+<p>GetMailClientEngagementReport</p>
+<p>GetOpenCounts</p>
+<p>GetOpenCountsForMonth</p>
+<p>GetOpenCountsForPeriod</p>
+<p>GetRenderingCategoryReport</p>
+<p>SetCampaignExpiration</p>
+<p>SetCampaignToNeverExpire</p>
+<p>StartCampaign</p>
+<p>StartCampaignWithoutClearingData</p>
+<p>SubscribeToCampaignNotifications</p>
+<p>UnsubscribeToCampaignNotifications</p>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

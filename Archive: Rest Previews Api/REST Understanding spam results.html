@@ -1,0 +1,43 @@
+<!-- page=REST Understanding spam results -->
+<!-- uid=8f58ab064efb2adbc1b126f0da2c1109fa7bd6b1 -->
+<!-- time=1443529397 -->
+<!-- ip=50.233.29.58 -->
+<!-- content-type=text/html -->
+<!-- name=Justin Unton -->
+<!-- email=junton@litmus.com -->
+<h2><span style="color:#ff0000;">This documentation is no longer kept up-to-date. &nbsp;As of 2015 the new Reseller API documentation can be found here:&nbsp;</span><span style="color:#ff0000;"><a href="https://litmus.com/partners/api/documentation">link</a></span></h2>
+<p>&nbsp;</p>
+<p>Each of the results contained within emailTest.Results can be used to display capture images to your users. There are a few things to check before attempting to us the properties of a result:</p>
+<p>&nbsp;</p>
+<h3>Has the result completed?&nbsp;</h3>
+<p>If your result's Completed property is true, it is safe to use the result to find its images (covered below).</p>
+<p>&nbsp;</p>
+<h3>Is the result a spam type?</h3>
+<p>If&nbsp;result's ResultType property is "spam", it will have details of the spam filter. If it's "email", it won't.</p>
+<p>&nbsp;</p>
+<p>If the answer to the above questions is "yes", then you can move onto deciding which properties contain the capture images you want.</p>
+<p>&nbsp;</p>
+<h3>Determining if the email was classified as spam by this filter</h3>
+<p>Your result's FoundInSpam property indicates if the email was junked by this filter, or passed. If FoundInSpam is true, the email was marked as spam by the filter that this result represents.</p>
+<p>&nbsp;</p>
+<h3>Reporting a spam filter's score</h3>
+<p>Your result's SpamScore holds this value, however you should ignore this value if set to "0.0" or otherwise equal to 0.</p>
+<p>&nbsp;</p>
+<p><strong>Examining the Spam Headers</strong></p>
+<p>Some clients provide more information then just pass/fail or a score. &nbsp;In these cases we will return all the information in the emailTest.Result.SpamHeaders</p>
+<p>&nbsp;</p>
+<p><strong>SpamHeader</strong></p>
+<table style="width:100%;" border="0"><tbody><tr><td style="width:7%;">Key&nbsp;</td>
+<td>String key returned by the spam provider for this header.&nbsp;</td>
+</tr><tr><td>Id&nbsp;</td>
+<td>Integer unique id in Litmus for this header. &nbsp;</td>
+</tr><tr><td>Description&nbsp;</td>
+<td>Text description in English of what potential issue this header indicates.&nbsp;</td>
+</tr><tr><td>Rating&nbsp;</td>
+<td>A value, determined by Litmus, indicating the severity of this potential issue. &nbsp;The values are 1 - 5 with 1 being very minor and 5 being a serious issue.</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p>Here's an example of how you might represent this data viusally:</p>
+<p>&nbsp;</p>
+<p><img id="pbImage779367" src="spam-in-litmus.png" alt="" /></p>
+<p>&nbsp;</p>
+<!-- pbraw=eJx9Vt9T4zYQfs9foXGnvXaGxEkgBELw9aZwQ9o+dIA+9FG21rEusiQkmVz+++7KNiQBjpkM/rH69tvdb3dt+RoW97cPj+xfLcD5wLWQes285TVz4BsV/KCRYnFRzi54Pj4/gzKfcpEXk3wyPS/Hgk+LyWR8WfJ5Ls7zySDIGhaTs7PT2fTy9HI+kHYxG4+mp6ej6eVodjEojA6gwzDsLCwCfA9pFWo10ByP/dn4IDVSCUYPoOZSLb41dPO7kqFu/Kgw9YDMh8/SraVeaDMYDofshgfOvhqlzNYzfDBYVtNsiTFo5sNOwXVSGGXc4qeyHOPfVZI9VtIzYYqmRi48SKMZPtCGKaPX4NgGbGCNHQYzFDzAiP2ic2+vvnhmSjYdT2YsVMA0bNk9eFAKj3z5Z3WEWKD/HFhpGi1YBQ4WLcoyJWo/JrjkrHJQXidVCNYv0vQ1A6nlLmgsVsqtTA9cJpmSerNMedb7SDETg6XNes823t3yoqJIKIiuyowKw6UGwbYyVFiGWIBH8GF035u0ATUejYJhQnqr+A4f29A4YLJGNXl6szONIzPnR+yRImecfqzEhBH2OloVFRQbBCwNvQwBahtIfPiq8ZGbdcaCCxJi3nnHddGHsR9UdZrdcb8XEQZUWwUBxOfeDm3o2KpsCbZ2nzz7o7fsHe5IDcE1cMJkoGvPS2h5wb4LfFJKLK7E5HTR/1qYZwxYYFwox99GH3BdHVDlbcNRT3zeo9meeaHZluERjQ54JnQ2iUy3UilW8WdgArCYyvdFjvClVAHciGH8kvCSWOHupNGfwrtkY74Ig2u/RZ1jzPEuxzjZU4P6QOH5SGQHHtHwraYER7nUZIXKQrVAIeNs2VYS1bdX2k55EfZISwSz5fp9ZpinG6yaq6UmXNnSjEHhIcRV3HtZSiwG3sUU5DvSn+9S8ZLq/w7k8JUadqUf6MBronEwFjgK/Fs/OKM2VPAD7BNmHLNIAETM+D7oi7gOcWruNsdcoYPDSx5a/E4zDixeYef7j5JzD9a42FF8XwAYoS+w5T6Inhg+0HtWGSV86/OZK+JbmS2gumNZfGUahdJfa7J9taL8eIi9kYxH44TyYDAQt5XYPPDUcEXvxh+IbemDwxmc3X7nXV0pCTFtd8BpR+Foa036Iw+mRuEoSbmggj1LASg8UpHG2VK30zjK8htumFiVtKSsIzXeJqOf8Kto6EmIHmu9hbanHKAqNeN4SXT2cTvhHk/LEVF+YfyjSF8NjyILPFfQL4itFKFaTMbjn68SlhuH5tfJGBdFyI3Y4T+HP3FoPUfb7C/Y9X6DIFSRPQRHid3ArgusV283KLocOlxdrq1sFfmNDoDS6DK6zVbi2McK1zxt0kbLJxKFoET9HZfYG1j2Ie4N+MJJS4k+dvCI3w44VF7eE/6tXivp42rbUr9YQ98aEhUnvW9g3+lrQ38c1T2n7jl2/KXvBtENnzZ7bWwnPW6vXE8NI3GAxEmM7o849cHjmmxxfdyVEzZks7iJ8TIHQkOcHUN3JFrcObPuMQoYHZjGd3j7caSdONIopeyNBO9wU2HL45wGbDfcgcQSmzw2eC3X1d6YadkL+tR6lo3HVti9u4hR2LLGaSyuE5uvaIzP55en5/OEeVdcJ2lJXyb1UOph90lj9TrBzgrXScLS7C3k/8y0qSI= -->

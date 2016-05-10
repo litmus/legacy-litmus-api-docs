@@ -1,0 +1,151 @@
+<!-- page=REST Email Previews -->
+<!-- uid=8f58ab064efb2adbc1b126f0da2c1109fa7bd6b1 -->
+<!-- time=1443529379 -->
+<!-- ip=50.233.29.58 -->
+<!-- content-type=text/html -->
+<!-- name=Justin Unton -->
+<!-- email=junton@litmus.com -->
+<h2><span style="color:#ff0000;">This documentation is no longer kept up-to-date. &nbsp;As of 2015 the new Reseller API documentation can be found here:&nbsp;</span><a href="https://litmus.com/partners/api/documentation"><span style="color:#ff0000;">link</span></a></h2>
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
+<h2>Introduction</h2>
+<p>&nbsp;</p>
+<p>For Email Previews the work flow is:</p>
+<p>&nbsp;</p>
+<ul><li>Create an EmailTest with Litmus and get a result back from us</li>
+<li>Send us your email to a unique email address you get from us</li>
+<li>Poll the api periodically to see if your previews are complete &nbsp;</li>
+</ul><h2>&nbsp;</h2>
+<h2>Details</h2>
+<p>&nbsp;</p>
+<p><strong>Step 1</strong> :: Start a Litmus email test by sending a POST request to <a href="https://previews-api.litmus.com/api/v1/EmailTests" search_id="undefined">https://previews-api.litmus.com/api/v1/EmailTests</a></p>
+<p>&nbsp;</p>
+<p>You can customze the request by only requesting a few TestingApplications.</p>
+<p>You can get a complete list of TestingApplications by making a GET request to <a href="https://previews-api.litmus.com/api/v1/EmailTests/TestingApplications" search_id="undefined">https://previews-api.litmus.com/api/v1/EmailTests/TestingApplications</a>. &nbsp;If you want to test all TestingApplications you can just send an empty EmailTest object.</p>
+<p>&nbsp;</p>
+<p>An example of a creating an email preview for all TestingApplications would look like this:</p>
+<p>&nbsp;</p>
+<pre>curl -u username:password -X POST -H "Content-type: application/json"  https://previews-api.litmus.com/api/v1/EmailTests -d '{}'</pre>
+<p>&nbsp;</p>
+<p>An example of a creating an email preview for&nbsp;only some TestingApplications would look like this:</p>
+<p>&nbsp;</p>
+<pre>curl -u username:password -X POST -H "Content-type: application/json"  https://previews-api.litmus.com/api/v1/EmailTests -d '{ "TestingApplications" : [ { "ApplicationLongName" : "Outlook 2010",
+        "ApplicationName" : "ol2010",
+        "AverageTimeToProcess" : 0,
+        "BusinessOrPopular" : true,
+        "Completed" : null,
+        "DesktopClient" : true,
+        "FoundInSpam" : null,
+        "FullpageImage" : null,
+        "FullpageImageContentBlocking" : null,
+        "FullpageImageNoContentBlocking" : null,
+        "FullpageImageThumb" : null,
+        "FullpageImageThumbContentBlocking" : null,
+        "FullpageImageThumbNoContentBlocking" : null,
+        "Id" : 0,
+        "PlatformLongName" : "",
+        "PlatformName" : "",
+        "RenderedHtmlUrl" : null,
+        "ResultType" : 0,
+        "SpamHeaders" : null,
+        "SpamScore" : 0,
+        "State" : null,
+        "Status" : 0,
+        "SupportsContentBlocking" : false,
+        "SupportsSpamScoring" : null,
+        "WindowImage" : null,
+        "WindowImageContentBlocking" : null,
+        "WindowImageNoContentBlocking" : null,
+        "WindowImageThumb" : null,
+        "WindowImageThumbContentBlocking" : null,
+        "WindowImageThumbNoContentBlocking" : null
+      },
+      { "ApplicationLongName" : "iPhone 5s",
+        "ApplicationName" : "iphone5s",
+        "AverageTimeToProcess" : 0,
+        "BusinessOrPopular" : true,
+        "Completed" : null,
+        "DesktopClient" : true,
+        "FoundInSpam" : null,
+        "FullpageImage" : null,
+        "FullpageImageContentBlocking" : null,
+        "FullpageImageNoContentBlocking" : null,
+        "FullpageImageThumb" : null,
+        "FullpageImageThumbContentBlocking" : null,
+        "FullpageImageThumbNoContentBlocking" : null,
+        "Id" : 0,
+        "PlatformLongName" : "",
+        "PlatformName" : "",
+        "RenderedHtmlUrl" : null,
+        "ResultType" : 0,
+        "SpamHeaders" : null,
+        "SpamScore" : 0,
+        "State" : null,
+        "Status" : 0,
+        "SupportsContentBlocking" : false,
+        "SupportsSpamScoring" : null,
+        "WindowImage" : null,
+        "WindowImageContentBlocking" : null,
+        "WindowImageNoContentBlocking" : null,
+        "WindowImageThumb" : null,
+        "WindowImageThumbContentBlocking" : null,
+        "WindowImageThumbNoContentBlocking" : null
+      }
+    ] }'</pre>
+<p>&nbsp;</p>
+<p>Optional: &nbsp;If you wanted to include a UserGuid (see <a href="/w/page/18056622/Generating%20user%20GUIDs">Generating User GUIDS</a>) you can make the call like this:</p>
+<p>&nbsp;</p>
+<pre>curl -u username:password -X POST -H "Content-type: application/json"  <a href="https://previews-api.litmus.com/api/v1/EmailTests">https://previews-api.litmus.com/api/v1/EmailTests</a> -d '{"UserGuid":"SomeGuid"}'</pre>
+<p>&nbsp;</p>
+<p>or</p>
+<p>&nbsp;</p>
+<pre>curl -u username:password -X POST -H "Content-type: application/json"  <a href="https://previews-api.litmus.com/api/v1/EmailTests">https://previews-api.litmus.com/api/v1/EmailTests</a> -d '{"UserGuid":"SomeGuid","TestingApplications": [...full array of TestingApplications...]}'</pre>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Step 2 </strong>:: Send your email to Litmus</p>
+<p>&nbsp;</p>
+<p>The response you receive from Step 1 will look something like this (note the ellipses are used to omit longer portions of the response that aren't needed right now):</p>
+<p>&nbsp;</p>
+<pre>{ "Error" : false,
+  "ErrorMessage" : null,
+  "Html" : null,
+  "Id" : 17344221,
+  "InboxGuid" : "740617c",
+  "Sandbox" : false,
+  "Source" : "https://s3.amazonaws.com/sitevista/",
+  "State" : "waiting",
+  "Subject" : "",
+  "TestType" : 0,
+  "TestingApplications" : [ { "ApplicationLongName" : "Outlook 2010" ...],
+  "UserGuid" : null,
+  "ZipFile" : "http://zip.litmus.com/resellers/?guid=..."
+}</pre>
+<p>&nbsp;</p>
+<p>In this response you received from your request in Step 1 there are two things we want to look at.</p>
+<p>&nbsp;</p>
+<p>InboxGuid - This is a unique string for this test. &nbsp;You will want to send your email to InboxGuid@emailtests.com &nbsp;When we receive your email we will know to tie it to your previously created test.</p>
+<p>&nbsp;</p>
+<p>Id - This is unique integer for your test. &nbsp;This is the id you will use to make future calls regarding this test to check the status and to get your results.</p>
+<p>&nbsp;</p>
+<p><strong>Step 3</strong> :: Check to ensure your email has been received and is being processed</p>
+<p>&nbsp;</p>
+<p>Make a GET request to <a href="https://previews-api.litmus.com/api/%7Bversion%7D/EmailTests/%7Bid%7D">https://previews-api.litmus.com/api/v1/EmailTests/{id}</a> with the Id of your test which you received in the response to Step 1. &nbsp;Check the State field. &nbsp;There are 3 possible States:</p>
+<p>&nbsp;</p>
+<p><em>waiting</em> - Litmus is still waiting to receive your email. &nbsp;Your test is not running.</p>
+<p><em>processing</em> - Litmus has received your email and is running your test.</p>
+<p><em>complete</em> - Litmus has completed processing of your email test.</p>
+<p>&nbsp;</p>
+<p>If after a few minutes your test continues to be in a Waiting status it is safe to resend your email. &nbsp;If this happens frequently or if your test never leaves the Waiting status you should contact our support team at resellers@litmus.com</p>
+<p>&nbsp;</p>
+<p><strong>Step 4</strong> :: Getting your results</p>
+<p>&nbsp;</p>
+<p>You can check on the status of your results by making a GET request to <a href="https://previews-api.litmus.com/api/%7Bversion%7D/EmailTests/%7Bid%7D">https://previews-api.litmus.com/api/v1/EmailTests/{id}</a></p>
+<p>&nbsp;</p>
+<p>Make sure to check the State of each TestingApplication. &nbsp;A State of Complete means you can parse that result and the images.</p>
+<p>&nbsp;</p>
+<p>For more information on how best to parse the results see&nbsp;<a href="/w/page/83901952/REST%20Understanding%20email%20results">REST Understanding email results</a>.</p>
+<p>&nbsp;</p>
+<p>For more information on how to integrate mobile results see&nbsp;<a href="/w/page/83901778/REST%20Using%20mobile%20results">REST Using mobile results</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

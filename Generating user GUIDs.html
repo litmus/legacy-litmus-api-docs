@@ -1,0 +1,25 @@
+<!-- page=Generating user GUIDs -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- time=1411565475 -->
+<!-- ip=73.167.58.139 -->
+<!-- content-type=text/html -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<div>If you are offering an unlimited testing facility to your users, we need to be able to identify the number of unique users of your application. This is done by setting a user GUID for each test you create.&nbsp;<strong>If you are billing your users exclusively on a per-test basis you can ignore this feature.</strong></div>
+<div>&nbsp;</div>
+<div>You must be certain that the GUID used is unique to that user. The GUID should be stored&nbsp;</div>
+<div>in a unique ﬁeld within your database and should not change for the life of that user's&nbsp;</div>
+<div>account.&nbsp;</div>
+<div>&nbsp;</div>
+<div>This information is never shared with anyone, not even your user<span style="font-size:13px;line-height:1.5;">. &nbsp;It will be used in your billing reports and returned to you along with your test results.&nbsp;</span></div>
+<div>&nbsp;</div>
+<div>Do not use a hash of your user's details unless you generate this only once (such as&nbsp;</div>
+<div>generating it when you create a new user) and you can be certain that this hash will be&nbsp;</div>
+<div>unique. This is because a hash of their email address, for example, could change over&nbsp;</div>
+<div>time and cause them to be identiﬁed twice in one month.</div>
+<div>&nbsp;</div>
+<div>You can find specific implementation details for user GUIDs in the REST and SOAP documentation:</div>
+<ul><li>REST: <a href="/w/page/83277184/REST%20Email%20Previews" search_id="undefined">Creating Test Sets</a> (shows using a GUID in a new test)</li>
+<li>SOAP: <a href="/SOAP-Web-Service%3A-Process-for-running-email-tests">Process for running email tests</a> (explains&nbsp;assigning the UserGuid property of an EmailTest struct instance)</li>
+</ul>
+<!-- pbraw=eJyFVdtu4zYUfPdXEAa27QIrOY6j2HEco9vNNshTgyaLok8FJR1ZBChSJSlf9q3/03/rL3QOJccpXGABA7ZF8pw5M8NRKze0fCBDTgZlNqLz5MTDl8d7P+pUuayqy5vpDWWzeSYvs+x6Kqf5xezi5mpxdb24qRZ5UWQyy+ajoBpaTq+m0+w6u5pnI9Uu57N0ej1Ps0U6nd2MCmsCmZCEQ0vLQPswqUOjR0bi3E+OTCmN+CSrytFhRI1Uepn3T3/UKjSdl22bFrYZ8alkq9xGmaWxoyRJxL0MUvxstbY7L/BgtCrVdv1YiYPthHQkbFWR4+nQozNaNSpQKQL5OHIlC4UeBxEsn3CRA/9B7EgY4n1W5CRkrol/qhJTqAq7a6x3TQ6+bIWy6s+O+qP8PxYCZq0KEGtNKl5q5QU+pTUk8oPwFGJ7eeJcVNYJkkUdsUX4hSMZKP3O5L69XfngrNm8HS1XWnOVE3BB+0J3Xm1JH4Q1qN+SS2LBXHoAiGXBhNoYiwqBcVXo0jlKV5OhxWrCHPZMDs3fPPkdJaBJYGIKckEqgzoyRFLiJIBS8rQDLyAurjNCpmLY5Wvb6ZKr+AAs5XknxQMMRf75+y/C7p0CZNNPXEJ6TAV5THmsZmwQRS3NhiKfDEmril1wwvC9P28li8J2JqTnK+dPejEN6jdRXh7V0BY6+hqy9CAB6gCxP0REWDQnlVa+hQI+HDTdjStcjcSrr7hAs3Z/Cz0pqUlt6rCcptnteJ2KHsFjQF2tma+e36Hi0QSOWuuCj2Q4gqCmt280i4asPax4JhrCke908K8jM6pvSH9v4zgdcy5q6etXt/e8ipJgB83Ka/K92zZ9vgxesyYasyDxg+/gdfk/WmxOiaQwdN1zN9wGNDa0i/3ex1mPjj53I9pFjANt5416a51uZ06F/O9s8I/CreRIErIsQRmyIV7UvWxaDXmLaLvBchYmOG/D8Rih9tVRsxlypc8Ttjak2imwAvQcEQ1cUaffvoc8eKXY/i0VqlKFUAyrQdnemkdBGPMp3kUkicSvn59fIrLnXz4+IZyK7vXk8tiq0+uVVmveuhQrUOOouhtPdpMWb4/JYnY5n08XVxNef3d58ZmpwveTo62inR8j6qQr6j9UeTfuTElAS+V4/YnFZIVf2IrPFPxqItcwRc05jgSL4RhzIqYAa86ufb+aAMyIETHmt4j4f/Ib5ckzuS24fDf7mDw5W0CzBOMnrjMGZZOoZsxEP14PGyI/w4ZB7rihB0X7VsNXg1Wl90hP3sgUfgGpD3hbitZZZC3eJLANVIlExOEQql0RMIYPEsY/TjABsf8Csieb1w== -->

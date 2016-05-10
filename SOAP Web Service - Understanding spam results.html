@@ -1,0 +1,28 @@
+<!-- page=SOAP Web Service - Understanding spam results -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1250449563 -->
+<!-- ip=93.97.172.119 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<p>Each of the results contained within emailTest.Results can be used to display capture images to your users. There are a few things to check before attempting to us the *Image properties of a result:</p>
+<p>&nbsp;</p>
+<h3>Has the result completed?&nbsp;</h3>
+<p>If your result's Completed property is true, it is safe to use the result to find its images (covered below).</p>
+<p>&nbsp;</p>
+<h3>Is the result a spam type?</h3>
+<p>If&nbsp;result's ResultType property is "spam", it will have details of the spam filter. If it's "email", it won't.</p>
+<p>&nbsp;</p>
+<p>If the answer to the above questions is "yes", then you can move onto deciding which properties contain the capture images you want.</p>
+<p>&nbsp;</p>
+<h3>Determining if the email was classified as spam by this filter</h3>
+<p>Your result's FoundInSpam property indicates if the email was junked by this filter, or passed. If FoundInSpam is true, the email was marked as spam by the filter that this result represents.</p>
+<p>&nbsp;</p>
+<h3>Reporting a spam filter's score</h3>
+<p>Your result's SpamScore holds this value, however you should ignore this value if set to "0.0" or otherwise equal to 0.</p>
+<p>&nbsp;</p>
+<div>
+<p>&nbsp;</p>
+</div>
+
+<!-- pbraw=eJx1VMtu2zAQvOsrFj40bRErfjt2g6SPNKgPRYskRdEjLa0sNhTJkJRV/313KTux8zgYoMjd4czs0FascH7z49NP+I1LuEG3lhlCF37pHJ0PQudSr8BbUYFDX6vgk1rm895gNJ2dTsanvWJEq8G4L4aj6WlvOZkuR2LQny2xmOSjQRJkhfP+YNwbjWbjyTCRdj4bprNp2p8O0n5/lmRGB9ShGzYW5wH/hZMyVCrRgvq+ixBKbOCzkzpXuEmwElLNq3b7o5Khqr2wNs1MlXBbdy3dSuq5Nkm324VLEQRcGaVM44E2kjN7/lVkJZgCCGGnCJiDkBpzaGQopYZ4zy36kF7vSoSGJULtqSgYyKW3Smxo24baIciKfPR8sjG14zLnU7gtkc4E/6AgHYy9ilVZidkdARaGD0PAygY2mo5qH7m9XzAkWGcsuiAJnEiLLeX52Yk9ZzVv9NLbD+1XOTz/JvyeMNJVWYUB84tdHdVw26JoebZ1Rx6+7Cp3F25AEpSr8Rhk4LUXBbb0cP8K2iloOFTkdya8zcyadOckj4x/l77CdXFAVbQZ4xRc7NFsex5ottO4paIDnh3u7USmjVQKSrFGyJFmqvxu1hG+kCqgS4H0S8brxEFvO40+Ci+SjX4xhtC+Qcea49eSdMJ9TTGRRvtIZIOe0OhUs8ExNRVXUcAoNJjJ+JyaUlII90a7DWCEfRIphmmEfpkZ+XRJU3OV1IwrW5pRFDURrhLey0LSMOgrWrDccAz91ooHq/8cxOHK1Dpf6BtueDSa/gsyEYjTs3v+1vqOB36AfQzGgSUCmEfH90EfwnWIUwl395QrbuFoKUKLv82MQ0sr+vPwr5lzjda4+LDEfgBIoc/o5b2inhne8DmURuW+vXMtFPMtTYOU7jgWX5paUfRXmmsfq9gfj/FtdHppr8M+GBLiGkmPB+9rofis9yLrXK6f7Z3Ezf9ZOPD8 -->

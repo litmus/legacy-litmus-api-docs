@@ -1,0 +1,122 @@
+<!-- page=SOAP Web Service - Iterating through your page results -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<!-- time=1302646610 -->
+<!-- ip=204.9.220.36 -->
+<!-- content-type=text/html -->
+<p>We now know we have two Client objects stored in pageTest.Results. A Client object has a lot of properties, all filled with useful information when displaying the result for that client to your users. We'll cover those below for our first result, retreived in pseudo code below:</p>
+<p>&nbsp;</p>
+<pre>var result = pageTest.Results[0]
+</pre>
+<p>&nbsp;</p>
+<p>Remember that we have two results to check, but we'll focus on the first for now:</p>
+<p>&nbsp;</p>
+<p><strong>ApplicationLongName</strong></p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p>Capacity: &nbsp; &nbsp; 255 characters</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"Internet Explorer 7"</p>
+<p>&nbsp;</p>
+<p>The longer, friendlier name of the browser that you can show to your users.&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>ApplicationName</strong></p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p>Capacity: &nbsp; &nbsp; 255 characters</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"IE7"</p>
+<p>&nbsp;</p>
+<p>A unique identifier for each browser, we&nbsp;guarantee&nbsp;that this name won't change for any given client (although we may deprecate one as it becomes less&nbsp;relevant&nbsp;in the market place, eg "IE5" was deprecated, you will be notified of this).</p>
+<p>&nbsp;</p>
+<p><strong>Completed</strong></p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;</p>
+<p>Capacity: &nbsp; &nbsp; 1&nbsp;</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp; true / 1</p>
+<p>&nbsp;</p>
+<p>This is an important property as, when true, it indicates that the result has finished processing and the result is ready to be viewed. Please note that if a result fails for some reason, Completed is always set to true. It is therefore safe to use the Completed property to know when to stop polling for updates for a particular result, and when to show the result to your user.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>PlatformLongName</strong>&nbsp;</p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p>Capacity: &nbsp; &nbsp; 255 characters</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"Microsoft Windows"</p>
+<p>&nbsp;</p>
+<p>The long, friendly name of the platform this client is running on. In this case of multi-platform applications (such as Chrome), the platform Litmus uses is used. The PlatformLongName includes the platform's manufacturer, as well as the platform name.</p>
+<p>&nbsp;</p>
+<p><strong>PlatformName</strong>&nbsp;&nbsp;</p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;</p>
+<p>Capacity: &nbsp; &nbsp; 255 characters&nbsp;</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"Windows"</p>
+<p>&nbsp;</p>
+<p>The shorter name of the platform, usually excludes the manufacturer of the operating system.</p>
+<p>&nbsp;</p>
+<p><strong>ResultType</strong>&nbsp;</p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;</p>
+<p>Capacity: &nbsp; &nbsp; 10 characters</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"page"</p>
+<p>&nbsp;</p>
+<p>Contains either "email", "spam" or "page". If you've selected any spam clients for your email test, you will have some results with a ResultType of "spam". Most resellers chose to display spam results in a separate section.&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Id</strong></p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer</p>
+<p>Capacity: &nbsp; &nbsp; 4 (32-bit)</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;3680253</p>
+<p>&nbsp;</p>
+<p>This property represents a unique identifier for this result (not this client). You can use this id when using GetResult.</p>
+<p>&nbsp;</p>
+<p><strong>State</strong></p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;</p>
+<p>Capacity: &nbsp; &nbsp; 15</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"complete"</p>
+<p>&nbsp;</p>
+<p>State is the current state of your result, it can be either "pending", "complete" or "error":</p>
+<p>&nbsp;</p>
+<table class="pbSortable" style="border:0px;" border="0" cellspacing="1" cellpadding="1" width="500"><thead><tr><td style="border:1px solid #bbbbbb;"><strong>State</strong></td>
+<td style="border:1px solid #bbbbbb;"><strong>Description</strong></td>
+</tr></thead><tbody><tr><td style="border:1px solid #bbbbbb;">pending</td>
+<td style="border:1px solid #bbbbbb;">The result is still processing. You should poll for updates again in 60 seconds time.</td>
+</tr><tr><td style="border:1px solid #bbbbbb;">complete</td>
+<td style="border:1px solid #bbbbbb;">The result has completed. You should now stop polling for updates.</td>
+</tr><tr><td style="border:1px solid #bbbbbb;">error</td>
+<td style="border:1px solid #bbbbbb;">The result has failed. You should now stop polling for updates.</td>
+</tr></tbody><tfoot></tfoot></table><p>&nbsp;</p>
+<p>The property State is not to be confused with Status (see below).</p>
+<p>&nbsp;</p>
+<p><strong>Status</strong></p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer&nbsp;</p>
+<p>Capacity: &nbsp; &nbsp; 2 (16-bit or short)</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;0</p>
+<p>&nbsp;</p>
+<p>Represents a client's current status. A status of 0 indicates all is well, other values are:</p>
+<p>&nbsp;</p>
+<table style="border:0px;" border="0" cellspacing="1" cellpadding="1" width="500"><tbody><tr><td style="border:1px solid #bbbbbb;"><strong>Status</strong></td>
+<td style="border:1px solid #bbbbbb;"><strong>Description</strong></td>
+</tr><tr><td style="border:1px solid #bbbbbb;">0</td>
+<td style="border:1px solid #bbbbbb;">Client is performing well, no delays.</td>
+</tr><tr><td style="border:1px solid #bbbbbb;">1</td>
+<td style="border:1px solid #bbbbbb;">Client is running slower than usual, expect delays of up to 15 minutes.</td>
+</tr><tr><td style="border:1px solid #bbbbbb;">2</td>
+<td style="border:1px solid #bbbbbb;">Client is currently unavailable, you should avoid ordering new tests for this client, but any ordered tests will be honored when the client recovers.<br /><br /></td>
+</tr></tbody></table><p>&nbsp;</p>
+<p><strong>FullpageImage</strong></p>
+<p>&nbsp;</p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p>Capacity: &nbsp; &nbsp; 255 characters</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"s3.amazonaws.com/resultcaptures/32bacc5fa418f4a6344d92244813db42.full.png"</p>
+<p>&nbsp;</p>
+<p>The uri of a capture of the url opened in the browser.&nbsp;</p>
+<p>&nbsp;</p>
+<p>To make the link valid, you need to prepend a protocl to the uri. Litmus doesn't add the protocol for you because you may be linking to this (or embedding it in an iframe) in a page over SSL and this would lead to mixed content warnings in Internet Explorer. Here is the link above after adding "https://" to it:</p>
+<p>&nbsp;</p>
+<p><a href="https://s3.amazonaws.com/resultcaptures/32bacc5fa418f4a6344d92244813db42.full.png">https://s3.amazonaws.com/resultcaptures/32bacc5fa418f4a6344d92244813db42.full.png</a></p>
+<p>&nbsp;</p>
+<p><strong>FullpageImageThumb,</strong></p>
+<p>&nbsp;</p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p>Capacity: &nbsp; &nbsp; 255 characters</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"s3.amazonaws.com/resultcaptures/32bacc5fa418f4a6344d92244813db42.fullthumb.png"</p>
+<p>&nbsp;</p>
+<p>The corresponding thumbnail for the capture you've chosen to use. Our thumbnails are 119 pixels wide by 84 pixels high (119 x 84). You may wish to generate your own thumbnail from the full-size capture by downloading it and creating the thumbnail on your servers.</p>
+<p>&nbsp;</p>
+<p>https://s3.amazonaws.com/resultcaptures/32bacc5fa418f4a6344d92244813db42.fullthumb.png</p>
+<p><strong>&nbsp;</strong></p>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

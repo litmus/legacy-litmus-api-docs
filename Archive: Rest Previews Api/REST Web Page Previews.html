@@ -1,0 +1,101 @@
+<!-- page=REST Web Page Previews -->
+<!-- uid=8f58ab064efb2adbc1b126f0da2c1109fa7bd6b1 -->
+<!-- time=1443529493 -->
+<!-- ip=50.233.29.58 -->
+<!-- content-type=text/html -->
+<!-- name=Justin Unton -->
+<!-- email=junton@litmus.com -->
+<h2><span style="color:#ff0000;">This documentation is no longer kept up-to-date. &nbsp;As of 2015 the new Reseller API documentation can be found here:&nbsp;</span><span style="color:#ff0000;"><a href="https://litmus.com/partners/api/documentation">link</a></span></h2>
+<p><span style="font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;font-size:17px;font-weight:bold;line-height:1.25em;">&nbsp;</span></p>
+<h2>Introduction</h2>
+<p>&nbsp;</p>
+<p>For Web Page Previews the work flow is:</p>
+<p>&nbsp;</p>
+<ul><li><span style="font-size:13px;line-height:1.5em;">Create an PageTest with Litmus and get a result back from us</span></li>
+<li><span style="font-size:13px;line-height:1.5em;">Poll the api periodically to see if your previews are complete &nbsp;</span></li>
+</ul><p>&nbsp;</p>
+<h2>Details</h2>
+<p>&nbsp;</p>
+<p><strong>Step 1 </strong>:: Start a Litmus web page test by sending a POST request to <a href="https://previews-api.litmus.com/api/v1/PageTests">https://previews-api.litmus.com/api/v1/PageTests</a></p>
+<p>&nbsp;</p>
+<p>You can customize the request by only requesting a few TestingApplications.</p>
+<p>You can get a complete list of TestingApplications by making a GET request to <a href="https://previews-api.litmus.com/api/v1/PageTests/TestingApplications">https://previews-api.litmus.com/api/v1/PageTests/TestingApplications</a>. &nbsp;If you want to test all TestingApplications you can just send an empty PageTest object with only details about the url to be tested.</p>
+<p>&nbsp;</p>
+<p>An example of a creating an web page preview for all TestingApplications would look like this:</p>
+<p>&nbsp;</p>
+<pre>curl -u username:password -X POST -H "Content-type: application/json" &nbsp;<a href="https://previews-api.litmus.com/api/v1/PageTests">https://previews-api.litmus.com/api/v1/PageTests</a> -d '{ "Url" : "<a href="https://www.google.com/?">https://www.google.com/?"</a>, "Title" : "Google" }'</pre>
+<p>&nbsp;</p>
+<p>An example of a creating an web page preview for only some TestingApplications would look like this:</p>
+<p>&nbsp;</p>
+<pre>curl -u username:password -X POST -H "Content-type: application/json" &nbsp;<a href="https://previews-api.litmus.com/api/v1/PageTests">https://previews-api.litmus.com/api/v1/PageTests</a> -d '{ "Url" : "<a href="https://www.google.com/?">https://www.google.com/?"</a>, "Title" : "Google", "TestingApplications" : [ { "ApplicationLongName" : "Explorer 10",</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "ApplicationName" : "IE10",</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "AverageTimeToProcess" : 0,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "BusinessOrPopular" : true,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "Completed" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "DesktopClient" : true,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FoundInSpam" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImage" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImageContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImageNoContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImageThumb" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImageThumbContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImageThumbNoContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "Id" : 0,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "PlatformLongName" : "",</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "PlatformName" : "",</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "RenderedHtmlUrl" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "ResultType" : 0,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "SpamHeaders" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "SpamScore" : 0,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "State" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "Status" : 0,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "SupportsContentBlocking" : false,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "SupportsSpamScoring" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImage" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImageContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImageNoContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImageThumb" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImageThumbContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImageThumbNoContentBlocking" : null</pre>
+<pre>&nbsp; &nbsp; &nbsp; },</pre>
+<pre>&nbsp; &nbsp; &nbsp; { "ApplicationLongName" : "Firefox (OS X)",</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "ApplicationName" : "fflatestosx",</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "AverageTimeToProcess" : 0,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "BusinessOrPopular" : true,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "Completed" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "DesktopClient" : true,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FoundInSpam" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImage" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImageContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImageNoContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImageThumb" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImageThumbContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "FullpageImageThumbNoContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "Id" : 0,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "PlatformLongName" : "",</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "PlatformName" : "",</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "RenderedHtmlUrl" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "ResultType" : 0,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "SpamHeaders" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "SpamScore" : 0,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "State" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "Status" : 0,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "SupportsContentBlocking" : false,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "SupportsSpamScoring" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImage" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImageContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImageNoContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImageThumb" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImageThumbContentBlocking" : null,</pre>
+<pre>&nbsp; &nbsp; &nbsp; &nbsp; "WindowImageThumbNoContentBlocking" : null</pre>
+<pre>&nbsp; &nbsp; &nbsp; }</pre>
+<pre>&nbsp; &nbsp; ] }'</pre>
+<p>&nbsp;</p>
+<p><strong>Step 2</strong> :: Getting your results</p>
+<p>&nbsp;</p>
+<p>You can check on the status of your results by making a GET request to <a href="https://previews-api.litmus.com/api/v1/PageTests/%7Bid%7D">https://previews-api.litmus.com/api/v1/PageTests/{id}</a>&nbsp;using the Id you received in the response to Step 1.</p>
+<p>&nbsp;</p>
+<p>Make sure to check the State of each TestingApplication. &nbsp;A State of Complete means you can parse that result and the images.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=eJztWW1zGjcQ/s6v2KGTup0xYLAdx2dC6/gtdNKEMWSSTqcfxN0eyOgkVdIZ00z+e1c6wNjGSbCdfCIfnNGh3X322ZdbFs0GGJ2fdHvwAfvQoRN0DF5yHNtSzpPoRbr7gvW3nu9g2m+wpB/X+/XG83QrYY24Xt/aT9leP3ner5cczzCq7+xs7zb2d/a3S1xHu1vVxvZ2tbFf3X1RipV0KF3FTTRGDq9cbegyUZKMxP7IreMS3kunZAkzxkV0kfvD74K7LLfVWGUlf71yyc2Ay0iqUqVSgWPmGJwqIdTYAj0oNYeNVtNqJsG6icCX5VgJZaKf0nSL/h2UW70ht5CoOM8IC3NcSaAHUoFQcoAGRqgd5LriVCVhDqvws+xbfXBoQaXQ2KrvghsiSBzDOVoUgkQOO+1bGmOy30dIVS4TGKLBqNDSrHloXwbYZDA0mL4sD53TNqrVrhmoaWacRGNrTPPaDZPlluBy1Kyx1sxGjZgoNfVNYynFoJKyjItJtNHFgUJ4397YhI03ecwTBmeGyQTpwaHhTGyCZdJWLBqeHgRRy/+jGO/pq+I4Rj4YuqivRHJA9rEyLB7Uq41dzMiZm27XdCsEqC2dUUkee+BznLOrOpxOlbmbj4H6sTIjSCngFLdodn1ROBetpuBL/C7AbxP4m1gLqEcGKd5AMt5mD62DMXdDeBPop+cJDNABA4M2Fw76LCYcRmWQ27mDZLf0EOMdSuHgHQUWNPGtEh4zISbgFFhE4ClMVG5Az6hgBoFSQgsk0LdoDihqnoebzBDTx+iouOw9rDctBUYOWl2HGupACotzFEHXUe6R91M6xhQb7WPjPFH9CYGUCZcDutF5R73E4L+5/4Tg30nomQ8Vcra6kN0+qS/rtRn9ttxaVaLI/7spoVt/qTxUZUyNRmUUi8D2DCXhV5LInp4LP1Kq8V5xOtRaUDx8vtrqbZVFVsxjITgppF6xRNTbydioUH928jQs1ZYYWp25ZVo8m7P+1w75B2MmA9oQdcrPpV5OpsRcENchL3xRYabd5Lq0VP8C42mFBeqTIjGB9VXuQnByI7ypfpFjmFSXR/aQdF8xT75nnQLh6zhQLK+zdEoDdWRzL+yxykVCrwE1ohiOfILc02BIWSv26Co51T6a8AbTzFpqTQlUPhYVUHkN5aPFVx7V9txa7cJSz57V7Y8tEKgksPEJyu+NKEME5Tvmx+NxdaDUQGDQ8du1mTufeH2bUO5xJzAoOwufluHzRtODeop4hfSwKsN11L5z1PyzJc2EbvwNZHrh4Rt6K7wlAoP0yZWmEYYGofpWeXMedvpbEAVL/1vUNtfUPllNxSUazxENnj3VMSpGG9BufbuKV7ml17G170xH6Vww4+WdyfHbVRxNO3/iRWUuxLeLHqMdOaWPBKd8W93yqZ8v27KrWba67VO67WutndGfR4pPK+aVULF/uz1S21v1tPp6wzzrP4WO7wDrCXxtJyvmfEcwR401u1HEK5TdTP4hsuc0DtD3oeQ1fZebtrLVvD0P03ePWvOKXvsqeY2MrNvVrXrhbkxNblWj9O3sAcXlxfJVW1k311oZZ5ckVMqEXaGvzDTNvH5QWn7gMlHjB3aXBeFH18eCrieotgVtD+wrtzU8OaR7vfyqxs9fN/qFOeCU00CiruCXd134+OsjR4E0pS5Dw4iyV+uJYD0RrCeC9USwngjWE8F6IvjBE8H9N/75wpLnxiK5Md8jQxTBGbqw7gnr7GKXbr+ysx1iPAIlw1bQhkLwq6NFBd9ns/ps7xVPnu0dP2Cd+oknn/2apfDIjxSDAL+dhPWowRj5JSbA5XQRbbWSFj3eYvl+z7bzTzYiDnITbhbEePnQVTwpyOLhkj3Z/Ges65uzIQUyZAtLW82MhzFkbvZDh//lw9vgPp3sPbiuT/8DoRNucg== -->

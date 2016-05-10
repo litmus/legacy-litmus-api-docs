@@ -1,0 +1,45 @@
+<!-- page=Customer API Documentation: reports show -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1321739495 -->
+<!-- ip=209.6.232.21 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;"><a style="font-weight:inherit;font-style:inherit;font-size:20px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-documentation">Back to Customer API documentation</a></h1>
+<p>&nbsp;</p>
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;">Customer REST API Method: reports/show</h1>
+<p>&nbsp;</p>
+<p class="explanation" style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Retrieves a single specified report (campaign). Note that we also include links to download the full report content in CSV format. You can use this to programmatically collect all the data for a campaign that is displayed in our charts and tables.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>URL:</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">https://#{company}.litmus.com/reports/#{report_id}.xml</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>HTTP Method(s):</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:'Courier New';vertical-align:baseline;line-height:1.2em;padding:0px;margin:0px;border:0px;">GET</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Parameters:</strong><span style="color:#444444;">&nbsp;</span></p>
+<ul style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:3em;font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;border:0px;"><li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">report_id: the report ID parameter&nbsp;</li>
+</ul><p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Request</strong>:&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>:&nbsp;</p>
+<p>&nbsp;</p>
+<pre style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:monospace;vertical-align:baseline;padding:0px;margin:0px;border:0px;">n/a
+
+</pre>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Response</strong>:&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>:&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;report&gt;
+  &lt;bug_html&gt;&amp;lt;style&amp;gt;@media print{#_t { background-image: url('https://a6.emltrk.com/E95EEB71?p');}} div.OutlookMessageHeader, table.moz-email-headers-table, blockquote #_t {background-image:url('https://a6.emltrk.com/E95EEB71?f')}&amp;lt;/style&amp;gt;&amp;lt;div id=&amp;quot;_t&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;img src=&amp;quot;https://a6.emltrk.com/E95EEB71&amp;quot; width=&amp;quot;1&amp;quot; height=&amp;quot;1&amp;quot; border=&amp;quot;0&amp;quot; /&amp;gt;&lt;/bug_html&gt;
+  &lt;created_at type="datetime"&gt;2010-06-16T12:24:09Z&lt;/created_at&gt;
+  &lt;id type="integer"&gt;24&lt;/id&gt;
+</pre>
+<pre>  &lt;name&gt;Test - Yahoo test&lt;/name&gt;
+  &lt;public_sharing type="boolean"&gt;false&lt;/public_sharing&gt;
+  &lt;sharing_url&gt;&lt;/sharing_url&gt;
+  &lt;client_usage&gt;http://export.litmus.com/mailclientusage.aspx/ABC123&lt;/client_usage&gt;
+  &lt;client_engagement&gt;http://export.litmus.com/mailclientengagement.aspx/ABC456&lt;/client_engagement&gt;
+  &lt;activity&gt;http://export.litmus.com/activity.aspx/ABC789&lt;/activity&gt;
+&lt;/report&gt;</pre>
+<!-- pbraw=eJzdWG1v2zYQ/u5fQThA0gCRZNmOY8uJuyZNX4CmK9J0WPfFoKWzRYQSVZKK7Qb57ztSki1nbeG2W9ulBRzpeO/38KhjRmcQnOVKiwQkefLmJXkqwjyBVFPNRBoQCZmQWhEVi3kjZ1HQanePBv3eYb817eJT+9Cnne5RvzXpHU26tO0PJjDtRd12Q7MEAr/T9o86g+7gsMGyoN0auD233Wm7bb8RilSjHUcvMwg0LLQX64Q3UopiF1TrGObkVLI04rBsQEIZD5KC/BtnOskVzTI3FEnDiDk3TM5YGqSi4TgOeUo1Jc8E52KuCBIax7FPlF5yOGlO0a4zBzaLdTARPBpagl0MWBqDZLoksY+ALmeL4nVKE8aXwd5bmAkg717uHZC9V3nIIkqeS5pGgIQnklF+QBRNlaNQ03R4A1KzkHKHcjZLgwlVwFkKQ/PjxIUXvts+hGQYCi5ksNPtmP/DjEYRS2eBsZ9QG5x5nAgZgbSPzdEx/VRQm0FsG1fF8jmHS+98v9vt97fxjsQSpidNr0KXg+hyojq6mqNTGl4TLcgGAjd4jj06OvZif9Q4zka76URlw2MvGz3Qgq7ycHn+9som4wJ0LKLVPvTMPvxkPjIScqrUSRMWGadpkeBvhoff+Up4bIZvot8m3kvQksENKIJIRmYORGUQsimDqAyZPAppklE0tu+S10ID0THVZA6EciUIS0OeR0DQ/rUyUIrEPOWCRsgGZJpzXukp+w1KkLO3f5CpkNhOXPJe5CSkKcmV0cysjkyKmaQJrptQ+RJlOYdQo0lu9Uamv6AGdLvyrnAL5SOmsABLDAAtiVySMKamgyKiiKYTDsotK3avfj+xVt/QepSWIp2N3l2+Co698uV/GkmG5a+7XDWGEKvHcDOmMMdWkIhUIGsIKBNrnanA83Zu8QBC8eWdW5xJ5kDyqr26c1s8jVl05y4SjnlC3tEDqv6Lq6s3ZYt6pPYfHBC+y+W9sxI+rxE+2x4bW/bN5+dXDw9Mbyj2XNAgVQ1I9ZpUqu0/FKxiriUi5xVzYc3RIqsZd6T1tEaYCI0nbp3CYaqDDkby32evnp3NlHD242q4TY1WjSyw5195pL58SrKqaFUxOMMyeDkfPQxQXsKHHJReATL4ZWLaJorC2eKXfOHPxjYzs5gTQShkMQPm+CksrRPrtPx58YrAAj99ONSavt2ImxnaxICEfy9j6/P4e4CderSBeEXPfnY9vwejKhOpgl8QpF8f1Och+6OhOtrlevgYv9sIxqtQ/UnTd1tNAmkoTBgnzXdXz5x+8/HuTA8bhrloi/aVEEOY5LOxuZ4wpF10YYg067p9QeJvCUSM4sDBUn27M9bklkxwJp5JgaE4LDHXMySX/NFe9clJey4kXMtr+6l5Pjg8Pz898h9ne/vDuzscPm7c33PNhbi+AKVQ/AVQzMlBMXq4ifjo2LsULJOhK8fSD8iEi/D6Q27mK+vGP7zYxonp3v5dFaa3EWdFRf8Ii07sq7E2HOv1831mD7nv01gyI0qGNQ1f9mnNR+Ys0nFNsL5WgPYziwU+a4ut2qK38tB4XC94iYFQAtUQjXE6NFddJ00cHsFcjjUNU7vlt5xWz/F7V347aHeD1uAvq2ktVtPFolIHwgVmIAsVXSvAIsu46mX4WwiZGzWzdIXnGHHIexoLQTS+WLFqtbSQ5RPOwrHCmRUhXlqbCMGBptbaFMdusJKbrDUdJWWMkNmtEnOPVuWGMxzJx7kBqiGbWmIpYWH2UX2kMpAtmC2vS1W28J6cnvntTpGte4o29UM6Q7q5U9rSyFpgZal72Ktb2lRZmqOhZjdML79opWJaaT7qD6zmurRtJ966nxRV/RvPPrCb -->

@@ -1,0 +1,36 @@
+<!-- page=Litmus Previews Api -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- time=1393881466 -->
+<!-- ip=64.119.133.122 -->
+<!-- content-type=text/html -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<p><em style="font-family:inherit;font-weight:inherit;line-height:1.5em;">Before getting stuck in with the technical implementation, be sure to read the&nbsp;</em><a style="font-size:13px;line-height:1.5em;" href="/Introduction"><em>introduction</em></a><em style="font-family:inherit;font-weight:inherit;line-height:1.5em;">.</em></p>
+<p>&nbsp;</p>
+<p><span style="background-color:#ffff99;">A friendly reminder:</span>&nbsp;The Previews Api is only for use with a reseller account. It does not work with a regular Litmus account. if you're interested in offering Litmus to your own users,&nbsp;<a href="https://salted.wufoo.com/forms/api-inquiry/">we'd love to hear from you</a>!&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Technical Documentation</strong></p>
+<p>&nbsp;</p>
+<p>The Previews Api is a REST based web service. &nbsp;You'll make POST and GET requests to interact with the service. &nbsp;</p>
+<p>&nbsp;</p>
+<p>The endpoint and documentation are available at <a href="https://previews-api.litmus.com" target="_blank">https://previews-api.litmus.com</a></p>
+<p>&nbsp;</p>
+<p><strong style="font-family:inherit;font-style:inherit;line-height:1.5em;">Authentication</strong></p>
+<p>&nbsp;</p>
+<p>All requests will be authenticated using HTTP Basic Authentication using your Api Key and Api Password.</p>
+<p>&nbsp;</p>
+<p>To test your credentials the following curl request should always return some amount of clients:</p>
+<p>&nbsp;</p>
+<p><span style="font-family:'Courier New';">curl -u ApiKey:ApiPassword <a href="https://previews-api.litmus.com/api/v1/EmailTests/TestingApplications">https://previews-api.litmus.com/api/v1/EmailTests/TestingApplications</a>&nbsp;</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Sample Implementations</strong></p>
+<p>&nbsp;</p>
+<p style="margin-left:40px;"><strong>C#</strong></p>
+<ul><ul><li>Client library:&nbsp;<a href="https://github.com/litmus/previews-api-client">https://github.com/litmus/previews-api-client</a></li>
+<li>Sample implementation: &nbsp;<a href="https://github.com/litmus/previews-api-sample">https://github.com/litmus/previews-api-sample</a>&nbsp;</li>
+<li>Nuget package: <a href="https://www.nuget.org/packages/Litmus.PreviewsApi/">https://www.nuget.org/packages/Litmus.PreviewsApi/</a>&nbsp;</li>
+</ul></ul><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=eJytVm1v4kYQ/s6vmHJS8+VsxyHkwCGoSS5to1bXqMeXfqrG9hqvWO/69gUf/fWdtQ2EvKKqSBh7PTP7zPPMzFLjkiW/c1s5Aw+arTlrDFzXfOB4nhTF2TSesvHo0xjPxuOLGOP0dHQ6PZ+cX0ymxSTNsjGOx58GllcsiUfT0WQSn19cDHidXJyHcTwN49EojM/OBpmSlkkb2E3NEsu+26i0lRhIJMcbzWSOEm6xKDTbDFiFXCRpt/qTaMFhXYeZqgbeK1hzveQykWoQBAF8RovwsxJCEXRaGMzq+YxVYOxGsKthQTsHBVZcbBIuS6a5vWzXGsaXpd2tCS5ZUHZrcThm1eVwfsMKpRksmbVcLimiy1bAJTTclmBLBpZlpeQZCuBVLVhFKaLlSn6ElIFx5GsVaIa5t/5Rpqa+nEWsms/wAJ7h/3j+6u8voYBSs+JqGN1Lq1XuMh9/6DOc80crXdgI/6/Uwz5gPfd8bqF3TzNTk1z9Jilmq6VWTuZBpoTSyYeCPtMpxbiGQnNSUWyIg4rLnOlkFnnnPuCCKHxcdcANKEnmRDs4wzqikbwNE4JpwCyjnWwI9xZyxQxIZaFRerW3XDqBGvqS3tnzAjbKnZAgRBqjeJblXklVFEQBads7kFxkp0E10gPQ5mOfOvYylNbWJokig4JChI0rlPKVGRHkykRY84DLb47rTTScN+wkB6HWbRmUjHAVWlV+B6/UD4esPuWYtJXL+WJXYZ9V5nYFRjR271/2folYhD/vvi4gRUOpNywFSm/NMxZC5/sX8SMEVLgi3z/IEmUOv9wtiNNvjghryWnZw8zuW+BJlNfxUCHUivzbuPnjZABJF1xT12Mq6M7CM7rrPpmACA67keBZH4JFTe15Nfw7FShXw/k7Dm2HvEX4u73Tvn+zda4d8SItiXaEUtdE+Y7ghtMTTQ7cRyCtnPEF+uti8QA3aHgGhxv079uy9VL/xjYtxf7+AY2h9sjDV2RRNMGM7XwzzXIfFYVphS3akepDZ07vQIIplRM5oGhwY2jVOk2zQFWEuvK9Ri0FmaC2tyY5Ynw85vnklnBwavMvrDkhItt9A+czoaQS+tnmc3SB+IaM1nF058+UhSc58lfK6rquRc+gebdsjgvji2ubajvlXs7/5Ub/iv4EgfuDc8S8XT1bEiv0B2IgWGGT81M6Roa7sLcfnoRwYt5+BZ/ftjKB4KlGvUlemXRL6nSXtix0hByQFHRa7xk8yrxrQ4Iw8Dj61A+P0AT+Gx7TBjsaT2f+WLktqi+OBgvUdLz5/0jPK65pmlB6m1DpZdTbmag7SMLt9KWijfZgjvd5hijyorWXt+tp//QvNN1w1Q== -->

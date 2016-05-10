@@ -1,0 +1,70 @@
+<!-- page=Customer API documentation: results update -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1321739370 -->
+<!-- ip=209.6.232.21 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;"><a style="font-weight:inherit;font-style:inherit;font-size:20px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-documentation">Back to Customer API documentation</a></h1>
+<p>&nbsp;</p>
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;">Customer REST API Method: results/update</h1>
+<p>&nbsp;</p>
+<p class="explanation" style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">This method is used to update the properties of a result. Currently the only operation supported by this is to set the compatibility state of a result (whether it appears with a green tick or red cross in the Litmus web interface). This is set via the <em>check_state</em>&nbsp;parameter which support either <em>'ticked'</em>, <em>'crossed'</em> or <em>'nostate'</em> as valid values. A result which returns <em>nil</em>&nbsp;for <em>check_state</em>&nbsp;is considered to be <em>'nostate'</em>.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>URL:</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">https://#{company}.litmus.com/tests/#{test-id}/versions/#{version}/results/#{result-id}.xml</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>HTTP Method(s):</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:'Courier New';vertical-align:baseline;line-height:1.2em;padding:0px;margin:0px;border:0px;">PUT</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Parameters:</strong></p>
+<p>&nbsp;</p>
+<ul style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:3em;font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;border:0px;"><li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">test-id</span>.&nbsp; Required. The ID of the test you wish to retrieve</li>
+<li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">version.</span>&nbsp;Required. The version of this test you wish to retrieve.</li>
+<li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">result-id.</span>&nbsp;Required. The ID of the result you wish to retrieve.</li>
+</ul><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Request</strong>:&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>:&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;result&gt;
+  &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result#check_state">check_state</a>&gt;ticked&lt;/check_state&gt;
+&lt;/result&gt;
+
+
+</pre>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Response</strong>:&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;">&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>&nbsp;(truncated):&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;result&gt;
+  &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result#check_state">check_state</a>&gt;ticked&lt;/check_state&gt;
+  &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result#error_at">error_at</a>&lt;/&gt; type="datetime" nil="true"&gt;&lt;/error_at&gt;     
+  &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result#finished_at">finished_at</a> type="datetime" nil="true"&gt;&lt;/finished_at&gt;
+  &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result#id">id</a> type="integer"&gt;1284884&lt;/id&gt;
+  &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result#started_at">started_at</a> type="datetime" nil="true"&gt;&lt;/started_at&gt;
+  &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result#test_code">test_code</a>&gt;saf2&lt;/test_code&gt;
+  &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result#state">state</a>&gt;pending&lt;/state&gt;
+  &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result#result_type">result_type</a>&gt;page&lt;/result_type&gt;
+  &lt;testing_application&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#average_time_to_process">average_time_to_process</a> type="integer"&gt;162&lt;/average_time_to_process&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#result_type">result_type</a>&gt;page&lt;/result_type&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#popular">popular</a>&gt;false&lt;/popular&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#status">status</a>&gt;0&lt;/status&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#platform_name">platform_name</a>&gt;Mac OS&lt;/platform_name&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#platform_long_name">platform_long_name</a>&gt;Mac OS X&lt;/platform_long_name&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#application_code">application_code</a>&gt;saf2&lt;/application_code&gt;
+    &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Testing-Application#application_long_name">application_long_name</a>&gt;Safari 2.0 OSX&lt;/application_long_name&gt;
+  &lt;/testing_application&gt;
+  &lt;result_images type="array"&gt;
+    &lt;result_image&gt;
+      &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result-Image#image_type">image_type</a>&gt;full&lt;/image_type&gt;
+    &lt;/result_image&gt;
+    &lt;result_image&gt;
+      &lt;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-Data-Reference%3A-Result-Image#image_type">image_type</a>&gt;window&lt;/image_type&gt;
+    &lt;/result_image&gt;
+  &lt;/result_images&gt;
+&lt;/result&gt; 
+</pre>
+<!-- pbraw=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 -->

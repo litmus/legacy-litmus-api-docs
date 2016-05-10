@@ -1,0 +1,264 @@
+<!-- page=SOAP Web Service -  Iterating through the results collection -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- time=1337030094 -->
+<!-- ip=66.134.198.26 -->
+<!-- content-type=text/html -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">We now know we have two Client objects stored in emailTest.Results. A Client object has a lot of properties, all filled with useful information when displaying the result for that client to your users. We'll cover those below for our first result, retreived in pseudo code below:</p>
+<p>&nbsp;</p>
+<pre style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:monospace;vertical-align:baseline;padding:0px;margin:0px;border:0px;">var result = emailTest.Results[0]
+</pre>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Remember that we have two results to check, but we'll focus on the first for now:</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>ApplicationLongName</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"Outlook 2003"</p>
+<p>&nbsp;</p>
+<p>The longer, friendlier name of the client that you can show to your users.&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>ApplicationName</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"OL2003"</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">A unique identifier for each client, we&nbsp;guarantee&nbsp;that this name won't change for any given client (although we may deprecate one and announce another in its place, eg "IPHONE2" may be replaced by "IPHONE3", with an overlap inbetween, you will be notified of this).<strong>&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>AverageTimeToProcess</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 4 (32-bit integer)</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp; 125</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Litmus constantly keeps an eye on every client and updates this property to indicate the average amount of time (in seconds) it is currently taking to process a result in this client. You may chose to show this value to your users while they're waiting for a test.ff</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">To find the total time until a test will complete, select the highest value of all clients' AverageTimeToProcess. For example, if you perform a test on two clients and one returns 125, the other 180, the total time to process is 180 seconds (or 3 minutes).&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>BusinessOrPopular</strong></p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;</p>
+<p>Capacity: &nbsp; &nbsp; 1&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp; true / 1</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">If Litmus currently considers this client a "business client", this value will be true. Business clients include Outlook and Lotus Notes.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>Completed</strong></p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;</p>
+<p>Capacity: &nbsp; &nbsp; 1&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp; true / 1</p>
+<p>&nbsp;</p>
+<p>This is an important property as, when true, it indicates that the result has finished processing and the result is ready to be viewed. Please note that if a result fails for some reason, Completed is always set to true. It is therefore safe to use the Completed property to know when to stop polling for updates for a particular result, and when to show the result to your user.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>DesktopClient</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 1&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp; true / 1</p>
+<p>&nbsp;</p>
+<p>Desktop clients are those that run locally, on the desktop. Examples include Outlook, Lotus Notes, Apple Mail and Thunderbird. Email clients such as Gmail, AOL and Hotmail would have a DesktopClient value of false. &nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>FoundInSpam</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 1&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp; false / 0</p>
+<p>&nbsp;</p>
+<p>Indicates if the email was found in this client's spam folder. Since not all clients support this property, it may always be false for some cilents.&nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>PlatformLongName</strong>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"Microsoft Windows"</p>
+<p>&nbsp;</p>
+<p>The long, friendly name of the platform this client is running on. In this case of multi-platform applications (such as Thunderbird), the platform Litmus uses is used. The PlatformLongName includes the platform's manufacturer, as well as the platform name.</p>
+<p>&nbsp;</p>
+<p>In the case of web-based email clients, both PlatformLongName is set to "Web-based", if you wish to customise this, use the DesktopClient boolean property to detect if the client has an operating system in its platform name and act accordingly.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>PlatformName</strong>&nbsp;&nbsp;</p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;</p>
+<p>Capacity: &nbsp; &nbsp; 255 characters&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"Windows"</p>
+<p>&nbsp;</p>
+<p>The more detailed, name of the platform the client is running in.</p>
+<p>&nbsp;</p>
+<p>In the case of web-based email clients, we will return Firefox, Chrome or Explorer indicating the&nbsp;specific web browser being used.&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>RenderedHtmlUrl</strong>&nbsp;</p>
+<p>Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;</p>
+<p>Capacity: &nbsp; &nbsp; 255 characters</p>
+<p>Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"" / string.Empty / null / nil / nothing</p>
+<p>&nbsp;</p>
+<p>Reserved. Please ignore.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>ResultType</strong>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 10 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"email"</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Contains either "email", "spam" or "page". If you've selected any spam clients for your email test, you will have some results with a ResultType of "spam". Most resellers chose to display spam results in a separate section.&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>SpamScore</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double precision floating point number&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 8 (64-bit) <em>(you should use a type capable of storing double or float. Storing as an integer (64-bit or otherwise) will truncate the value)</em></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"" / string.Empty / null / nil / nothing</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">If ResultType was equal to "spam", this property may contain a score left by the spam filter this Client object represents. Understanding spam results is covered in greater detail later.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>Id</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 4 (32-bit)</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;3680253</p>
+<p>&nbsp;</p>
+<p>Unlike EmailTest.ID, Client.Id is correctly named and is of type integer instead of string. In future versions of the Litmus Web Service, EmailTest.ID will be renamed EmailTest.Id and be converted to an integer. The WSDL you are using now will remain as it is.</p>
+<p>&nbsp;</p>
+<p>This property represents a unique identifier for this result (not this client). You can use this id when using GetResult, this is covered in more detail later.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>State</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 15</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"complete"</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">State is the current state of your result, it can be either "pending", "complete" or "error":</p>
+<p>&nbsp;</p>
+<table class="pbSortable" border="0" cellspacing="1" cellpadding="1" width="500"><tbody><tr><td><strong>State</strong></td>
+<td><strong>Description</strong></td>
+</tr><tr><td>pending</td>
+<td>The result is still processing. You should poll for updates again in 60 seconds time.</td>
+</tr><tr><td>complete</td>
+<td>The result has completed. You should now stop polling for updates.</td>
+</tr><tr><td>error</td>
+<td>The result has failed. You should now stop polling for updates.</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p>The property State is not to be confused with Status (see below).</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>Status</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 2 (16-bit or short)</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;0</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Represents a client's current status. A status of 0 indicates all is well, other values are:</p>
+<p>&nbsp;</p>
+<table class="pbNotSortable" border="0" cellspacing="1" cellpadding="1" width="500"><tbody><tr><td><strong>Status</strong></td>
+<td><strong>Description</strong></td>
+</tr><tr><td>0</td>
+<td>Client is performing well, no delays.</td>
+</tr><tr><td>1</td>
+<td>Client is running slower than usual, expect delays of up to 15 minutes.</td>
+</tr><tr><td>2</td>
+<td>Client is currently unavailable, you should avoid ordering new tests for this client, but any ordered tests will be honored when the client recovers.</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p>Litmus uses this information to generate its status page, listing all clients currently experiencing delays or unavailability, seen in the screenshot below. You are free to use it however you think is best.</p>
+<p>&nbsp;</p>
+<p><img src="litmus-system-status.png" alt="" />&nbsp;</p>
+<p>&nbsp;</p>
+<p>The property Status is not to be confused with State (see above).</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>SupportsContentBlocking</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 1</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp; true / 1</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">If a client supports both "images on" and "images off" captures, that is, the client has some kind of view where the user can't see the images in their email, this property will be true.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Some clients, such as Apple Mail and some webmail clients, don't support external content blocking, and SupportsContentBlocking will be false.</p>
+<p>&nbsp;</p>
+<p><strong>WindowImage</strong></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp; "s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowoff.png"</p>
+<p>&nbsp;</p>
+<p>The uri of a capture of the client's inbox. You should only use this property if SupportsContentBlocking is <strong>false</strong>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;To make the link valid, you need to prepend a protocl to the uri. Litmus doesn't add the protocol for you because you may be linking to this (or embedding it in an iframe) in a page over SSL and this would lead to mixed content warnings in Internet Explorer. Here is the link above after adding "https://" to it:</p>
+<p>&nbsp;</p>
+<p><a href="https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowoff.png" target="_blank">https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowoff.png</a></p>
+<p>&nbsp;</p>
+<p><strong>FullpageImage</strong></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageoff.png"</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">The uri of a capture of the email opened in the client. You should only use this property if SupportsContentBlocking is <strong>false</strong>.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">&nbsp;To make the link valid, you need to prepend a protocl to the uri. Litmus doesn't add the protocol for you because you may be linking to this (or embedding it in an iframe) in a page over SSL and this would lead to mixed content warnings in Internet Explorer. Here is the link above after adding "https://" to it:</p>
+<p>&nbsp;</p>
+<p><a href="https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageoff.png" target="_blank">https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageoff.png</a></p>
+<p>&nbsp;</p>
+<p><strong>WindowImageNoContentBlocking</strong></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowon.png"</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">The uri of a capture of the client's inbox with external content blocking disabled, this is the "images on" capture. You should only use this property if SupportsContentBlocking is <strong>true</strong>.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><span style="text-decoration:underline;">Note</span> In webmail captures, WindowImageNoContentBlocking and WindowImageContentBlocking link to the same image. This is a known limitation of Litmus that inbox captures don't show images on for clients that offer a preview of the email in their inbox. Desktop clients that offer a preview will correctly show images in the WindowImageNoContentBlocking image.</p>
+<p>&nbsp;</p>
+<p>&nbsp;To make the link valid, you need to prepend a protocl to the uri. Litmus doesn't add the protocol for you because you may be linking to this (or embedding it in an iframe) in a page over SSL and this would lead to mixed content warnings in Internet Explorer. Here is the link above after adding "https://" to it:&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowon.png" target="_blank">https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowon.png</a></p>
+<p>&nbsp;</p>
+<p><strong>WindowImageContentBlocking</strong></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowoff.png"</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">The uri of a capture of the client's inbox with external content blocking enabled, this is the "images off" capture. You should only use this property if SupportsContentBlocking is&nbsp;<strong>true</strong>.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><span style="text-decoration:underline;">Note</span>&nbsp;In webmail captures, WindowImageNoContentBlocking and WindowImageContentBlocking link to the same image. This is a known limitation of Litmus that inbox captures don't show images on for clients that offer a preview of the email in their inbox. Desktop clients that offer a preview will correctly show images in the WindowImageNoContentBlocking image.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">&nbsp;To make the link valid, you need to prepend a protocl to the uri. Litmus doesn't add the protocol for you because you may be linking to this (or embedding it in an iframe) in a page over SSL and this would lead to mixed content warnings in Internet Explorer. Here is the link above after adding "https://" to it:&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><a href="https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowoff.png" target="_blank">https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowoff.png</a></p>
+<p>&nbsp;</p>
+<p><strong>WindowImageThumb, WindowImageNoContentBlockingThumb, WindowImageContentBlockingThumb</strong></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;""s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowoffthumb.png""</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">The corresponding thumbnail for the capture you've chosen to use. Our thumbnails are 119 pixels wide by 84 pixels high (119 x 84). You may wish to generate your own thumbnail from the full-size capture by downloading it and creating the thumbnail on your servers.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><span style="text-decoration:underline;">Note</span>&nbsp;In webmail captures, WindowImageNoContentBlocking and WindowImageContentBlocking link to the same image. This is a known limitation of Litmus that inbox captures don't show images on for clients that offer a preview of the email in their inbox. Desktop clients that offer a preview will correctly show images in the WindowImageNoContentBlocking image.</p>
+<p>&nbsp;</p>
+<p>&nbsp;To make the link valid, you need to prepend a protocl to the uri. Litmus doesn't add the protocol for you because you may be linking to this (or embedding it in an iframe) in a page over SSL and this would lead to mixed content warnings in Internet Explorer. Here is the link above after adding "https://" to it:&nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowoffthumb.png" target="_blank">https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.windowoffthumb.png</a></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>FullpageImageNoContentBlocking</strong></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageon.png"</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">The uri of a capture of the email opened by the client with external content blocking disabled, this is the "images on" capture. You should only use this property if SupportsContentBlocking is&nbsp;<strong>true</strong>.&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">&nbsp;To make the link valid, you need to prepend a protocl to the uri. Litmus doesn't add the protocol for you because you may be linking to this (or embedding it in an iframe) in a page over SSL and this would lead to mixed content warnings in Internet Explorer. Here is the link above after adding "https://" to it:&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><a href="https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageon.png" target="_blank">https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageon.png</a>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>FullpageImageContentBlocking</strong></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageoff.png"</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">The uri of a capture of the email opened by the client with external content blocking enabled, this is the "images off" capture. You should only use this property if SupportsContentBlocking is&nbsp;<strong>true</strong>.&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">&nbsp;To make the link valid, you need to prepend a protocl to the uri. Litmus doesn't add the protocol for you because you may be linking to this (or embedding it in an iframe) in a page over SSL and this would lead to mixed content warnings in Internet Explorer. Here is the link above after adding "https://" to it:&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><a href="https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageoff.png" target="_blank">https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageoff.png</a></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>FullpageImageThumb,&nbsp;Fullpage&nbsp;ImageNoContentBlockingThumb,&nbsp;FullpageImageContentBlockingThumb</strong></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Capacity: &nbsp; &nbsp; 255 characters</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Value: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;"s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageoffthumb.png"</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">The corresponding thumbnail for the capture you've chosen to use. Our thumbnails are 119 pixels wide by 84 pixels high (119 x 84). You may wish to generate your own thumbnail from the full-size capture by downloading it and creating the thumbnail on your servers.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">&nbsp;To make the link valid, you need to prepend a protocl to the uri. Litmus doesn't add the protocol for you because you may be linking to this (or embedding it in an iframe) in a page over SSL and this would lead to mixed content warnings in Internet Explorer. Here is the link above after adding "https://" to it:&nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageoffthumb.png" target="_blank">https://s3.amazonaws.com/resultcaptures/d055d30e-6055-4a57-a048-b66c21727a42.fullpageoffthumb.png</a>&nbsp;</p>
+<!-- pbraw=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 -->

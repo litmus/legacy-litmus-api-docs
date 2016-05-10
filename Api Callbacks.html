@@ -1,0 +1,135 @@
+<!-- page=Api Callbacks -->
+<!-- uid=0334deb6556b1386bad7098b9ee0268bc68c7da6 -->
+<!-- time=1348779337 -->
+<!-- ip=66.134.198.26 -->
+<!-- content-type=text/html -->
+<!-- name=Danielle -->
+<!-- email=danielle@litmus.com -->
+<h2>Overview</h2>
+<p>Callbacks allows your Litmus API enabled application to <em>listen</em> rather than <em>poll</em> for your test results.&nbsp; Tests are submitted the same as before using the&nbsp;API.</p>
+<p>&nbsp;</p>
+<h2><strong>Using Callbacks</strong></h2>
+<p>To get started using callbacks you will need to provide us with a url to send Litmus test results to.&nbsp; You can set this up easily by contacting our reseller support at <a href="mailto:resellers@litmus.com" search_id="undefined">resellers@litmus.com.</a></p>
+<p>&nbsp;</p>
+<p>We strongly recommend that your URL is SSL (served over https) with a valid certificate and also uses basic authentication. This means you'll need to provide us with a username and password.</p>
+<p>&nbsp;</p>
+<p>Once we have your url stored in our system<strong><em> we will POST data to that URL every time one of your individual results completes</em></strong>.&nbsp;</p>
+<p>&nbsp;</p>
+<p>For example, if you send us a request using the SOAP Web Service like in the following:</p>
+<p>&nbsp;</p>
+<pre>var emailTest = new EmailTest(); 
+
+</pre>
+<pre>// Create our list and make space for two clients
+emailTest.Results = new Client[3]
+// Create a Client object within the first space
+emailTest.Results[0] = new Client
+// Assign Outlook 2003's ApplicationName to that new Client object
+emailTest.Results[0].ApplicationName = "OL2003"
+// Repeat for Mobile Me
+emailTest.Results[1] = new Client
+emailTest.Results[1].ApplicationName = "MOBILEME"
+// Repeat for Spam Asassin
+</pre>
+<pre>emailTest.Results[2] = new Client
+emailTest.Results[2].ApplicationName = "SPAMASSASSIN3"
+</pre>
+<pre>emailTest = LitmusApi.CreateEmailTest("api-key", "api-pass", emailTest);
+</pre>
+<p>&nbsp;</p>
+<p>In this example, Litmus will post the following to your callback url as soon as the test is complete:</p>
+<p>&nbsp;</p>
+<p>For regular mail tests, the xml will have the following format (<a href="/Api+Callbacks+-+Callback+Xml+Format">detailed xml format documentation</a>):</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;TestResult type="mail"&gt;
+&nbsp; &lt;Id&gt;553&lt;/Id&gt;
+&nbsp; &lt;ApiId&gt;MOBILEME&lt;/ApiId&gt;
+&nbsp; &lt;SupportsContentBlocking&gt;False&lt;/SupportsContentBlocking&gt;
+&nbsp; &lt;ResultImageSet&gt;
+&nbsp; &nbsp; &lt;ImagesOnUrls&gt;
+&nbsp; &nbsp; &nbsp; &lt;WindowUrls&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ImageUrl&gt;s3.amazonaws.com/resultcaptures/a31f4e2e-ae3a-4973-94e6-90ed459967b5.windowon.png&lt;/ImageUrl&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ThuimbUrl&gt;s3.amazonaws.com/resultcaptures/63c24c07-d10c-447e-8dcd-dd917d77960c.windowonthumb.png&lt;/ThuimbUrl&gt;
+&nbsp; &nbsp; &nbsp; &lt;/WindowUrls&gt;
+&nbsp; &nbsp; &nbsp; &lt;FullPageUrls&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ImageUrl&gt;s3.amazonaws.com/resultcaptures/61f690d9-2ad4-4140-bff9-faded01cf8a0.fullpageon.png&lt;/ImageUrl&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ThuimbUrl&gt;s3.amazonaws.com/resultcaptures/190ded03-9b32-4aa8-b95f-ecc7137a5700.fullpageonthumb.png&lt;/ThuimbUrl&gt;
+&nbsp; &nbsp; &nbsp; &lt;/FullPageUrls&gt;
+&nbsp; &nbsp; &lt;/ImagesOnUrls&gt;
+&nbsp; &nbsp; &lt;ImagesOffUrls&gt;
+&nbsp; &nbsp; &nbsp; &lt;WindowUrls&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ImageUrl&gt;s3.amazonaws.com/resultcaptures/a31f4e2e-ae3a-4973-94e6-90ed459967b5.windowon.png&lt;/ImageUrl&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ThuimbUrl&gt;s3.amazonaws.com/resultcaptures/63c24c07-d10c-447e-8dcd-dd917d77960c.windowonthumb.png&lt;/ThuimbUrl&gt;
+&nbsp; &nbsp; &nbsp; &lt;/WindowUrls&gt;
+&nbsp; &nbsp; &nbsp; &lt;FullPageUrls&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ImageUrl&gt;s3.amazonaws.com/resultcaptures/61f690d9-2ad4-4140-bff9-faded01cf8a0.fullpageon.png&lt;/ImageUrl&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;ThuimbUrl&gt;s3.amazonaws.com/resultcaptures/190ded03-9b32-4aa8-b95f-ecc7137a5700.fullpageonthumb.png&lt;/ThuimbUrl&gt;
+&nbsp; &nbsp; &nbsp; &lt;/FullPageUrls&gt;
+&nbsp; &nbsp; &lt;/ImagesOffUrls&gt;
+&nbsp; &lt;/ResultImageSet&gt;
+   &lt;SpamResult /&gt;
+&nbsp; &lt;State&gt;Completed&lt;/State&gt;
+&nbsp; &lt;CallbackUrl&gt;http://mysite.com/callback/&lt;/CallbackUrl&gt;
+&lt;/TestResult&gt;</pre>
+<p>&nbsp;</p>
+<p>For spam tests, the xml will have the following format (<a href="/Api+Callbacks+-+Callback+Xml+Format">detailed xml format  documentation</a>):</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;TestResult type="spam"&gt;</pre>
+<pre>&nbsp; &lt;Id&gt;554&lt;/Id&gt;
+&nbsp; &lt;ApiId&gt;SPAMASSASSIN3&lt;/ApiId&gt;
+&nbsp; &lt;SupportsContentBlocking&gt;false&lt;/SupportsContentBlocking&gt;
+&nbsp; &lt;ResultImageSet /&gt;
+&nbsp; &lt;SpamResult&gt;
+&nbsp;&nbsp;&nbsp; &lt;SpamScore&gt;9.4&lt;/SpamScore&gt;
+&nbsp;&nbsp;&nbsp; &lt;IsSpam&gt;True&lt;/IsSpam&gt;
+&nbsp;&nbsp;&nbsp; &lt;SpamHeaders&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;HTML_FONT_FACE_BAD&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;The font face used in your email is not valid.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Try validating the HTML of your email using the W3C
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; validator to make sure you are using standard
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HTML.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;4&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;HTML_MESSAGE&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;Your email contains HTML content. This won't
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; usually cause you to fail any spam filters.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;2&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;URIBL_AB_SURBL&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;Your email contains a URL blacklisted by &amp;lt;a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; href="http://www.abusebutler.com/"&amp;gt;Abuse
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Butler&amp;lt;/a&amp;gt;.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;3&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;URIBL_JP_SURBL&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;Your email contains a URL blacklisted by &amp;lt;a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; href="http://www.joewein.de/sw/blacklist.htm"&amp;gt;jwSpamSpy&amp;lt;/a&amp;gt;.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;3&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;URIBL_OB_SURBL&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;Your email contains a URL blacklisted by &amp;lt;a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; href="http://www.outblaze.com/"&amp;gt;Outblaze&amp;lt;/a&amp;gt;.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;3&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;SpamHeader&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Key&gt;URIBL_SC_SURBL&lt;/Key&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Description&gt;Your email contains a URL blacklisted by &amp;lt;a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; href="http://www.spamcop.net/"&amp;gt;SpamCop&amp;lt;/a&amp;gt;.&lt;/Description&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Rating&gt;3&lt;/Rating&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/SpamHeader&gt;
+&nbsp;&nbsp;&nbsp; &lt;/SpamHeaders&gt;
+&nbsp; &lt;/SpamResult&gt;
+</pre>
+<pre>&nbsp;&lt;CallbackUrl&gt;http://mysite.com/callback/&lt;/CallbackUrl&gt;</pre>
+<pre>&lt;/TestResult&gt;
+
+</pre>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

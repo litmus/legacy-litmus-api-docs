@@ -1,0 +1,58 @@
+<!-- time=1352739005 -->
+<!-- ip=66.134.198.26 -->
+<!-- content-type=text/html -->
+<!-- page=SOAP Web Service - Customizing your email test -->
+<!-- copied-from-page=SOAP Web Service - Customising your email test -->
+<!-- copied_from-oid=18056638 -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Now we have an emailTest object that's ready to have its options set. Below, we've covered every option that you might want to set before ordering your email test.&nbsp;</p>
+<p>&nbsp;</p>
+<h3 style="font-weight:bold;font-style:inherit;font-size:15px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#444444;padding:0px;margin:0px;border:0px;">Sandbox mode</h3>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">The first and most important (at this stage) option is Sandbox. Setting Sandbox to true tells Litmus that you don't want start a real test that you'll be charged for, but instead start a mock test in our sandbox environment. Let's set Sandbox to true so we won't be charged for this test:</p>
+<p>&nbsp;</p>
+<pre style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:monospace;vertical-align:baseline;padding:0px;margin:0px;border:0px;">emailTest.Sandbox = true
+</pre>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><span style="text-decoration:underline;">A note for Perl developers</span>&nbsp;If you're using Perl and SOAP::Lite, we strongly recommend using SOAP::Lite 0.65 or above (0.71 is preferable) as a bug exists with nullable types in earlier versions.</p>
+<p>&nbsp;</p>
+<h3 style="font-weight:bold;font-style:inherit;font-size:15px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#444444;padding:0px;margin:0px;border:0px;">Specifying a UserGuid</h3>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">You can run tests that are charged on a per-test basis, or those that are part of an ʻunlimitedʼ subscription. To differentiate between these two types of tests for billing purposes, you either include or exclude a unique user identiﬁer, or “user GUID”.<em>&nbsp;If you do not include a user GUID, you will be charged for that individual test. If you do include a user GUID, that test will be counted as part of a subscription.&nbsp;</em></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">At the end of each month we will collate the number of unique user GUIDs for your account, and that will serve as your number of active subscription users.&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">To understand how to generate user GUIDs, and how to send that information to us when you create tests, see&nbsp;<a style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#114488 !important;padding:0px;margin:0px;border:0px;" href="/Generating-user-GUIDs">Generating User GUIDs</a>.&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">In our case, we're not going to assing a UserGuid because we want to pay per test (although it doesn't matter yet because we're in Sandbox mode, so no tests are chargable anyway).</p>
+<p>&nbsp;</p>
+<h3 style="font-weight:bold;font-style:inherit;font-size:15px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#444444;padding:0px;margin:0px;border:0px;">Selecting email clients&nbsp;</h3>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Another thing we'll probably want to test is what email clients the test should use. There are two ways to do this. The first, and by far the easiest, is to simply do nothing. When Litmus sees you've not supplied any clients to test on it'll automatically use all available clients for your account.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">However, if you'd like greater control, Litmus' Web Service supports that too. Our emailTest object has a Results collection. Results is a list of Client objects. Adding clients to it&nbsp;<strong>before</strong>&nbsp;you order a test will let Litmus know that you only want to test on those particular clients. Here's some psuedo code that will take our existing emailTest object (created above) and select just two clients for testing; Outlook 2003 and Gmail (new).</p>
+<p>&nbsp;</p>
+<pre style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:monospace;vertical-align:baseline;padding:0px;margin:0px;border:0px;">// Create our list and make space for two clients
+emailTest.Results = new Client[2]
+// Create a Client object within the first space
+emailTest.Results[0] = new Client
+// Assign Outlook 2003's ApplicationName to that new Client object
+emailTest.Results[0].ApplicationName = "OL2003"
+// Repeat for Gmail (new)
+emailTest.Results[1] = new Client
+emailTest.Results[1].ApplicationName = "GMAILNEW"
+</pre>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Remember, you only need to do this if you want to select specific client(s) to test on, it's usually much easier to leave emailTest.Results emtpy and allow Litmus to fill it in for you.</p>
+<p>&nbsp;</p>
+<h3 style="font-weight:bold;font-style:inherit;font-size:15px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#444444;padding:0px;margin:0px;border:0px;">Finding all available email clients</h3>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">At this point, you're probably wondering where to get those ApplicationName values from. We've created a special method to return all Client objects available for your API&nbsp;account with one easy call to be used during development. Please do&nbsp;<em>not</em>&nbsp;use this method before each test, it's designed for use during development only.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">The example code below fetches all available Client objects for a ficticious API account and then outputs them to a console window.</p>
+<p>&nbsp;</p>
+<pre style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:monospace;vertical-align:baseline;padding:0px;margin:0px;border:0px;">availableClients = LitmusApi.GetEmailTestClients("api-key", "api-pass")
+foreach (client in availableClients)
+    Console.WriteLine(client) 
+</pre>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

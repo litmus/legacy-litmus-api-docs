@@ -1,0 +1,79 @@
+<!-- page=REST Link Tests -->
+<!-- uid=8f58ab064efb2adbc1b126f0da2c1109fa7bd6b1 -->
+<!-- time=1443529468 -->
+<!-- ip=50.233.29.58 -->
+<!-- content-type=text/html -->
+<!-- name=Justin Unton -->
+<!-- email=junton@litmus.com -->
+<h2><span style="color:#ff0000;">This documentation is no longer kept up-to-date. &nbsp;As of 2015 the new Reseller API documentation can be found here:&nbsp;</span><span style="color:#ff0000;"><a href="https://litmus.com/partners/api/documentation">link</a></span></h2>
+<p>&nbsp;</p>
+<h2>Introduction</h2>
+<p>&nbsp;</p>
+<p>For Link Tests the work flow is:</p>
+<p><span style="font-size:13px;line-height:1.5em;">&nbsp;</span></p>
+<ul><li><span style="font-size:13px;line-height:1.5em;">Create an LinkTest with Litmus and get a result back from us</span></li>
+<li><span style="font-size:13px;line-height:1.5em;">Poll the api periodically to see if your LinkTest is complete &nbsp;</span></li>
+</ul><p>&nbsp;</p>
+<h2>Details</h2>
+<p>&nbsp;</p>
+<p><strong>Step 1</strong> :: Create a LinkTest by posting your email's HTML to our api:</p>
+<p>&nbsp;</p>
+<pre>curl -u username:password -i -X POST -H "Content-type: application/json" &nbsp;<a href="https://previews-api.litmus.com/api/v1/LinkTests">https://previews-api.litmus.com/api/v1/LinkTests</a> -d "\"&lt;div&gt;&lt;a href='http://www.litmus.com?utm_source=twitter&amp;utm_term=oct'&gt;Litmus&lt;/a&gt;&lt;/div&gt;\""</pre>
+<p>&nbsp;</p>
+<p>Note the quotes surrounding the html and also note that you should only paste the html portion of your email - no subject line, plain text parts etc.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Step 2</strong> :: Poll the api for the results of your LinkTest</p>
+<p>&nbsp;</p>
+<p>Using the Id you get in response to Step 1 - poll the api to determine if your LinkTest has completed by making a GET request to <a href="https://previews-api.litmus.com/api/v1/LinkTests/%7BId%7D">https://previews-api.litmus.com/api/v1/LinkTests/{Id}</a></p>
+<p>&nbsp;</p>
+<p>Once the State of the test is 'Complete' you can parse the object to get the result of your test.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2><strong>Understanding Your LinkTest Result</strong></h2>
+<p>&nbsp;</p>
+<p><strong>LinkTest Object</strong></p>
+<p>&nbsp;</p>
+<table style="width:100%;" border="0"><tbody><tr><td style="width:7%;">Id&nbsp;</td>
+<td>Unique id for this LinkTest. &nbsp;Use this value to poll for results.&nbsp;</td>
+</tr><tr><td>Links&nbsp;</td>
+<td>Collection of Link objects with details about the links we've detected in your email.&nbsp;</td>
+</tr><tr><td>SourceUrl&nbsp;</td>
+<td>The HTML source that was used for this test.&nbsp;</td>
+</tr><tr><td>ImageUrl&nbsp;</td>
+<td>A screenshot of this rendered HTML.&nbsp;</td>
+</tr><tr><td>State&nbsp;</td>
+<td>Processing, Complete or Error&nbsp;</td>
+</tr><tr><td>Error&nbsp;</td>
+<td>Boolean value indicating if there was an error processing this LinkTest&nbsp;</td>
+</tr><tr><td>ErrorMessage&nbsp;</td>
+<td>Details about the error if Error == true&nbsp;</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p><strong>Link Object</strong></p>
+<p>&nbsp;</p>
+<table style="width:100%;" border="0"><tbody><tr><td style="width:7%;">Url&nbsp;</td>
+<td>The Url for this Link.&nbsp;</td>
+</tr><tr><td>IsValid&nbsp;</td>
+<td>If the Url returned a 200 via an Http request.&nbsp;</td>
+</tr><tr><td>Exception&nbsp;</td>
+<td>If the Url did not return a 200 - what error did it return.&nbsp;</td>
+</tr><tr><td>IsBlackListed&nbsp;</td>
+<td>Is the Url listed on common blacklists?&nbsp;</td>
+</tr><tr><td>HasGoogleAnalytics&nbsp;</td>
+<td>Does the Url have Google Analytics parameters?&nbsp;</td>
+</tr><tr><td>HasClickTracking&nbsp;</td>
+<td>Does the Url have click tracking turned on? &nbsp;This is determined by detecting a url redirect which is the most common way to perform click tracking.&nbsp;</td>
+</tr><tr><td>PageTtitle&nbsp;</td>
+<td>The title of the page the link leads to.&nbsp;</td>
+</tr><tr><td>TopLeftX&nbsp;</td>
+<td>X position of the link in the rendered HTML.&nbsp;</td>
+</tr><tr><td>TopLeftY</td>
+<td>Y position of the link in the rendered HTML.&nbsp;</td>
+</tr><tr><td>GoogleAnalyticsParameters&nbsp;</td>
+<td>If the link does have GoogleAnalyticsParameters this will contain a parsed collection of those parameters.</td>
+</tr><tr><td>ThumbnailsUrl</td>
+<td>A small screenshot of the page the the link leads to.</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

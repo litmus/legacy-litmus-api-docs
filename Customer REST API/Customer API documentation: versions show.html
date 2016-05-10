@@ -1,0 +1,70 @@
+<!-- page=Customer API documentation: versions show -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1321739309 -->
+<!-- ip=209.6.232.21 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;"><a style="font-weight:inherit;font-style:inherit;font-size:20px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-documentation">Back to Customer API documentation</a></h1>
+<p>&nbsp;</p>
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;">Customer REST API Method: versions/show</h1>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;">Returns details of a single version for a particular test.</p>
+<div style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#434343;padding:0px;margin:0px;border:0px;">&nbsp;</div>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>URL:</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">https://#{company}.litmus.com/tests/#{test-id}/versions/#{version}.xml</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>HTTP Method(s):</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:'Courier New';vertical-align:baseline;line-height:1.2em;padding:0px;margin:0px;border:0px;">GET</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Parameters:</strong></p>
+<ul style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:3em;font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;border:0px;"><li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">test-id</span>.&nbsp; Required. The ID of the test you wish to retrieve</li>
+<li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;">
+<p><span style="font-family:'courier new', monospace;">version.</span>&nbsp;Required. The version of this test you wish to retrieve.</p>
+</li>
+</ul><p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Response</strong>:&nbsp;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>&nbsp;(truncated):&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;test_set_version&gt;
+  &lt;<a href="/Customer-API-Data-Reference%3A-Test-Set-Version#version">version</a> type="integer"&gt;1&lt;/version&gt;
+  &lt;<a href="/Customer-API-Data-Reference%3A-Test-Set-Version#url_or_guid">url_or_guid</a>&gt;http://google.com&lt;/url_or_guid&gt;
+  &lt;<a href="/Customer-API-Data-Reference%3A-Test-Set-Version#received">received</a>&gt;true&lt;/received&gt;
+  &lt;results type="array"&gt;
+    &lt;result&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#check_state">check_state</a> nil="true"&gt;&lt;/check_state&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#error_at">error_at</a> type="datetime" nil="true"&gt;&lt;/error_at&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#finished_at">finished_at</a> type="datetime"&gt;2008-12-04T05:58:11Z&lt;/finished_at&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#id">id</a> type="integer"&gt;1149860&lt;/id&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#started_at">started_at</a> type="datetime"&gt;2008-12-04T05:57:57Z&lt;/started_at&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#test_code">test_code</a>&gt;ie7&lt;/test_code&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#state">state</a>&gt;complete&lt;/state&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#result_type">result_type</a>&gt;page&lt;/result_type&gt;
+      &lt;testing_application&gt;
+        &lt;<a href="/Customer-API-Data-Reference%3A-Testing-Application#average_time_to_process">average_time_to_process</a> type="integer"&gt;108&lt;/average_time_to_process&gt;
+        &lt;<a href="/Customer-API-Data-Reference%3A-Testing-Application#result_type">result_type</a>&gt;page&lt;/result_type&gt;
+        &lt;<a href="/Customer-API-Data-Reference%3A-Testing-Application#popular">popular</a>&gt;true&lt;/popular&gt;
+        &lt;<a href="/Customer-API-Data-Reference%3A-Testing-Application#status">status</a>&gt;0&lt;/status&gt;
+        &lt;<a href="/Customer-API-Data-Reference%3A-Testing-Application#platform_name">platform_name</a>&gt;Windows&lt;/platform_name&gt;
+        &lt;<a href="/Customer-API-Data-Reference%3A-Testing-Application#platform_long_name">platform_long_name</a>&gt;Microsoft Windows&lt;/platform_long_name&gt;
+        &lt;<a href="/Customer-API-Data-Reference%3A-Testing-Application#application_code">application_code</a>&gt;ie7&lt;/application_code&gt;
+        &lt;<a href="/Customer-API-Data-Reference%3A-Testing-Application#application_long_name">application_long_name</a>&gt;Explorer 7.0&lt;/application_long_name&gt;
+      &lt;/testing_application&gt;
+      &lt;result_images type="array"&gt;
+        &lt;result_image&gt;
+          &lt;<a href="/Customer-API-Data-Reference%3A-Result-Image#image_type">image_type</a>&gt;full&lt;/image_type&gt;
+          &lt;<a href="/Customer-API-Data-Reference%3A-Result-Image#full_image">full_image</a>&gt;s3.amazonaws.com/sitevista/112b97ef-ac60-4752-910b-dfe624b0d83b1149860_IE7-fp.png&lt;/full_image&gt;
+          &lt;<a href="/Customer-API-Data-Reference%3A-Result-Image#thumnail_image">thumbnail_image</a>&gt;s3.amazonaws.com/sitevista/112b97ef-ac60-4752-910b-dfe624b0d83b1149860_IE7-fp-thumb.png&lt;/thumbnail_image&gt;
+        &lt;/result_image&gt;
+        &lt;result_image&gt;
+          &lt;<a href="/Customer-API-Data-Reference%3A-Result-Image#image_type">image_type</a>&gt;window&lt;/image_type&gt;
+          &lt;<a href="/Customer-API-Data-Reference%3A-Result-Image#full_image">full_image</a>&gt;s3.amazonaws.com/sitevista/112b97ef-ac60-4752-910b-dfe624b0d83b1149860_IE7.png&lt;/full_image&gt;
+          &lt;<a href="/Customer-API-Data-Reference%3A-Result-Image#thumbnail_image">thumbnail_image</a>&gt;s3.amazonaws.com/sitevista/112b97ef-ac60-4752-910b-dfe624b0d83b1149860_IE7-thumb.png&lt;/thumbnail_image&gt;
+        &lt;/result_image&gt;
+      &lt;/result_images&gt;
+    &lt;/result&gt;
+    ...
+  &lt;/results&gt;
+&lt;/test_set_version&gt;
+</pre>
+<!-- pbraw=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 -->

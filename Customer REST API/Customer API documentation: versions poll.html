@@ -1,0 +1,38 @@
+<!-- page=Customer API documentation: versions poll -->
+<!-- uid=0247986580f4479251a34780b67b4a219bef6d42 -->
+<!-- time=1321739334 -->
+<!-- ip=209.6.232.21 -->
+<!-- content-type=text/html -->
+<!-- name=Matthew Brindley -->
+<!-- email=matthew@litmusapp.com -->
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;"><a style="font-weight:inherit;font-style:inherit;font-size:20px;font-family:inherit;vertical-align:baseline;color:#114488;padding:0px;margin:0px;border:0px;" href="/Customer-API-documentation">Back to Customer API documentation</a></h1>
+<p>&nbsp;</p>
+<h1 style="font-weight:bold;font-style:inherit;font-size:20px;font-family:'Segoe UI', 'Lucida Grande', Arial, sans-serif;vertical-align:baseline;line-height:1.25em;color:#434343;padding:0px;margin:0px;border:0px;">Customer REST API Method: versions/poll</h1>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;">To reduce the strain on the Litmus servers, and to reduce the bandwidth you use to check for test completion, there is a special poll method that can be used. The XML document returned will give an indication as to the status of each result. You may want to wait for every result to complete, or you may wish to return each result as it completes. You can check the status of the <em>poll</em> method and fetch the whole test version when the state for a particular result changes.</p>
+<div style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;color:#434343;padding:0px;margin:0px;border:0px;">&nbsp;</div>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>URL:</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">https://#{company}.litmus.com/tests/#{test-id}/versions/#{version}/poll.xml</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>HTTP Method(s):</strong></p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><span style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:'Courier New';vertical-align:baseline;line-height:1.2em;padding:0px;margin:0px;border:0px;">GET</span></p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Parameters:</strong></p>
+<ul style="margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:3em;font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;border:0px;"><li style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;padding:0px;margin:0px;border:0px;"><span style="font-family:'courier new', monospace;">test-id</span>.&nbsp; Required. The ID of the test you wish to retrieve</li>
+<li><span style="font-family:'courier new', monospace;">version.</span> Required. The version you wish to poll.</li>
+</ul><p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;color:#434343;padding:0px;margin:0px;border:0px;"><strong>Response</strong>:&nbsp;</p>
+<p>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="text-decoration:underline;"><strong>XML example</strong></span>:&nbsp;</p>
+<p>&nbsp;</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;test_set_version&gt;
+  &lt;<a href="/Customer-API-Data-Reference%3A-Test-Set-Version#version">version</a> type="integer"&gt;3&lt;/version&gt;
+  &lt;results type="array"&gt;
+    &lt;result&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#id">id</a> type="integer"&gt;1149860&lt;/id&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#test_code">test_code</a>&gt;ie7&lt;/test_code&gt;
+      &lt;<a href="/Customer-API-Data-Reference%3A-Result#state">state</a>&gt;pending&lt;/state&gt;
+    &lt;/result&gt;
+  &lt;/results&gt;
+&lt;/test_set_version&gt; 
+</pre>
+<!-- pbraw=eJzdWG1P4zgQ/t5fYQUd3EmkIW2Bkpbssa+HBCdUyunu08pNpo11jp21HUpvxX+/sZN00z32xIt2JRBS4/hl5pmZZyZjCrqA6E2pjcxBkZOLU5LKpMxBGGqYFBG5BqVxoEkhOe+ULI32eoPDo+HB/nBvPsBRbz+k/cHhcG92cDgb0F54NIP5QTrodQzLIQr7vfCwf9TvDzqsiHp7R92Dbq/f6/bCTiKFQUW+WRUQGbgxQWZy3hEUj51TYzJYkteKiZTDqgM5ZTzKq+lfOTN5qWlRdBOZd+wx/5qpBRORkB3f98lbaih5j5DlUhOc6IyzkGiz4nDszVGvvwS2yEw0kzwduQm3GDGRgWKmnmL/AEIubqrXOc0ZX0U7l7CQQK5Od3bJzlmZsJSSD4qKFHDiRDHKd4mmQvsaJc1H6EDDEsp9ytlCRDOqgTMBI/vjZxWKsNvbh3yUSC5VtDXo279RQdOUiUVk9efUGWeHM6lSUG7oxWN6l1GbRtzXrmbLtwDX6MJwMBgO74OOZArmx17Q0MtHevkb9PLi1zT5mxhJvk3BcUDjcZCFcWdcxNtipovROCjiFxrQtR8m7y6nzhnnYDKZfknEwCZi45BHRz/sPzD6m9Y9zripJArSMgGCSYzQFWWCSOHezlxGE3SxNXSXoPstL1r7Zzi1ZKnJyEqWpNRg15MMkEBzqYgBbQhWg4KDpc2uPaOAME0wRwpIMIyuhpHcORSXKe6ngszACku7ZIpK/jw/W9MPlZtSCUjJkuG5BbsGhEWwIKGDrA5CtcVQGUMNwpdzAjTJ8KQuuemSvxBpTldkSVEcbl1SZhxaQCtX9TZnRwUcdgkurppTTGeVEyyOtmSrma3NBV1pstZUDtmEZN/GkMcVc3DQ+MA6eQ4Gxdoty0xyqPxYkw2nQKyFgUNOSUEtRUpOVYMmyahYIIoqMVN2/eN4+XAWNjUEYT6/FBpj1kixiK8mZ9E4qF8qtz87SwqkaxtyU44TWSqGJVDAEgtwLoXErQngmcyYQkdBsPXZMp+K1W236gRsGxBY5mpcs0+fpbfBumRufa6Ht656dm9yzAOrv3Hdxofl2TmyYsFv0+lF/bX4Wf/y4tjxJMg7b2pO/Y6cuu8XHIHfB+qHd9OXR6YLqrANN5g1XxOp5I1FlQzfyKIl0ldOf2tiJg22NO0ZDnMT9RHf9/dJ2+ZNQzn7cZH5XvWwrnQ1/boV78gEPpVMNR3N6dumBXBfdttbtPoKFHwN44AzjCz+PAZEXVq7NYqv1DedRFuvq8G10qDk8ctImQnoAj82sM6XaMOo2sQ6Rv/z2IiBvRb7KSRSVffxEm8lykH/otj2rHBDbSvYylUXjDsh1G8K4m1uRq/wY9hE6dgLu3seAZFIa/axdzV97w+9V9sLM+rYzZZCHzWYj/UBt0CIXcKr6F33PXsR9ycwx15cJPBT/8SfWtJegvH/qGRs1bLWTLI3PmL/KXDsMWFgAcqzevpWS/BfxVUPqusTVCm68url9ob11APhTtzpLZZ6sc20O6HhnfhoeLDnALL0iZqcjzEAUOW3G1q9ViyDQ6dkvfBEXa6t92L3aHQUIGzwnR63sOHMYMObrRm9JklwF0sIprql3L9NfYHK -->

@@ -1,0 +1,21 @@
+<!-- page=SOAP Web Service - Ordering your page test -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<!-- time=1302645552 -->
+<!-- ip=204.9.220.36 -->
+<!-- content-type=text/html -->
+<p>Our pageTest object is now as customised and prepared as it can be. No other properties can be set (that'll have an effect, anyway).</p>
+<p>&nbsp;</p>
+<p>Ordering a new page test is very straightforward. We've created a CreatePageTest method for you to send your pageTest object to us:</p>
+<p>&nbsp;</p>
+<pre>pageTest = LitmusApi.CreatePageTest("api-key", "api-pass", pageTest) 
+</pre>
+<p>&nbsp;</p>
+<p>There are a few things happening at once here, so here's a breakdown of each.</p>
+<p>&nbsp;</p>
+<ol><li>First we call the CreatePageTest method of the Litmus Web Service and pass in our API key and API pass.</li>
+<li>We then pass, as the thrid parameter, the pageTest object we created above.</li>
+<li>Finally, the CreatePageTest method actually&nbsp;<em>returns</em>&nbsp;an object which is an instance of the PageTest class, so we're assigning that return value to our existing emailTest.&nbsp;</li>
+</ol><p>&nbsp;</p>
+<!-- pbraw=eJx9U9tu2zAMffdXEH1YWiB2rk4bLwvWdSgwYFgDtECfZZuOtdqSINFx/fejnMvSrduDAZqiDnnOoYzYYvL4cLuBZ0zhEe1OZgghPNgcrVRb6HRjwXAVEDoKGpknRTFdTpYYz65jMY3jxURM0vFsvJzfzBc3y+ImzbJYxPF1oESNyReLKhcK7kRRWOwCrIWsknSf/VxJqhsnjIkyXQck+cJkNp4u5nEcTwNpkul4Hi2j6XQczRZBSXUV7qTdSpUoHWRaESoKqTOYEL7SyBcEYRjCV0EC7nVV6dYBJ4KVWT8cmDwxEdDpT8wIpAOlWxAOssaRrqXDHITKwVg0wvofB5IgYwYpRvBDg6YSGchqg5YkusMZOCS4pFLQoKqgFDtkHMCi4DZDDrtWdFfRamTWfpYPKnXm4/HvpLYAhe1vuf14O7QdOLJCbksqtG2FzSN2a8ANMouC/Ixw10ebI7saqdQ5cLk3EEjzdEzqZOa5BHzYuOTdwSyuT9Wf4Hvv1a2R0dtulxfCyPAFu4sh9KERznF8vHoFAeMx1t/En1hK1sl/UDBzKlkFx+oZg6oXhMdUvJG+bghO98HAcTlvkHjJdatAF4AiK9/VVlfrVSXX99IyhZYVE2wOG/gPwRjKH+6ZvnkS/U4wL5DckFW83XwDptznfezPeALuFfiGz+iBVJ8e+h3ysFRa6VEsvwtCO+yTf9rRntma6h2egd5LxeN3w/8QEBk1vuagAdZri9RY5VYjjvdZXstjr1JmpV8yTknlSHipDxqckLOq58DatzjwTjknt705ftlhjw87UTXod8mLg6/Ska/oH7tHiY6m9FxG3pZzo34BPHGKOA== -->

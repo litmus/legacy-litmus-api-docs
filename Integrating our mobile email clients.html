@@ -1,0 +1,95 @@
+<!-- page=Integrating our mobile email clients -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- time=1415644686 -->
+<!-- ip=64.119.133.122 -->
+<!-- content-type=text/html -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">From an API point of view, our mobile email tests work exactly the same way to our regular email tests. The new mobile email clients are simply additional 'Testing Applications' that we've added. You'll access them using the exact same API calls. The mobile results are returned amongst your regular email test results, and consist of URLs to the screenshots.</p>
+<p>&nbsp;</p>
+<p style="font-weight:inherit;font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">However, there is one crucial difference. Mobile email tests&nbsp;are interactive - in some cases even animated. We use a handful of different image files, some CSS magic, and a touch of Javascript to achieve this. In order to include these types of results in your application, you'll need to add our Javascript to your site, and load in our HTML/CSS code rather than just the screenshot image. We've tried to make it as easy as possible for you to do, and there is a full code sample to download below.</p>
+<p>&nbsp;</p>
+<p style="font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><strong>Before you can perform live mobile tests, your API&nbsp;account will need to be activated for mobile email tests.</strong> <em><strong>Please contact your account manager to request mobile testing be added to your account.</strong></em></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><span style="font-size:115%;"><strong>Code sample</strong></span></p>
+<p>&nbsp;</p>
+<p>In this sample you'll find the client-side code for each mobile email client. These examples show a bare-bones implementation of displaying a mobile result.</p>
+<p>&nbsp;</p>
+<p style="font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Note that each mobile device requires different client-side (HTML/CSS/JS) code. Your application should check which mobile device is being viewed and serve up the appropriate client-side code. A list of mobile devices and their associated Application IDs can be found at the end of this document.</p>
+<p>&nbsp;</p>
+<p style="font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;">Sample HTML, CSS, Javascript as well as transparent devices images can be found at:&nbsp;<a href="https://github.com/litmus/litmus-mobile-samples">https://github.com/litmus/litmus-mobile-samples</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-style:inherit;font-size:13px;font-family:inherit;vertical-align:baseline;line-height:1.5em;padding:0px;margin:0px;border:0px;"><span style="font-size:115%;"><strong>What are the Application IDs and OS details for these mobile devices?</strong></span></p>
+<p>&nbsp;</p>
+<table class="pbSortable" style="width:80%;" border="0" cellspacing="1" cellpadding="10" width="500"><tbody><tr><td><strong>Phone model</strong></td>
+<td><strong>Operating System</strong></td>
+<td><strong>Mail Client</strong></td>
+<td><strong>Application ID</strong></td>
+</tr><tr><td>
+<p>HTC Wildfire</p>
+</td>
+<td>Andrid 2.3 (Gingerbread)</td>
+<td>default</td>
+<td>android23</td>
+</tr><tr><td>Samsung Galaxy Nexus</td>
+<td>Android 4.2.2 (Jellybean)</td>
+<td>default</td>
+<td>android4</td>
+</tr><tr><td>Samsung Galaxy Nexus<br /></td>
+<td>Android 4.2.2 (Jellybean)<br /></td>
+<td>Gmail App</td>
+<td>androidgmailapp</td>
+</tr><tr><td>Blackberry 8900</td>
+<td>BlackBerry OS 4.5 (plain text)</td>
+<td>default</td>
+<td>blackberry8900</td>
+</tr><tr><td>Blackberry Curve</td>
+<td>Blackberry OS 5 (HTML)</td>
+<td>default</td>
+<td>blackberryhtml</td>
+</tr><tr><td>
+<p>iPhone 4S</p>
+</td>
+<td>iOS 6</td>
+<td>default</td>
+<td>iphone4</td>
+</tr><tr><td>iPhone 5</td>
+<td>iOS 6</td>
+<td>default</td>
+<td>iphone5</td>
+</tr><tr><td>iPhone 5S</td>
+<td>iOS 7</td>
+<td>default</td>
+<td>iphone5s</td>
+</tr><tr><td>iPhone 6</td>
+<td>iOS 8</td>
+<td>default</td>
+<td>iphone6</td>
+</tr><tr><td>iPhone 6+</td>
+<td>iOS 8</td>
+<td>default</td>
+<td>iphone6plus</td>
+</tr><tr><td>iPad (Retina)</td>
+<td>iOS 7</td>
+<td>default</td>
+<td>ipad</td>
+</tr><tr><td>iPad Mini</td>
+<td>iOS 7</td>
+<td>default</td>
+<td>ipadmini</td>
+</tr><tr><td>Nokia N96</td>
+<td>Symbian S60</td>
+<td>default</td>
+<td>symbians60</td>
+</tr><tr><td><span style="color:#7b8186;font-family:'proxima-nova', sans-serif;font-size:115%;">Nokia Lumia 810</span></td>
+<td>Windows Phone 8</td>
+<td>default</td>
+<td>windowsphone8</td>
+</tr></tbody></table><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-size:115%;"><strong>Questions?</strong></span></p>
+<p>As usual, please direct all technical questions to <a href="mailto:resellers@litmus.com" search_id="undefined">resellers@litmus.com</a>, so that you can speak directly with a member of our development team.&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

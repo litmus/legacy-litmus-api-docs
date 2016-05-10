@@ -1,0 +1,54 @@
+<!-- page=SOAP Web Service - Customizing  your page test -->
+<!-- uid=ff2919e5375a25561a1b0309484689f8bcc5a557 -->
+<!-- time=1302645418 -->
+<!-- ip=204.9.220.36 -->
+<!-- content-type=text/html -->
+<!-- name=Brendan Caffrey -->
+<!-- email=brendan@litmusapp.com -->
+<p>t's ready to have its options set. Below, we've covered every option that you might want to set before ordering your email test.&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3>Sandbox mode</h3>
+<p>The first and most important (at this stage) option is Sandbox. Setting Sandbox to true tells Litmus that you don't want start a real test that you'll be charged for, but instead start a mock test in our sandbox environment. Let's set Sandbox to true so we won't be charged for this test:</p>
+<p>&nbsp;</p>
+<pre>pageTest.Sandbox = true
+ </pre>
+<h3>Specifying a URL &amp; Title</h3>
+<p>To start a new page test you <em>must </em>provide two key pieces of information - the url to be&nbsp;tested&nbsp;and a page title. &nbsp;You can set this by doing the following:</p>
+<p>&nbsp;</p>
+<p>pageTest.URL = "http://google.com"</p>
+<p>pageTest.Ttile = "Google"</p>
+<p>&nbsp;</p>
+<h3>Selecting browsers&nbsp;</h3>
+<p>Another thing we'll probably want to test is what browsers the test should use. There are two ways to do this. The first, and by far the easiest, is to simply do nothing. When Litmus sees you've not supplied any browsers to test on it'll automatically use all available browsers for your account.</p>
+<p>&nbsp;</p>
+<p>However, if you'd like greater control, Litmus' Web Service supports that too. Our pageTest object has a Results collection. Results is a list of Client objects. Adding clients to it&nbsp;<strong>before</strong>&nbsp;you order a test will let Litmus know that you only want to test on those particular clients. Here's some psuedo code that will take our existing pageTest object (created above) and select just two clients for testing; IE7 and FF31.</p>
+<p>&nbsp;</p>
+<pre>// Create our list and make space for two clients
+pageTest.Results = new Client[2]
+// Create a Client object within the first space
+pageTest.Results[0] = new Client
+// Assign IE7's ApplicationName to that new Client object
+pageTest.Results[0].ApplicationName = "IE7"
+// Repeat for FF31
+pageTest.Results[1] = new Client
+pageTest.Results[1].ApplicationName = "FF31"
+</pre>
+<p>&nbsp;</p>
+<p>Remember, you only need to do this if you want to select specific browser(s) to test on, it's usually much easier to leave pageTest.Results emtpy and allow Litmus to fill it in for you.</p>
+<p>&nbsp;</p>
+<h3>Finding all available email clients</h3>
+<p>At this point, you're probably wondering where to get those ApplicationName values from. We've created a special method to return all Client objects available for your API&nbsp;account with one easy call to be used during development. Please do&nbsp;<em>not</em>&nbsp;use this method before each test, it's designed for use during development only.</p>
+<p>&nbsp;</p>
+<p>The example code below fetches all available Client objects for a ficticious API account and then outputs them to a console window.</p>
+<p>&nbsp;</p>
+<pre>availableBrowsers = LitmusApi.GetPageTestClients("api-key", "api-pass")
+foreach (browser in availableBrowsers)
+    Console.WriteLine(browser) </pre>
+<p>&nbsp;</p>
+<h3>&nbsp;</h3>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<!-- pbraw=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 -->

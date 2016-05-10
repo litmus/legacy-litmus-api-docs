@@ -1,0 +1,30 @@
+<!-- page=Building Alkaline plug-ins -->
+<!-- uid=ac144a8b96e23f3d22a7d1b41f9224ab460d7646 -->
+<!-- time=1238079415 -->
+<!-- ip=99.231.192.156 -->
+<!-- content-type=text/html -->
+<!-- name=Paul Farnell -->
+<!-- email=paul@litmusapp.com -->
+<p><a href="http://litmusapp.com/alkaline">Alkaline</a> is a desktop application for Mac OS&nbsp;X that lets users perform cross-browser testing using the Litmus testing grid.</p>
+<p>&nbsp;</p>
+<p>Using simple URL handlers you can ask Alkaline to test any URL. These URL handlers can be used in scripts and plug-ins for other applications. We have created two ourselves, for <a href="http://www.panic.com/coda/">Coda</a> and <a href="http://macromates.com/">TextMate</a>. You can download these from the <a href="http://litmusapp.com/alkaline/#plugins">plug-ins area</a> on the Alkaline page. If you create a new plug-in please <a href="mailto:hello@litmusapp.com">let us know</a> so we can add it to the list.</p>
+<p>&nbsp;</p>
+<h2>Available URL handlers</h2>
+<p>In each of these examples, the data passed to Alkaline in the URL handler must be <a href="http://en.wikipedia.org/wiki/Percent-encoding">URL&nbsp;encoded</a>. Naturally, the user must have Alkaline installed in order for them to work.</p>
+<p>&nbsp;</p>
+<h3>Create a new browser test</h3>
+<p>Calling this URL handler will open Alkaline and present the user with the new test screen. By providing a URL, the URL box will be pre-filled. The screen will let the user confirm which browsers they want to test their page on, then start the test.</p>
+<p>&nbsp;</p>
+<p>Optionally you can call this action without a URL present, to just show the new test dialog without pre-filling a URL.</p>
+<p>&nbsp;</p>
+<pre>
+alkaline://new?url=[URL]
+</pre>
+<p>&nbsp;</p>
+<h3>Open an existing browser test</h3>
+<p>Each browser test has a unique test ID. This can be found by browsing a user's tests on the Litmus website and looking at the URL. For example, the URL might be&nbsp;<a href="http://salted.litmusapp.com/tests/138167.">http://salted.litmusapp.com/tests/138167.</a> The test ID here is 138167. Calling this URL&nbsp;handler will open this test in Alkaline.</p>
+<p>&nbsp;</p>
+<pre style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-weight: inherit; font-style: inherit; font-size: 13px; font-family: monospace; vertical-align: baseline;">
+alkaline://open?test=[TestID]
+</pre>
+<!-- pbraw=eJyNVltv2zYUfvevOPCA7SWS40udREnUtekKBGiXYkuxDcUeKImyOFOkRlJWvF+/c0hLvtQF+hJDhzy37zvfYRq24snbVshCqBW8kWsmheLQyHYVCWVHrSgSlk8XC3ad3Sz5bF7Oi9mMXRXTbDEtb2azBcsWy8viarlYjpyoeTKdza8vr24W01cj0SQ3N/FsPo2nN7N4+mo5yrVyXLnIbRueOP7iJpWr5UgxdPzEWgnvmVFcyhGvmZBJg6afpXB1a1nTxLmuR3Q/2gizEipRehRFEbxjjsF7LaXuLKBhdNekdwwqw8v7ceVck0wmR0EmbNfnOO07vpuwFIQFBgW3a6cbwLtS5MwJraDUBj6yHJ5+/1Fltrn9E1zFHEjuLLSWGwsNN3iphtxoa6PMYCncgOPWEa6tpb+u4vDB1zEcrIwo4rtJk1LNIXb/9dn7WFE3ksPn3z5AxVQhKddWt5AzBcyu94w57YMCU1u6HcNzxe2JIzllnCouQCiwuRENdoDHA+G+VY2VmkMAbAx/cIyz4dggZw79XadBt8ZyueH2wrudYt51XdwwJXKPea4LNhmnD/jjwaaspx41Q/xqjG+9yzh9xhH5iN/kEcNfu8YL3SmpWUGIYo8l+nhwv4/0yQ/ULPY6ToeuGXblq0KyKdJeCKiPGB7LALrvHWdE8a5HDH85swe5aXCdTiqcYn08u+MUBwbRh7XSnc9mNXQ8cFkgJc6ziOmlsO7sWFSz9M0GE7DsZCjuJnhEtx8VcJZXoMsdOvyF0QghRxS5IK00zNIIYLKhTxH6PggJWLijcTlFlau4E2vR8EKwWJvVhL4mn7jJSdlcIdE4ueMUY4XSvYkXgcNfmWsNk3Ib6iH1hEx+ug7qsQ5vhUHVpsBbNGLoUlPdnTbr8wDN04dDlg6ViBjNvcMDRg6CRMUfttwJKUE3XO0L8eIwCKRy+4I74Sr/RSm87FBLHIGBt1u8rTfCr1NGwS8GYDP9EjIgqBgyKgU16JW68w/HNCVDKtyYpcDF0lUCWd21Y+l8Cx1TbhA+WoTx84pD7JOiwh0zIRZd+caieWpI4kTJsFly/ArosNwvQGpYty501ONxQbn/Ie5spbtjPHA2pF4Nfn27AyrnazE8HfUyxUnDaK9bI++/oMPfI7xD518T/kSEYdX8RYStepb0X9gev1BjxWjft0r82waA4PEdsSGGTVnqFunPtsEvFE+s/BQ2uO3XxW6rdzyzwoWZkVqvvYPr+Y/xjTK9HPdTUYtVRTrbNXUiNsskbtv4eJP53JPp/Hq6vIrH6Xdf9TvnuRqaBVzznF693TmcCiPU9LU6/LkPIvZS+RalOIVbyWkx0qMd4duawGXzcgs7gyEAjk2Zdk7XxzbJy/5Wg9sSyzwI1VsOY/W2o2C98SBa5tcLBYs6Ubjq2OwjnjsIYc+dUOxzdo9DgpAJh+oYzLmW2hyYS/wfKep46EQo5Ei4nXWIcGQU/6FtOqdM3lCyWshtArVW2jYs57ew4cbhWy4jZGqlEsjwySLObsdHgiNyXxOv91+e8e/ju151/wP5jH/B -->
