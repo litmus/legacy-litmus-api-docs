@@ -2,4 +2,4 @@
 
 For our latest documentation visit https://docs.litmus.com
 
-To see the HTML here rendered use GitHub pages, eg https://litmus.github.io/legacy-litmus-api-docs/Introduction.html
+This is a crude export from our old wiki, to see the HTML here rendered use GitHub pages, https://litmus.github.io/legacy-litmus-api-docs.
