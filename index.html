@@ -1,96 +1,22 @@
-<!-- page=Introduction -->
-<!-- uid=8f58ab064efb2adbc1b126f0da2c1109fa7bd6b1 -->
-<!-- time=1436298650 -->
 <!-- ip=64.119.133.122 -->
+<!-- time=1431607404 -->
+<!-- page=FrontPage -->
 <!-- content-type=text/html -->
+<!-- uid=8f58ab064efb2adbc1b126f0da2c1109fa7bd6b1 -->
 <!-- name=Justin Unton -->
 <!-- email=junton@litmus.com -->
-<h2>Overview</h2>
-<p>The Litmus API enables your application to create tests for any web page or email design, and receive screenshots of them across various platforms. You can offer both types of testing within your application or simply focus on one. Email providers, for example, are most likely to offer just email testing. Email testing also includes a full spam ﬁlter report for the email, along with the reasons it did not pass the ﬁlter, where appropriate.</p>
+<h1>Introduction</h1>
+<p>Before diving into the full API&nbsp;documentation, we recommend you read the <a href="Introduction">introduction</a>. This covers authentication, billing, sandbox usage, system status and trial accounts.&nbsp;</p>
 <p>&nbsp;</p>
-<p>For all types of tests the system follows the same basic process:</p>
-<ol>
-<li>you create a new test</li>
-<li>wait a few moments</li>
-<li>request the results of that test</li>
-</ol>
+<h1>Reseller API&nbsp;</h1>
+<p>The reseller API can only be used if you have spoken to the Litmus sales team and signed a reseller agreement. If you just have a Litmus account then you need to use the Customer API below.</p>
+<p><a href="https://litmus.com/partners/api/documentation" search_id="undefined">Reseller API documentation</a></p>
 <p>&nbsp;</p>
-<p>When you request the results youʼll be provided with URLs to the screenshots (stored and hosted by us). Beyond that, you can be as creative as you like in integrating this process into your own application.</p>
+<h1>Litmus Customer API</h1>
+<p>The customer API provides programatic access to your account when you have a subscription to Litmusapp.com. You cannot use this API to resell the service and it differs from the reseller API substantially. Before you start any integration using this API you should check this is the right API for you to use!</p>
+<p><a href="Customer-API-documentation">Customer API documentation</a></p>
 <p>&nbsp;</p>
-<h2>Sandbox</h2>
-<p>There is a sandbox mode that you can use to test every part of the API, without charging any tests to your account. The sandbox works identically to the live API, but will always return the same set of example screenshots. Details on how to run tests in the sandbox are included in the documentation.</p>
+<h1>Support&nbsp;</h1>
+<p>For support regarding the reseller API, please contact <a href="mailto:resellers@litmus.com" search_id="undefined">resellers@litmus.com</a>.</p>
 <p>&nbsp;</p>
-<h2>Authentication</h2>
-<p>As an API user youʼll have an API key which, combined with your API passphrase, allows you to login to the Litmus API over basic HTTP authentication.</p>
-<p>&nbsp;</p>
-<h2>Billing</h2>
-<p>You can run tests that are charged on a per-test basis, or those that are part of an ʻunlimitedʼ subscription. To differentiate between these two types of tests for billing purposes, you either include or exclude a unique user identiﬁer, or “user GUID”. <strong>If you do not include a user GUID, you will be charged for that individual test. If you do include a user GUID, that test will be counted as part of a subscription.&nbsp;</strong></p>
-<p>&nbsp;</p>
-<p>At the end of each month we will collate the number of unique user GUIDs for your account, and that will serve as your number of active subscription users.&nbsp;</p>
-<p>&nbsp;</p>
-<p>To understand how to generate user GUIDs, and how to send that information to us when you create tests, see <a href="Generating%20user%20GUIDs">Generating User GUIDs</a>.</p>
-<p>&nbsp;</p>
-<h2>Trial usage</h2>
-<p>You may wish to offer your users a sample test that they can try free of charge, to help promote the service. This is fully supported with the API. If you run a test using only the following testing applications they will not be charged.</p>
-<p>&nbsp;</p>
-<h3>Trial applications for web page tests</h3>
-<p>&nbsp;</p>
-<table class="pbSortable" border="0" cellspacing="0" cellpadding="8" width="350" align="left">
-<tbody>
-<tr>
-<td><strong>Testing application</strong></td>
-<td><strong>Application code</strong></td>
-</tr>
-<tr>
-<td>Explorer 10</td>
-<td>
-<p>ie10</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>&nbsp;</h3>
-<h3>&nbsp;</h3>
-<h3>&nbsp;</h3>
-<h3>&nbsp;</h3>
-<h3>&nbsp;</h3>
-<h3>Trial applications for email tests</h3>
-<p>&nbsp;</p>
-<table class="pbSortable" border="0" cellspacing="0" cellpadding="8" width="350" align="left">
-<tbody>
-<tr>
-<td><strong>Testing application</strong></td>
-<td><strong>Application code</strong></td>
-</tr>
-<tr>
-<td>Outlook 2003</td>
-<td>
-<p>ol2003</p>
-</td>
-</tr>
-<tr>
-<td>Gmail</td>
-<td>
-<p>gmailnew</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h2>&nbsp;</h2>
-<h2>System status</h2>
-<p>From time to time, certain testing applications may be unavailable. This happens rarely, but when it does we want you to be able to inform your users, should you wish to. We have three levels of status for each testing application:</p>
-<p>&nbsp;</p>
-<ul>
-<li>Good (everything is running smoothly)&nbsp;</li>
-<li>Delayed (tests are taking longer than 15 minutes to complete)&nbsp;</li>
-<li>Unavailable (tests are severely delayed)</li>
-</ul>
-<p>&nbsp;</p>
-<p>You may want to build a status page with this information (as we do), or you may wish to temporarily disable your usersʼ ability to test on any applications with an ʻunavailableʼ status. Alternatively you may wish to keep this information private and use it purely for technical support purposes.</p>
-<div>&nbsp;</div>
-<!-- pbraw=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 -->
+<!-- pbraw=eJyNVEtv2zAMvvtXcDns1NhxmqWtlwZ7oUCHHYo9DjsNtEzHamVJkOR0+fej7Ly8BzDAB0si+T1ISdpiuUjz/CbNLy/TfD5PgmypyBeX+XJ2tZgtEosbKu6c0eGB/xKhOh/I/ZC2yGdp/NIZbPN0nggOIR2mYWepCPQzZE1oVdLJqriuX11jOVsuqC7nWJUiL/P5sp5VOBd5Prup8aqslmWeaGTwj4wgNXzTweiEWpSqeOzi4o2Soe18KkybxNrTrXQbqQttkul0Ch8wINwZpcyzB95IVk2+vtfBmaoTQRq9yngjWdn1O6qNI6jkVuoNSK4NoSGoO6Xg7cP9S116+7oyomtZEMbUC3gmcMTIvFXBznS8wqpPWyE0jurbyTnWZC1HyLhO4WsjPQizJecBO07VQYp9+VIqxWQuwKOuSvMTOs9283LHdrfgmUbHWYwdnEQFKIRhU3w6kF1ltld2vmKxn8mTUuROqo4efG2ioNMxCNRgtNpBSQxOFci619nglsBb80Qa9kZ96vvAVBV5CIRtT8zLjeY0PJXFjSOKHqZwPxR75N4OFfFQZa8kFtZ9jCauwkhMokd7zzmm3bMsidubHuQerW9CsL7IstOEZBZd0Gx1hlZmo2ZOwBM60fyQ1e2k0xXVkolPRm7BKCP27x8W71Wckxx5LM7ZW2e2smLT+GfjsOXiIhpA3kfFrN4d/Xg++LG3y3elF07ayCcGD8BobVSbwneO5BZqE/bG8axFSI4c+tF76cltpaC+XzLwDajrOI21M21/PpqIiBiQhxSV2qWwvzWREm+7wEV28fIQK+lJdT5epyNyH9iYTlUgGhJPwwl/PZDcNKEP46J96NDxF3+0NjtYO+Xo6biR69Fs/G/LvnTWGhd+uxB3zMMPJ2zDBl01qBmbcgFWEbLB8blDEU63Pz5UwRSHYH/2Wv1r4P4W2z8VfxL/BRum9is= -->
