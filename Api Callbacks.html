@@ -17,7 +17,7 @@
 <p>&nbsp;</p>
 <p>For example, if you send us a request using the SOAP Web Service like in the following:</p>
 <p>&nbsp;</p>
-<pre>var emailTest = new EmailTest(); 
+<pre>var emailTest = new EmailTest();
 
 </pre>
 <pre>// Create our list and make space for two clients
@@ -39,7 +39,7 @@ emailTest.Results[2].ApplicationName = "SPAMASSASSIN3"
 <p>&nbsp;</p>
 <p>In this example, Litmus will post the following to your callback url as soon as the test is complete:</p>
 <p>&nbsp;</p>
-<p>For regular mail tests, the xml will have the following format (<a href="/Api+Callbacks+-+Callback+Xml+Format">detailed xml format documentation</a>):</p>
+<p>For regular mail tests, the xml will have the following format (<a href="Api+Callbacks+-+Callback+Xml+Format">detailed xml format documentation</a>):</p>
 <p>&nbsp;</p>
 <pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;TestResult type="mail"&gt;
@@ -73,7 +73,7 @@ emailTest.Results[2].ApplicationName = "SPAMASSASSIN3"
 &nbsp; &lt;CallbackUrl&gt;http://mysite.com/callback/&lt;/CallbackUrl&gt;
 &lt;/TestResult&gt;</pre>
 <p>&nbsp;</p>
-<p>For spam tests, the xml will have the following format (<a href="/Api+Callbacks+-+Callback+Xml+Format">detailed xml format  documentation</a>):</p>
+<p>For spam tests, the xml will have the following format (<a href="Api+Callbacks+-+Callback+Xml+Format">detailed xml format  documentation</a>):</p>
 <p>&nbsp;</p>
 <pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;TestResult type="spam"&gt;</pre>
