@@ -10,7 +10,7 @@
 <div>Web page testing via the SOAP API is straightforward, but the process for email tests is a little different. We’ve outlined a typical process below.</div>
 <div>&nbsp;</div>
 <ol class="padded-list"><li>Create an empty EmailTest object, this allows you to set EmailTest#Sandbox to true or add testing applications if you wish to.</li>
-<li><em>Optional</em> &nbsp;If you are creating a test for a user with an ‘unlimited’ subscription plan, before invoking the CreateEmailTest method, prepare your EmailTest struct instance and assign its "UserGuid" property the user's GUID. For more on user GUIDs, see <a href="Generating-user-GUIDs">Generating user GUIDs</a>.</li>
+<li><em>Optional</em> &nbsp;If you are creating a test for a user with an ‘unlimited’ subscription plan, before invoking the CreateEmailTest method, prepare your EmailTest struct instance and assign its "UserGuid" property the user's GUID. For more on user GUIDs, see <a href="Generating%20user%20GUIDs">Generating user GUIDs</a>.</li>
 <li>Call the Web Service's CreateEmailTest method, passing in your api key and pass phrase, and your new EmailTest object.</li>
 <li>CreateEmailTest returns your EmailTest object with some additional information filled in.&nbsp;</li>
 <li>The most important property is "InboxGUID" - this is the unique inbox you'll be sending your test email to. You can construct the email address to send to by concatenating InboxGuid and the literal "@emailtests.com". So, for example, if InboxGUID was set to "J72S28H", your email address to send to would be J72S28H@emailtests.com.</li>
